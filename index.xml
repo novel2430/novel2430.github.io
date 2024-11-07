@@ -2,164 +2,164 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>My Web | Wei, Feng</title>
-    <link>https://www.yejsgk.top/</link>
+    <link>https://novel2430.github.io/</link>
     <description>Recent content on My Web | Wei, Feng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Apr 2024 18:03:02 +0800</lastBuildDate>
-    <atom:link href="https://www.yejsgk.top/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://novel2430.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple Wayfire Keybind</title>
-      <link>https://www.yejsgk.top/notes/simple-wayfire-keybind/</link>
+      <link>https://novel2430.github.io/notes/simple-wayfire-keybind/</link>
       <pubDate>Mon, 08 Apr 2024 18:03:02 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/simple-wayfire-keybind/</guid>
+      <guid>https://novel2430.github.io/notes/simple-wayfire-keybind/</guid>
       <description>Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&amp;#34;/home/novel2430/Pictures/screenshot/&amp;#34; # &amp;lt;--- Where you want to save your screenshots now_date=$(date &amp;#39;+%Y%m%d-%H%M%S&amp;#39;) file_name=&amp;#34;${path}${now_date}.png&amp;#34; msg=&amp;#34;save as ${file_name}&amp;#34; case $1 in full) grim ${file_name} &amp;amp;&amp;amp; dunstify -a &amp;#34;Screenshot&amp;#34; &amp;#34;Full&amp;#34; &amp;#34;${msg}&amp;#34; -r 2003 ;; select) grim -g</description>
     </item>
     <item>
       <title>Alpine to Sway</title>
-      <link>https://www.yejsgk.top/notes/alpine-to-sway/</link>
+      <link>https://novel2430.github.io/notes/alpine-to-sway/</link>
       <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/alpine-to-sway/</guid>
+      <guid>https://novel2430.github.io/notes/alpine-to-sway/</guid>
       <description>Alpine Linux with Sway Bash, Text Editor Packages apk add vim bash Create Non Root User Packages apk add sudo shadow Command Add User useradd -m -G wheel -s /bin/bash &amp;lt;user_name&amp;gt; passwd &amp;lt;user_name&amp;gt; sudo file EDITOR=vim visudo # Make wheel group can use sudo Setup eudev setup-devd udev GPU Intel apk add mesa-dri-gallium AMD Read here Nvidia Read here PAM apk add linux-pam shadow-login Elogind apk add elogind polkit-elogind dbus</description>
     </item>
     <item>
       <title>Basic AlpineLinux (UEFI) Install</title>
-      <link>https://www.yejsgk.top/notes/basic-alpinelinux-install/</link>
+      <link>https://novel2430.github.io/notes/basic-alpinelinux-install/</link>
       <pubDate>Fri, 05 Apr 2024 15:12:21 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/basic-alpinelinux-install/</guid>
+      <guid>https://novel2430.github.io/notes/basic-alpinelinux-install/</guid>
       <description>Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi &amp;amp;&amp;amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer &amp;#39;us&amp;#39; twice Hostname setup-hostname &amp;lt;your_hostname&amp;gt; Networking Alpine Linux&amp;rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update</description>
     </item>
     <item>
       <title>Basic Wayfire Applications</title>
-      <link>https://www.yejsgk.top/notes/basic-wayfire-applications/</link>
+      <link>https://novel2430.github.io/notes/basic-wayfire-applications/</link>
       <pubDate>Tue, 26 Mar 2024 21:53:17 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/basic-wayfire-applications/</guid>
+      <guid>https://novel2430.github.io/notes/basic-wayfire-applications/</guid>
       <description>Applications on Wayfire Setup Wayfire Basic Environment [ App Menu ] (wofi) yay -S wofi # ~/.config/wayfire.ini ... # Start your launcher # https://hg.sr.ht/~scoopta/wofi # Note: Add mode=run or mode=drun to ~/.config/wofi/config. # You can also specify the mode with --show option. binding_launcher = &amp;lt;super&amp;gt; KEY_D # &amp;lt;-- Change key binding command_launcher = wofi --show drun # &amp;lt;-- Change exec command ... [ Web Browser ] (firefox) yay -S firefox</description>
     </item>
     <item>
       <title>Basic Archlinux Wayfire Install</title>
-      <link>https://www.yejsgk.top/notes/basic-archlinux-wayfire-install/</link>
+      <link>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</link>
       <pubDate>Tue, 26 Mar 2024 21:40:18 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/basic-archlinux-wayfire-install/</guid>
+      <guid>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</guid>
       <description>Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]</description>
     </item>
     <item>
       <title>Cozy</title>
-      <link>https://www.yejsgk.top/ideas/cozy/</link>
+      <link>https://novel2430.github.io/ideas/cozy/</link>
       <pubDate>Tue, 20 Feb 2024 21:46:47 +0800</pubDate>
-      <guid>https://www.yejsgk.top/ideas/cozy/</guid>
+      <guid>https://novel2430.github.io/ideas/cozy/</guid>
       <description>Song - Cozy A little song for my ex. I hope you can be happy even when I&amp;rsquo;m not with you 🫠</description>
     </item>
     <item>
       <title>Replacement Selection</title>
-      <link>https://www.yejsgk.top/notes/replacement-selection/</link>
+      <link>https://novel2430.github.io/notes/replacement-selection/</link>
       <pubDate>Wed, 14 Feb 2024 01:48:15 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/replacement-selection/</guid>
+      <guid>https://novel2430.github.io/notes/replacement-selection/</guid>
       <description>7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back</description>
     </item>
     <item>
       <title>Queue Using Two Stacks</title>
-      <link>https://www.yejsgk.top/notes/queue-using-two-stacks/</link>
+      <link>https://novel2430.github.io/notes/queue-using-two-stacks/</link>
       <pubDate>Wed, 14 Feb 2024 01:46:47 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/queue-using-two-stacks/</guid>
+      <guid>https://novel2430.github.io/notes/queue-using-two-stacks/</guid>
       <description>7-1 Queue Using Two Stacks A queue (FIFO structure) can be implemented by two stacks (LIFO structure) in the following way: Start from two empty stacks s1 and s2 When element e is enqueued, it is actually pushed onto s1 When we are supposed to dequeue, s2 is checked first. If s2 is empty, everything in s1 will be transferred to s2 by popping from s1 and immediately pushing onto</description>
     </item>
     <item>
       <title>Hashing Hard Version</title>
-      <link>https://www.yejsgk.top/notes/hashing-hard-version/</link>
+      <link>https://novel2430.github.io/notes/hashing-hard-version/</link>
       <pubDate>Wed, 14 Feb 2024 01:30:02 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/hashing-hard-version/</guid>
+      <guid>https://novel2430.github.io/notes/hashing-hard-version/</guid>
       <description>7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers. However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there</description>
     </item>
     <item>
       <title>Insertion or Heap Sort</title>
-      <link>https://www.yejsgk.top/notes/insertion-or-heap-sort/</link>
+      <link>https://novel2430.github.io/notes/insertion-or-heap-sort/</link>
       <pubDate>Wed, 14 Feb 2024 01:28:32 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/insertion-or-heap-sort/</guid>
+      <guid>https://novel2430.github.io/notes/insertion-or-heap-sort/</guid>
       <description>7-1 Insertion or Heap Sort According to Wikipedia: Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain. Heap sort divides its input into a sorted and an unsorted region, and it iteratively shrinks</description>
     </item>
     <item>
       <title>Iterative Mergesort</title>
-      <link>https://www.yejsgk.top/notes/iterative-mergesort/</link>
+      <link>https://novel2430.github.io/notes/iterative-mergesort/</link>
       <pubDate>Wed, 14 Feb 2024 01:26:20 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/iterative-mergesort/</guid>
+      <guid>https://novel2430.github.io/notes/iterative-mergesort/</guid>
       <description>6-1 Iterative Mergesort How would you implement mergesort without using recursion? The idea of iterative mergesort is to start from N sorted sublists of length 1, and each time to merge a pair of adjacent sublists until one sorted list is obtained. You are supposed to implement the key function of merging. Format of functions: void merge_pass( ElementType list[], ElementType sorted[], int N, int length ); The function merge_pass performs</description>
     </item>
     <item>
       <title>Strongly Connected Components</title>
-      <link>https://www.yejsgk.top/notes/strongly-connected-components/</link>
+      <link>https://novel2430.github.io/notes/strongly-connected-components/</link>
       <pubDate>Wed, 14 Feb 2024 01:22:00 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/strongly-connected-components/</guid>
+      <guid>https://novel2430.github.io/notes/strongly-connected-components/</guid>
       <description>6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is</description>
     </item>
     <item>
       <title>Uniqueness of MST</title>
-      <link>https://www.yejsgk.top/notes/uniqueness-of-mst/</link>
+      <link>https://novel2430.github.io/notes/uniqueness-of-mst/</link>
       <pubDate>Wed, 14 Feb 2024 01:18:35 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/uniqueness-of-mst/</guid>
+      <guid>https://novel2430.github.io/notes/uniqueness-of-mst/</guid>
       <description>Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers</description>
     </item>
     <item>
       <title>Universal Travel Sites</title>
-      <link>https://www.yejsgk.top/notes/universal-travel-sites/</link>
+      <link>https://novel2430.github.io/notes/universal-travel-sites/</link>
       <pubDate>Wed, 14 Feb 2024 01:12:56 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/universal-travel-sites/</guid>
+      <guid>https://novel2430.github.io/notes/universal-travel-sites/</guid>
       <description>Universal Travel Sites After finishing her tour around the Earth, CYLL is now planning a universal travel sites development project. After a careful investigation, she has a list of capacities of all the satellite transportation stations in hand. To estimate a budget, she must know the minimum capacity that a planet station must have to guarantee that every space vessel can dock and download its passengers on arrival. Input Specification:</description>
     </item>
     <item>
       <title>Hamiltonian Cycle</title>
-      <link>https://www.yejsgk.top/notes/hamiltonian-cycle/</link>
+      <link>https://novel2430.github.io/notes/hamiltonian-cycle/</link>
       <pubDate>Tue, 13 Feb 2024 18:48:19 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/hamiltonian-cycle/</guid>
+      <guid>https://novel2430.github.io/notes/hamiltonian-cycle/</guid>
       <description>7-1 Hamiltonian Cycle The &amp;ldquo;Hamilton cycle problem&amp;rdquo; is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a &amp;ldquo;Hamiltonian cycle&amp;rdquo;. In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle. Input Specification: Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&amp;lt;</description>
     </item>
     <item>
       <title>Is Topological Order</title>
-      <link>https://www.yejsgk.top/notes/is-topological-order/</link>
+      <link>https://novel2430.github.io/notes/is-topological-order/</link>
       <pubDate>Tue, 13 Feb 2024 18:46:14 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/is-topological-order/</guid>
+      <guid>https://novel2430.github.io/notes/is-topological-order/</guid>
       <description>6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;</description>
     </item>
     <item>
       <title>File Transfer</title>
-      <link>https://www.yejsgk.top/notes/file-transfer/</link>
+      <link>https://novel2430.github.io/notes/file-transfer/</link>
       <pubDate>Tue, 13 Feb 2024 18:44:00 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/file-transfer/</guid>
+      <guid>https://novel2430.github.io/notes/file-transfer/</guid>
       <description>7-1 File Transfer We have a network of computers and a list of bi-directional connections. Each of these connections allows a file transfer from one computer to another. Is it possible to send a file from any computer on the network to any other? Input Specification: Each input file contains one test case. For each test case, the first line contains N (2≤N≤104</description>
     </item>
     <item>
       <title>Complete Binart Search Tree</title>
-      <link>https://www.yejsgk.top/notes/complete-binart-search-tree/</link>
+      <link>https://novel2430.github.io/notes/complete-binart-search-tree/</link>
       <pubDate>Tue, 13 Feb 2024 18:41:08 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/complete-binart-search-tree/</guid>
+      <guid>https://novel2430.github.io/notes/complete-binart-search-tree/</guid>
       <description>7-1 Complete Binary Search Tree A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties: The left subtree of a node contains only nodes with keys less than the node&amp;rsquo;s key. The right subtree of a node contains only nodes with keys greater than or equal to the node&amp;rsquo;s key. Both the left and right subtrees must also be binary search trees. A</description>
     </item>
     <item>
       <title>Percolate Up and Down</title>
-      <link>https://www.yejsgk.top/notes/percolate-up-and-down/</link>
+      <link>https://novel2430.github.io/notes/percolate-up-and-down/</link>
       <pubDate>Tue, 13 Feb 2024 18:36:26 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/percolate-up-and-down/</guid>
+      <guid>https://novel2430.github.io/notes/percolate-up-and-down/</guid>
       <description>6-1 Percolate Up and Down Write the routines to do a &amp;ldquo;percolate up&amp;rdquo; and a &amp;ldquo;percolate down&amp;rdquo; in a binary min-heap. Format of functions: void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); where int p is the position of the element, and PriorityQueue is defined as the following: typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; Sample program</description>
     </item>
     <item>
       <title>Zig Zagging on a Tree</title>
-      <link>https://www.yejsgk.top/notes/zig-zagging-on-a-tree/</link>
+      <link>https://novel2430.github.io/notes/zig-zagging-on-a-tree/</link>
       <pubDate>Tue, 13 Feb 2024 18:15:29 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/zig-zagging-on-a-tree/</guid>
+      <guid>https://novel2430.github.io/notes/zig-zagging-on-a-tree/</guid>
       <description>7-1 ZigZagging on a Tree Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the</description>
     </item>
     <item>
       <title>Isomorphic</title>
-      <link>https://www.yejsgk.top/notes/isomorphic/</link>
+      <link>https://novel2430.github.io/notes/isomorphic/</link>
       <pubDate>Tue, 13 Feb 2024 18:10:24 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/isomorphic/</guid>
+      <guid>https://novel2430.github.io/notes/isomorphic/</guid>
       <description>6-1 Isomorphic Two trees, T1 and T2, are isomorphic if T1 can be transformed into T2 by swapping left and right children of (some of the) nodes in T1. For instance, the two trees in Figure 1 are isomorphic because they are the same if the children of A, B, and G, but not the other nodes, are swapped. Give a polynomial time algorithm to decide if two trees are</description>
     </item>
     <item>
       <title>Pop Sequence</title>
-      <link>https://www.yejsgk.top/notes/pop-sequence/</link>
+      <link>https://novel2430.github.io/notes/pop-sequence/</link>
       <pubDate>Tue, 13 Feb 2024 18:05:37 +0800</pubDate>
-      <guid>https://www.yejsgk.top/notes/pop-sequence/</guid>
+      <guid>https://novel2430.github.io/notes/pop-sequence/</guid>
       <description>7-1 Pop Sequence Given a stack which can keep M numbers at most. Push N numbers in the order of 1, 2, 3, &amp;hellip;, N and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence of the stack. For example, if M is 5 and N is 7, we can obtain 1, 2, 3, 4, 5, 6, 7 from the stack,</description>
     </item>
   </channel>
