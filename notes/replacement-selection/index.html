@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Replacement Selection | My Web | Wei, Feng</title>
+<meta name="keywords" content="FDS Homework">
+<meta name="description" content="7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.yejsgk.top/notes/replacement-selection/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.yejsgk.top/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.yejsgk.top/img/favicon/favicon16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.yejsgk.top/img/favicon/favicon32x32.png">
+<link rel="apple-touch-icon" href="https://www.yejsgk.top/img/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.yejsgk.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.yejsgk.top/notes/replacement-selection/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Replacement Selection" />
+<meta property="og:description" content="7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.yejsgk.top/notes/replacement-selection/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-02-14T01:48:15+08:00" />
+<meta property="article:modified_time" content="2024-02-14T01:48:15+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Replacement Selection"/>
+<meta name="twitter:description" content="7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://www.yejsgk.top/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Replacement Selection",
+      "item": "https://www.yejsgk.top/notes/replacement-selection/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Replacement Selection",
+  "name": "Replacement Selection",
+  "description": "7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back",
+  "keywords": [
+    "FDS Homework"
+  ],
+  "articleBody": "7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back to some tape. The size of each run is the same as the capacity of the internal memory.\nReplacement Selection sorting algorithm was described in 1965 by Donald Knuth. Notice that as soon as the first record is written to an output tape, the memory it used becomes available for another record. Assume that we are sorting in ascending order, if the next record is not smaller than the record we have just output, then it can be included in the run.\nFor example, suppose that we have a set of input { 81, 94, 11, 96, 12, 99, 35 }, and our memory can sort 3 records only. By the simplest method we will obtain three runs: { 11, 81, 94 }, { 12, 96, 99 } and { 35 }. According to the replacement selection algorithm, we would read and sort the first 3 records { 81, 94, 11 } and output 11 as the smallest one. Then one space is available so 96 is read in and will join the first run since it is larger than 11. Now we have { 81, 94, 96 }. After 81 is out, 12 comes in but it must belong to the next run since it is smaller than 81. Hence we have { 94, 96, 12 } where 12 will stay since it belongs to the next run. When 94 is out and 99 is in, since 99 is larger than 94, it must belong to the first run. Eventually we will obtain two runs: the first one contains { 11, 81, 94, 96, 99 } and the second one contains { 12, 35 }.\nYour job is to implement this replacement selection algorithm.\nInput Specification: Each input file contains several test cases. The first line gives two positive integers N (≤105) and M (",
+  "wordCount" : "817",
+  "inLanguage": "en",
+  "datePublished": "2024-02-14T01:48:15+08:00",
+  "dateModified": "2024-02-14T01:48:15+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yejsgk.top/notes/replacement-selection/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Web | Wei, Feng",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.yejsgk.top/img/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.yejsgk.top/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.yejsgk.top/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/ideas/" title="Ideas">
+                    <span>Ideas</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.yejsgk.top/">Home</a>&nbsp;»&nbsp;<a href="https://www.yejsgk.top/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Replacement Selection
+    </h1>
+    <div class="post-meta"><span title='2024-02-14 01:48:15 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#7-1-replacement-selection" aria-label="7-1 Replacement Selection">7-1 Replacement Selection</a><ul>
+                            
+                    <li>
+                        <a href="#input-specification" aria-label="Input Specification:">Input Specification:</a></li>
+                    <li>
+                        <a href="#output-specification" aria-label="Output Specification:">Output Specification:</a></li>
+                    <li>
+                        <a href="#sample-input" aria-label="Sample Input:">Sample Input:</a></li>
+                    <li>
+                        <a href="#sample-output" aria-label="Sample Output:">Sample Output:</a></li>
+                    <li>
+                        <a href="#code" aria-label="Code">Code</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="7-1-replacement-selection">7-1 Replacement Selection<a hidden class="anchor" aria-hidden="true" href="#7-1-replacement-selection">#</a></h1>
+<p>When the input is much too large to fit into memory, we have to do <strong>external sorting</strong> instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back to some tape. The size of each run is the same as the capacity of the internal memory.<br>
+<strong>Replacement Selection</strong> sorting algorithm was described in 1965 by Donald Knuth. Notice that as soon as the first record is written to an output tape, the memory it used becomes available for another record. Assume that we are sorting in ascending order, if the next record is not smaller than the record we have just output, then it can be included in the run.<br>
+For example, suppose that we have a set of input { 81, 94, 11, 96, 12, 99, 35 }, and our memory can sort 3 records only. By the simplest method we will obtain three runs: { 11, 81, 94 }, { 12, 96, 99 } and { 35 }. According to the replacement selection algorithm, we would read and sort the first 3 records { 81, 94, 11 } and output 11 as the smallest one. Then one space is available so 96 is read in and will join the first run since it is larger than 11. Now we have { 81, 94, 96 }. After 81 is out, 12 comes in but it must belong to the next run since it is smaller than 81. Hence we have { 94, 96, 12 } where 12 will stay since it belongs to the next run. When 94 is out and 99 is in, since 99 is larger than 94, it must belong to the <strong>first run</strong>. Eventually we will obtain two runs: the first one contains { 11, 81, 94, 96, 99 } and the second one contains { 12, 35 }.<br>
+Your job is to implement this replacement selection algorithm.</p>
+<h2 id="input-specification">Input Specification:<a hidden class="anchor" aria-hidden="true" href="#input-specification">#</a></h2>
+<p>Each input file contains several test cases. The first line gives two positive integers N (≤10<sup>5</sup>) and M (&lt;N/2), which are the total number of records to be sorted, and the capacity of the internal memory. Then N numbers are given in the next line, all in the range of <strong>int</strong>. All the numbers in a line are separated by a space.</p>
+<h2 id="output-specification">Output Specification:<a hidden class="anchor" aria-hidden="true" href="#output-specification">#</a></h2>
+<p>For each test case, print in each line a run (in ascending order) generated by the replacement selection algorithm. All the numbers in a line must be separated by exactly 1 space, and there must be no extra space at the beginning or the end of the line.</p>
+<h2 id="sample-input">Sample Input:<a hidden class="anchor" aria-hidden="true" href="#sample-input">#</a></h2>
+<pre tabindex="0"><code>13 3
+81 94 11 96 12 99 17 35 28 58 41 75 15
+</code></pre><h2 id="sample-output">Sample Output:<a hidden class="anchor" aria-hidden="true" href="#sample-output">#</a></h2>
+<pre tabindex="0"><code>11 81 94 96 99
+12 17 28 35 41 58 75
+15
+</code></pre><h2 id="code">Code<a hidden class="anchor" aria-hidden="true" href="#code">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXN 500000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> Boolean{FALSE, TRUE} Boolean ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> DataValue ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Heap{
+</span></span><span style="display:flex;"><span>  DataValue nodes[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> size;
+</span></span><span style="display:flex;"><span>}Heap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Heap<span style="color:#f92672">*</span> <span style="color:#a6e22e">heap_init</span>(){
+</span></span><span style="display:flex;"><span>  Heap<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Heap<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Heap));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heap_delete</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">free</span>(heap);
+</span></span><span style="display:flex;"><span>  heap <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span>(Heap<span style="color:#f92672">*</span> heap, <span style="color:#66d9ef">int</span> idx1, <span style="color:#66d9ef">int</span> idx2){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  DataValue tmp <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx1];
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>nodes[idx1] <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx2];
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>nodes[idx2] <span style="color:#f92672">=</span> tmp;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">min_idx</span>(Heap<span style="color:#f92672">*</span> heap, <span style="color:#66d9ef">int</span> idx1, <span style="color:#66d9ef">int</span> idx2){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>nodes[idx1] <span style="color:#f92672">&lt;</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx2]) <span style="color:#66d9ef">return</span> idx1;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> idx2;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heap_insert</span>(Heap<span style="color:#f92672">*</span> heap, DataValue data){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>nodes[heap<span style="color:#f92672">-&gt;</span>size] <span style="color:#f92672">=</span> data;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> idx<span style="color:#f92672">=</span>heap<span style="color:#f92672">-&gt;</span>size; idx<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>; idx<span style="color:#f92672">=</span>idx<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>){
+</span></span><span style="display:flex;"><span>    DataValue cur <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx];
+</span></span><span style="display:flex;"><span>    DataValue parent <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(parent<span style="color:#f92672">&gt;</span>cur) <span style="color:#a6e22e">swap</span>(heap, idx, idx<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>DataValue <span style="color:#a6e22e">heap_pop</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  DataValue res <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">swap</span>(heap, <span style="color:#ae81ff">1</span>, heap<span style="color:#f92672">-&gt;</span>size);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> idx<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; idx<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&lt;</span>heap<span style="color:#f92672">-&gt;</span>size; ){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> next_idx <span style="color:#f92672">=</span> idx;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(idx<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;</span>heap<span style="color:#f92672">-&gt;</span>size){
+</span></span><span style="display:flex;"><span>      next_idx <span style="color:#f92672">=</span> <span style="color:#a6e22e">min_idx</span>(heap, idx<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>, idx<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>nodes[idx]<span style="color:#f92672">&gt;</span>heap<span style="color:#f92672">-&gt;</span>nodes[idx<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>]){
+</span></span><span style="display:flex;"><span>      next_idx <span style="color:#f92672">=</span> idx<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>nodes[idx] <span style="color:#f92672">&gt;</span> heap<span style="color:#f92672">-&gt;</span>nodes[next_idx])
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">swap</span>(heap, idx, next_idx);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    idx <span style="color:#f92672">=</span> next_idx;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Boolean <span style="color:#a6e22e">heap_is_empty</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> FALSE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">replacement_selection</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> arr, <span style="color:#66d9ef">int</span> size, <span style="color:#66d9ef">int</span> capacity){
+</span></span><span style="display:flex;"><span>  Heap<span style="color:#f92672">*</span> heap1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_init</span>();
+</span></span><span style="display:flex;"><span>  Heap<span style="color:#f92672">*</span> heap2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>size<span style="color:#f92672">&amp;&amp;</span>i<span style="color:#f92672">&lt;</span>capacity; i<span style="color:#f92672">++</span>) <span style="color:#a6e22e">heap_insert</span>(heap1, arr[i]);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> cur_idx <span style="color:#f92672">=</span> capacity;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">heap_is_empty</span>(heap1) <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">heap_is_empty</span>(heap2)){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> print_num_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">heap_is_empty</span>(heap1)){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> cur_min <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_pop</span>(heap1);
+</span></span><span style="display:flex;"><span>      flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(cur_idx <span style="color:#f92672">&lt;</span> size){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> cur_num <span style="color:#f92672">=</span> arr[cur_idx<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(cur_min <span style="color:#f92672">&lt;</span> cur_num) <span style="color:#a6e22e">heap_insert</span>(heap1, cur_num);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">heap_insert</span>(heap2, cur_num);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(print_num_count<span style="color:#f92672">++</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d&#34;</span>, cur_min);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(flag) <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    print_num_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">heap_is_empty</span>(heap2)){
+</span></span><span style="display:flex;"><span>      flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> cur_min <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_pop</span>(heap2);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(cur_idx <span style="color:#f92672">&lt;</span> size){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> cur_num <span style="color:#f92672">=</span> arr[cur_idx<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(cur_min <span style="color:#f92672">&lt;</span> cur_num) <span style="color:#a6e22e">heap_insert</span>(heap2, cur_num);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">heap_insert</span>(heap1, cur_num);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(print_num_count<span style="color:#f92672">++</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d&#34;</span>, cur_min);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(flag) <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">heap_delete</span>(heap1);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">heap_delete</span>(heap2);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> size, capacity;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>size, <span style="color:#f92672">&amp;</span>capacity);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> arr[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>size; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>arr[i]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">replacement_selection</span>(arr, size, capacity);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.yejsgk.top/tags/fds-homework/">FDS Homework</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://www.yejsgk.top/">My Web | Wei, Feng</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

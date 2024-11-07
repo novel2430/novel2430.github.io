@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on My Web | Wei, Feng</title>
+    <link>https://www.yejsgk.top/tags/</link>
+    <description>Recent content in Tags on My Web | Wei, Feng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jul 2024 17:13:20 +0800</lastBuildDate>
+    <atom:link href="https://www.yejsgk.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resources</title>
+      <link>https://www.yejsgk.top/tags/resources/</link>
+      <pubDate>Wed, 03 Jul 2024 17:13:20 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/resources/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wayfire</title>
+      <link>https://www.yejsgk.top/tags/wayfire/</link>
+      <pubDate>Mon, 08 Apr 2024 18:03:02 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/wayfire/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AlpineLinux</title>
+      <link>https://www.yejsgk.top/tags/alpinelinux/</link>
+      <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/alpinelinux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://www.yejsgk.top/tags/linux/</link>
+      <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sway</title>
+      <link>https://www.yejsgk.top/tags/sway/</link>
+      <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/sway/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Archlinux</title>
+      <link>https://www.yejsgk.top/tags/archlinux/</link>
+      <pubDate>Tue, 26 Mar 2024 21:40:18 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/archlinux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Creation</title>
+      <link>https://www.yejsgk.top/tags/creation/</link>
+      <pubDate>Tue, 20 Feb 2024 21:46:47 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/creation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Music</title>
+      <link>https://www.yejsgk.top/tags/music/</link>
+      <pubDate>Tue, 20 Feb 2024 21:46:47 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/music/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FDS Homework</title>
+      <link>https://www.yejsgk.top/tags/fds-homework/</link>
+      <pubDate>Wed, 14 Feb 2024 01:48:15 +0800</pubDate>
+      <guid>https://www.yejsgk.top/tags/fds-homework/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

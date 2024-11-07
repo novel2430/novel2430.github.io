@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Archlinux on My Web | Wei, Feng</title>
+    <link>https://www.yejsgk.top/tags/archlinux/</link>
+    <description>Recent content in Archlinux on My Web | Wei, Feng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Mar 2024 21:40:18 +0800</lastBuildDate>
+    <atom:link href="https://www.yejsgk.top/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic Archlinux Wayfire Install</title>
+      <link>https://www.yejsgk.top/notes/basic-archlinux-wayfire-install/</link>
+      <pubDate>Tue, 26 Mar 2024 21:40:18 +0800</pubDate>
+      <guid>https://www.yejsgk.top/notes/basic-archlinux-wayfire-install/</guid>
+      <description>Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sway on My Web | Wei, Feng</title>
+    <link>https://www.yejsgk.top/tags/sway/</link>
+    <description>Recent content in Sway on My Web | Wei, Feng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Apr 2024 20:03:09 +0800</lastBuildDate>
+    <atom:link href="https://www.yejsgk.top/tags/sway/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alpine to Sway</title>
+      <link>https://www.yejsgk.top/notes/alpine-to-sway/</link>
+      <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
+      <guid>https://www.yejsgk.top/notes/alpine-to-sway/</guid>
+      <description>Alpine Linux with Sway Bash, Text Editor Packages apk add vim bash Create Non Root User Packages apk add sudo shadow Command Add User useradd -m -G wheel -s /bin/bash &amp;lt;user_name&amp;gt; passwd &amp;lt;user_name&amp;gt; sudo file EDITOR=vim visudo # Make wheel group can use sudo Setup eudev setup-devd udev GPU Intel apk add mesa-dri-gallium AMD Read here Nvidia Read here PAM apk add linux-pam shadow-login Elogind apk add elogind polkit-elogind dbus</description>
+    </item>
+  </channel>
+</rss>

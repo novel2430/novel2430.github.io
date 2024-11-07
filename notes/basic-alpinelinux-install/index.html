@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Basic AlpineLinux (UEFI) Install | My Web | Wei, Feng</title>
+<meta name="keywords" content="Linux, AlpineLinux">
+<meta name="description" content="Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi &amp;&amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer &#39;us&#39; twice Hostname setup-hostname &lt;your_hostname&gt; Networking Alpine Linux&rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.yejsgk.top/notes/basic-alpinelinux-install/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.yejsgk.top/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.yejsgk.top/img/favicon/favicon16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.yejsgk.top/img/favicon/favicon32x32.png">
+<link rel="apple-touch-icon" href="https://www.yejsgk.top/img/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.yejsgk.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.yejsgk.top/notes/basic-alpinelinux-install/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Basic AlpineLinux (UEFI) Install" />
+<meta property="og:description" content="Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi &amp;&amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer &#39;us&#39; twice Hostname setup-hostname &lt;your_hostname&gt; Networking Alpine Linux&rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.yejsgk.top/notes/basic-alpinelinux-install/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-04-05T15:12:21+08:00" />
+<meta property="article:modified_time" content="2024-04-05T15:12:21+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Basic AlpineLinux (UEFI) Install"/>
+<meta name="twitter:description" content="Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi &amp;&amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer &#39;us&#39; twice Hostname setup-hostname &lt;your_hostname&gt; Networking Alpine Linux&rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://www.yejsgk.top/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Basic AlpineLinux (UEFI) Install",
+      "item": "https://www.yejsgk.top/notes/basic-alpinelinux-install/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Basic AlpineLinux (UEFI) Install",
+  "name": "Basic AlpineLinux (UEFI) Install",
+  "description": "Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi \u0026amp;\u0026amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer \u0026#39;us\u0026#39; twice Hostname setup-hostname \u0026lt;your_hostname\u0026gt; Networking Alpine Linux\u0026rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update",
+  "keywords": [
+    "Linux", "AlpineLinux"
+  ],
+  "articleBody": "Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty\nCheck UEFI test -d /sys/firmware/efi \u0026\u0026 echo UEFI || echo BIOS Keyboard Layout Answer some questions\nsetup-keymap ## answer 'us' twice Hostname setup-hostname Networking Alpine Linux’s wiki recommend you using ethernet to connect internet\nBut you can also use setup-interfaces to use wireless connection Answer some questions\nsetup-interfaces After the configuration\nrc-service networking start rc-update add networking boot Apk Repositories You can find all repositories mirrors in here\nEdit /etc/apk/repositories\nvi /etc/apk/repositories For Chinese user, you can use example below\n# /etc/apk/repositories ... https://mirrors.aliyun.com/alpine/latest-stable/main https://mirrors.aliyun.com/alpine/latest-stable/community Finally, update your repositories\napk update Timezone We need to install tzdata\napk add tzdata Set your region info\ninstall -Dm 0644 /usr/share/zoneinfo// /etc/zoneinfo// export TZ='/' echo \"export TZ='$TZ'\" \u003e\u003e /etc/profile.d/timezone.sh For Chinese user\ninstall -Dm 0644 /usr/share/zoneinfo/Asia/Shanghai /etc/zoneinfo/Asia/Shanghai export TZ='Asia/Shanghai' echo \"export TZ='$TZ'\" \u003e\u003e /etc/profile.d/timezone.sh Root password passwd SSH Answer some questions\nsetup-sshd NTP Answer some questions\nsetup-ntp Disk Useful Tools Install some useful packages\napk add cfdisk dosfstools e2fsprogs e2fsprogs-extra Partition (Optional)\nIf you wish your Alpine Linux live with other Linux distributions, you can share your existing boot and swap partitions to Alpine Linux\nList All Disks and Partitions fdisk -l Change Partition Table You can use cfdisk to do this step.\ncfdisk /dev/ Partition Table Example\nmount point partition type recommend size /mnt/boot /dev/efi_boot_partition EFI \u003e=300M [SWAP] /dev/swap_partition Linux Swap \u003e=512M /mnt /dev/root_partition Linux Filesystem space left Partition Table Example (With Home Partition)\nmount point partition type recommend size /mnt/boot /dev/efi_boot_partition EFI \u003e=300M [SWAP] /dev/swap_partition Linux Swap \u003e=512M /mnt /dev/root_partition Linux Filesystem space left /mnt/home /dev/home_partition Linux Filesystem space left Format For Boot Partition mkfs.fat -F 32 -n ALPINEBOOT /dev/efi_boot_partition For Swap Partition mkswap /dev/swap_partition For Root Partition mkfs.ext4 -L ALPINEROOT /dev/root_partition For Home Partition (If you have) mkfs.ext4 -L ALPINEHOME /dev/home_partition Mount Mount Root Partition mount /dev/root_partition /mnt Mount Boot Partition mkdir /mnt/boot mount /dev/boot_partition /mnt/boot Mount Swap Partition swapon /dev/swap_partition Mount Home Partition (If you have) mkdir /mnt/home mount /dev/home_partition /mnt/home Install Basic Package I only want Alpine Linux! setup-disk -m sys /mnt You can reboot your system now\nI already have other Linux distribution, and they share same grub partition Setting BOOTLOADER=none in order to make the script avoiding grub installation\nBOOTLOADER=none setup-disk -m sys /mnt Then, you can create a menuentry in /mnt/boot/grub/custom.cfg\nYou can use blkid to find your root partition UUID\n# /mnt/boot/grub/custom.cfg menuentry \"Alpine Linux\" { ## \u003c-- You can change the name search --no-floppy --fs-uuid --set=root 88D1-11D6 # You must chage Boot Partition UUID above linux /vmlinuz-lts root=UUID=8de6973a-4a8c-40ed-b710-c4e2b42d6b7a modules=sd-mod,usb-storage,ext4 quiet # You must chage Root Partition UUID above initrd /initramfs-lts } ",
+  "wordCount" : "443",
+  "inLanguage": "en",
+  "datePublished": "2024-04-05T15:12:21+08:00",
+  "dateModified": "2024-04-05T15:12:21+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yejsgk.top/notes/basic-alpinelinux-install/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Web | Wei, Feng",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.yejsgk.top/img/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.yejsgk.top/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.yejsgk.top/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/ideas/" title="Ideas">
+                    <span>Ideas</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.yejsgk.top/">Home</a>&nbsp;»&nbsp;<a href="https://www.yejsgk.top/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Basic AlpineLinux (UEFI) Install
+    </h1>
+    <div class="post-meta"><span title='2024-04-05 15:12:21 +0800 CST'>April 5, 2024</span>&nbsp;·&nbsp;1 min
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#alpine-linuxuefi-semi-automatic-installation" aria-label="Alpine Linux(UEFI) Semi-Automatic Installation">Alpine Linux(UEFI) Semi-Automatic Installation</a><ul>
+                            
+                    <li>
+                        <a href="#enter-installation" aria-label="Enter Installation">Enter Installation</a></li>
+                    <li>
+                        <a href="#check-uefi" aria-label="Check UEFI">Check UEFI</a></li>
+                    <li>
+                        <a href="#keyboard-layout" aria-label="Keyboard Layout">Keyboard Layout</a></li>
+                    <li>
+                        <a href="#hostname" aria-label="Hostname">Hostname</a></li>
+                    <li>
+                        <a href="#networking" aria-label="Networking">Networking</a></li>
+                    <li>
+                        <a href="#apk-repositories" aria-label="Apk Repositories">Apk Repositories</a></li>
+                    <li>
+                        <a href="#timezone" aria-label="Timezone">Timezone</a></li>
+                    <li>
+                        <a href="#root-password" aria-label="Root password">Root password</a></li>
+                    <li>
+                        <a href="#ssh" aria-label="SSH">SSH</a></li>
+                    <li>
+                        <a href="#ntp" aria-label="NTP">NTP</a></li>
+                    <li>
+                        <a href="#disk" aria-label="Disk">Disk</a><ul>
+                            
+                    <li>
+                        <a href="#useful-tools" aria-label="Useful Tools">Useful Tools</a></li>
+                    <li>
+                        <a href="#partition" aria-label="Partition">Partition</a><ul>
+                            
+                    <li>
+                        <a href="#list-all-disks-and-partitions" aria-label="List All Disks and Partitions">List All Disks and Partitions</a></li>
+                    <li>
+                        <a href="#change-partition-table" aria-label="Change Partition Table">Change Partition Table</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#format" aria-label="Format">Format</a></li>
+                    <li>
+                        <a href="#mount" aria-label="Mount">Mount</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#install-basic-package" aria-label="Install Basic Package">Install Basic Package</a><ul>
+                            
+                    <li>
+                        <a href="#i-only-want-alpine-linux" aria-label="I only want Alpine Linux!">I only want Alpine Linux!</a></li>
+                    <li>
+                        <a href="#i-already-have-other-linux-distribution-and-they-share-same-grub-partition" aria-label="I already have other Linux distribution, and they share same grub partition">I already have other Linux distribution, and they share same grub partition</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="alpine-linuxuefi-semi-automatic-installation">Alpine Linux(UEFI) Semi-Automatic Installation<a hidden class="anchor" aria-hidden="true" href="#alpine-linuxuefi-semi-automatic-installation">#</a></h1>
+<h2 id="enter-installation">Enter Installation<a hidden class="anchor" aria-hidden="true" href="#enter-installation">#</a></h2>
+<p>Your login username is <code>root</code>, password is empty</p>
+<h2 id="check-uefi">Check UEFI<a hidden class="anchor" aria-hidden="true" href="#check-uefi">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>test -d /sys/firmware/efi <span style="color:#f92672">&amp;&amp;</span> echo UEFI <span style="color:#f92672">||</span> echo BIOS
+</span></span></code></pre></div><h2 id="keyboard-layout">Keyboard Layout<a hidden class="anchor" aria-hidden="true" href="#keyboard-layout">#</a></h2>
+<p>Answer some questions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>setup-keymap
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## answer &#39;us&#39; twice</span>
+</span></span></code></pre></div><h2 id="hostname">Hostname<a hidden class="anchor" aria-hidden="true" href="#hostname">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>setup-hostname &lt;your_hostname&gt;
+</span></span></code></pre></div><h2 id="networking">Networking<a hidden class="anchor" aria-hidden="true" href="#networking">#</a></h2>
+<p>Alpine Linux&rsquo;s wiki recommend you using ethernet to connect internet<br>
+But you can also use <code>setup-interfaces</code> to use wireless connection
+Answer some questions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>setup-interfaces
+</span></span></code></pre></div><p>After the configuration</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rc-service networking start
+</span></span><span style="display:flex;"><span>rc-update add networking boot
+</span></span></code></pre></div><h2 id="apk-repositories">Apk Repositories<a hidden class="anchor" aria-hidden="true" href="#apk-repositories">#</a></h2>
+<p>You can find all repositories mirrors in <a href="https://mirrors.alpinelinux.org/">here</a><br>
+Edit <code>/etc/apk/repositories</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /etc/apk/repositories
+</span></span></code></pre></div><p>For Chinese user, you can use example below</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># /etc/apk/repositories</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>https://mirrors.aliyun.com/alpine/latest-stable/main
+</span></span><span style="display:flex;"><span>https://mirrors.aliyun.com/alpine/latest-stable/community
+</span></span></code></pre></div><p>Finally, update your repositories</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>apk update
+</span></span></code></pre></div><h2 id="timezone">Timezone<a hidden class="anchor" aria-hidden="true" href="#timezone">#</a></h2>
+<p>We need to install <code>tzdata</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>apk add tzdata
+</span></span></code></pre></div><p>Set your region info</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>install -Dm <span style="color:#ae81ff">0644</span> /usr/share/zoneinfo/&lt;Region&gt;/&lt;Country&gt; /etc/zoneinfo/&lt;Region&gt;/&lt;Country&gt;
+</span></span><span style="display:flex;"><span>export TZ<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&lt;Region&gt;/&lt;Country&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;export TZ=&#39;</span>$TZ<span style="color:#e6db74">&#39;&#34;</span> &gt;&gt; /etc/profile.d/timezone.sh
+</span></span></code></pre></div><p>For Chinese user</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>install -Dm <span style="color:#ae81ff">0644</span> /usr/share/zoneinfo/Asia/Shanghai /etc/zoneinfo/Asia/Shanghai
+</span></span><span style="display:flex;"><span>export TZ<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Asia/Shanghai&#39;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;export TZ=&#39;</span>$TZ<span style="color:#e6db74">&#39;&#34;</span> &gt;&gt; /etc/profile.d/timezone.sh
+</span></span></code></pre></div><h2 id="root-password">Root password<a hidden class="anchor" aria-hidden="true" href="#root-password">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>passwd
+</span></span></code></pre></div><h2 id="ssh">SSH<a hidden class="anchor" aria-hidden="true" href="#ssh">#</a></h2>
+<p>Answer some questions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>setup-sshd
+</span></span></code></pre></div><h2 id="ntp">NTP<a hidden class="anchor" aria-hidden="true" href="#ntp">#</a></h2>
+<p>Answer some questions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>setup-ntp
+</span></span></code></pre></div><h2 id="disk">Disk<a hidden class="anchor" aria-hidden="true" href="#disk">#</a></h2>
+<h3 id="useful-tools">Useful Tools<a hidden class="anchor" aria-hidden="true" href="#useful-tools">#</a></h3>
+<p>Install some useful packages</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>apk add cfdisk dosfstools e2fsprogs e2fsprogs-extra
+</span></span></code></pre></div><h3 id="partition">Partition<a hidden class="anchor" aria-hidden="true" href="#partition">#</a></h3>
+<blockquote>
+<p>(Optional)<br>
+If you wish your Alpine Linux live with other Linux distributions, you can share your existing <code>boot</code> and <code>swap</code> partitions to Alpine Linux</p>
+</blockquote>
+<h4 id="list-all-disks-and-partitions">List All Disks and Partitions<a hidden class="anchor" aria-hidden="true" href="#list-all-disks-and-partitions">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>fdisk -l
+</span></span></code></pre></div><h4 id="change-partition-table">Change Partition Table<a hidden class="anchor" aria-hidden="true" href="#change-partition-table">#</a></h4>
+<p>You can use <code>cfdisk</code> to do this step.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cfdisk /dev/&lt;your_disk&gt;
+</span></span></code></pre></div><p>Partition Table Example</p>
+<table>
+<thead>
+<tr>
+<th>mount point</th>
+<th>partition</th>
+<th>type</th>
+<th>recommend size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mnt/boot</td>
+<td>/dev/efi_boot_partition</td>
+<td>EFI</td>
+<td>&gt;=300M</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td>/dev/swap_partition</td>
+<td>Linux Swap</td>
+<td>&gt;=512M</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>/dev/root_partition</td>
+<td>Linux Filesystem</td>
+<td>space left</td>
+</tr>
+</tbody>
+</table>
+<p>Partition Table Example (With <code>Home</code> Partition)</p>
+<table>
+<thead>
+<tr>
+<th>mount point</th>
+<th>partition</th>
+<th>type</th>
+<th>recommend size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mnt/boot</td>
+<td>/dev/efi_boot_partition</td>
+<td>EFI</td>
+<td>&gt;=300M</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td>/dev/swap_partition</td>
+<td>Linux Swap</td>
+<td>&gt;=512M</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>/dev/root_partition</td>
+<td>Linux Filesystem</td>
+<td>space left</td>
+</tr>
+<tr>
+<td>/mnt/home</td>
+<td>/dev/home_partition</td>
+<td>Linux Filesystem</td>
+<td>space left</td>
+</tr>
+</tbody>
+</table>
+<h3 id="format">Format<a hidden class="anchor" aria-hidden="true" href="#format">#</a></h3>
+<ul>
+<li>For Boot Partition</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkfs.fat -F <span style="color:#ae81ff">32</span> -n ALPINEBOOT /dev/efi_boot_partition
+</span></span></code></pre></div><ul>
+<li>For Swap Partition</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkswap /dev/swap_partition
+</span></span></code></pre></div><ul>
+<li>For Root Partition</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkfs.ext4 -L ALPINEROOT /dev/root_partition
+</span></span></code></pre></div><ul>
+<li>For Home Partition (If you have)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkfs.ext4 -L ALPINEHOME /dev/home_partition
+</span></span></code></pre></div><h3 id="mount">Mount<a hidden class="anchor" aria-hidden="true" href="#mount">#</a></h3>
+<ol>
+<li>Mount Root Partition</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mount /dev/root_partition /mnt
+</span></span></code></pre></div><ol start="2">
+<li>Mount Boot Partition</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir /mnt/boot
+</span></span><span style="display:flex;"><span>mount /dev/boot_partition /mnt/boot
+</span></span></code></pre></div><ol start="3">
+<li>Mount Swap Partition</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>swapon /dev/swap_partition
+</span></span></code></pre></div><ol start="4">
+<li>Mount Home Partition (If you have)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir /mnt/home
+</span></span><span style="display:flex;"><span>mount /dev/home_partition /mnt/home
+</span></span></code></pre></div><h2 id="install-basic-package">Install Basic Package<a hidden class="anchor" aria-hidden="true" href="#install-basic-package">#</a></h2>
+<h3 id="i-only-want-alpine-linux">I only want Alpine Linux!<a hidden class="anchor" aria-hidden="true" href="#i-only-want-alpine-linux">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>setup-disk -m sys /mnt
+</span></span></code></pre></div><p>You can reboot your system now</p>
+<h3 id="i-already-have-other-linux-distribution-and-they-share-same-grub-partition">I already have other Linux distribution, and they share same grub partition<a hidden class="anchor" aria-hidden="true" href="#i-already-have-other-linux-distribution-and-they-share-same-grub-partition">#</a></h3>
+<p>Setting <code>BOOTLOADER=none</code> in order to make the script avoiding grub installation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>BOOTLOADER<span style="color:#f92672">=</span>none setup-disk -m sys /mnt
+</span></span></code></pre></div><p>Then, you can create a <code>menuentry</code> in <code>/mnt/boot/grub/custom.cfg</code></p>
+<blockquote>
+<p>You can use <code>blkid</code> to find your root partition UUID</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># /mnt/boot/grub/custom.cfg</span>
+</span></span><span style="display:flex;"><span>menuentry <span style="color:#e6db74">&#34;Alpine Linux&#34;</span> <span style="color:#f92672">{</span> <span style="color:#75715e">## &lt;-- You can change the name</span>
+</span></span><span style="display:flex;"><span>    search --no-floppy --fs-uuid --set<span style="color:#f92672">=</span>root 88D1-11D6
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># You must chage Boot Partition UUID above</span>
+</span></span><span style="display:flex;"><span>    linux /vmlinuz-lts root<span style="color:#f92672">=</span>UUID<span style="color:#f92672">=</span>8de6973a-4a8c-40ed-b710-c4e2b42d6b7a modules<span style="color:#f92672">=</span>sd-mod,usb-storage,ext4 quiet 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># You must chage Root Partition UUID above</span>
+</span></span><span style="display:flex;"><span>    initrd /initramfs-lts
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.yejsgk.top/tags/linux/">Linux</a></li>
+      <li><a href="https://www.yejsgk.top/tags/alpinelinux/">AlpineLinux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://www.yejsgk.top/">My Web | Wei, Feng</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

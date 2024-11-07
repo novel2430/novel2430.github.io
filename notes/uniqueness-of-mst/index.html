@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Uniqueness of MST | My Web | Wei, Feng</title>
+<meta name="keywords" content="FDS Homework">
+<meta name="description" content="Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.yejsgk.top/notes/uniqueness-of-mst/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.yejsgk.top/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.yejsgk.top/img/favicon/favicon16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.yejsgk.top/img/favicon/favicon32x32.png">
+<link rel="apple-touch-icon" href="https://www.yejsgk.top/img/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.yejsgk.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.yejsgk.top/notes/uniqueness-of-mst/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Uniqueness of MST" />
+<meta property="og:description" content="Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.yejsgk.top/notes/uniqueness-of-mst/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-02-14T01:18:35+08:00" />
+<meta property="article:modified_time" content="2024-02-14T01:18:35+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Uniqueness of MST"/>
+<meta name="twitter:description" content="Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://www.yejsgk.top/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Uniqueness of MST",
+      "item": "https://www.yejsgk.top/notes/uniqueness-of-mst/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Uniqueness of MST",
+  "name": "Uniqueness of MST",
+  "description": "Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers",
+  "keywords": [
+    "FDS Homework"
+  ],
+  "articleBody": "Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not.\nInput Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers N (≤ 500), and M, which are the total number of vertices, and the number of edges, respectively. Then M lines follow, each describes an edge by 3 integers:\nV1 V2 Weight where V1 and V2 are the two ends of the edge (the vertices are numbered from 1 to N), and Weight is the positive weight on that edge. It is guaranteed that the total weight of the graph will not exceed 230.\nOutput Specification: For each test case, first print in a line the total weight of the minimum spanning tree if there exists one, or else print No MST instead. Then if the MST exists, print in the next line Yes if the tree is unique, or No otherwise. There there is no MST, print the number of connected components instead.\nSample Input 1: 5 7 1 2 6 5 1 1 2 3 4 3 4 3 4 1 7 2 4 2 4 5 5 Sample Output 1: 11 Yes Sample Input 2: 4 5 1 2 1 2 3 1 3 4 2 4 1 2 3 1 3 Sample Output 2: 4 No Sample Input 3: 5 5 1 2 1 2 3 1 3 4 2 4 1 2 3 1 3 Sample Output 3: No MST 2 Code Prim #include #include #include #define MAXN 2000 #define MAXE 150000 typedef enum { FALSE, TRUE } boolean; typedef enum { UNIQUE, PLURAL, NONE } ResType; typedef struct Edge{ int v1; int v2; int weight; }Edge ; typedef struct Graph{ int node_num; int edge_num; Edge* weights[MAXN][MAXN]; Edge* MST_edges[MAXE]; }Graph ; typedef struct HeapNode{ Edge* edge; int to; }HeapNode ; typedef struct Heap{ int size; HeapNode* value[MAXE]; }Heap ; void swap(int pos1, int pos2, Heap* H){ HeapNode* tmp = H-\u003evalue[pos1]; H-\u003evalue[pos1] = H-\u003evalue[pos2]; H-\u003evalue[pos2] = tmp; } int min_idx(int idx1, int idx2, Heap* H){ if(H-\u003evalue[idx1]-\u003eedge-\u003eweight \u003c H-\u003evalue[idx2]-\u003eedge-\u003eweight) return idx1; return idx2; } Heap* heap_init(){ Heap* res = (Heap*)malloc(sizeof(Heap)); res-\u003esize = 0; return res; } void heap_node_delete(HeapNode* node){ if(node==NULL) return; free(node); node = NULL; } boolean heap_is_empty(Heap* heap){ if(heap-\u003esize==0) return TRUE; else return FALSE; } void heap_delete(Heap* heap){ if(heap==NULL) return; for(int i=1; i\u003c=heap-\u003esize; i++){ heap_node_delete(heap-\u003evalue[i]); } free(heap); heap = NULL; } HeapNode heap_pop_min(Heap* heap){ HeapNode* res = heap-\u003evalue[1]; heap-\u003evalue[1] = heap-\u003evalue[heap-\u003esize]; heap-\u003esize--; for(int pos=1, child_idx; pos*2\u003c=heap-\u003esize; pos=child_idx){ int val = heap-\u003evalue[pos]-\u003eedge-\u003eweight; if(pos*2+1 \u003c= heap-\u003esize) child_idx = min_idx(pos*2, pos*2+1, heap); else child_idx = pos*2; if(heap-\u003evalue[child_idx]-\u003eedge-\u003eweight \u003c val) swap(pos, child_idx, heap); else break; } HeapNode node; node.edge = res-\u003eedge; node.to = res-\u003eto; heap_node_delete(res); return node; } void heap_insert(Heap* heap, Edge* edge, int to){ if(heap==NULL) return; HeapNode* new_node = (HeapNode*)malloc(sizeof(HeapNode)); new_node-\u003eedge = edge; new_node-\u003eto = to; heap-\u003evalue[heap-\u003esize+1] = new_node; heap-\u003esize++; for(int pos=heap-\u003esize,parent_idx; pos\u003e1; pos=parent_idx){ int val = heap-\u003evalue[pos]-\u003eedge-\u003eweight; if(pos%2==0) parent_idx = pos/2; else parent_idx = (pos-1)/2; if(heap-\u003evalue[parent_idx]-\u003eedge-\u003eweight\u003eval) swap(pos, parent_idx, heap); else break; } } Graph* graph_init(int node_num, int edge_num){ Graph* res = (Graph*)malloc(sizeof(Graph)); res-\u003enode_num = node_num; res-\u003eedge_num = edge_num; for(int i=0; i\u003cnode_num; i++){ for(int j=0; j\u003cnode_num; j++) res-\u003eweights[i][j] = NULL; } return res; } void graph_insert_edge(Graph* graph, int v1, int v2, int weight){ Edge* edge = (Edge*)malloc(sizeof(Edge)); edge-\u003ev1 = v1; edge-\u003ev2 = v2; edge-\u003eweight = weight; graph-\u003eweights[v1-1][v2-1] = edge; graph-\u003eweights[v2-1][v1-1] = edge; } ResType find_mst(Graph* graph, Heap* heap, boolean* visit, int start_idx, int* mst_val, int* mst_edge_count){ visit[start_idx] = TRUE; for(int i=0; i\u003cgraph-\u003enode_num; i++){ if(graph-\u003eweights[start_idx][i]!=NULL){ heap_insert(heap, graph-\u003eweights[start_idx][i], i); } } while(!heap_is_empty(heap)){ HeapNode min = heap_pop_min(heap); Edge* edge = min.edge; if(visit[min.to]) continue; visit[min.to] = TRUE; (*mst_val) += min.edge-\u003eweight; graph-\u003eMST_edges[(*mst_edge_count)++] = edge; for(int i=0; i\u003cgraph-\u003enode_num; i++){ if(!visit[i] \u0026\u0026 graph-\u003eweights[min.to][i]!=NULL){ heap_insert(heap, graph-\u003eweights[min.to][i], i); } } } if((*mst_edge_count)!=graph-\u003enode_num-1) return NONE; return UNIQUE; } int find_tree_count(Graph* graph, Heap* heap, boolean* visit){ int res = 1; int mst_val = 0; int mst_edge_count = 0; for(int i=0; i\u003cgraph-\u003enode_num; i++){ if(!visit[i]){ find_mst(graph, heap, visit, i, \u0026mst_val, \u0026mst_edge_count); res++; } } return res; } ResType tree_unique(Graph* graph, Heap* heap, int min_mst_val, int mst_edge_count){ boolean visit[MAXN]; for(int ii=0; ii\u003cmst_edge_count; ii++){ Edge* cannot_use_edge = graph-\u003eMST_edges[ii]; memset(visit, FALSE, sizeof(visit)); visit[0] = TRUE; int mst_val = 0; for(int i=0; i\u003cgraph-\u003enode_num; i++){ if(graph-\u003eweights[0][i]!=NULL){ heap_insert(heap, graph-\u003eweights[0][i], i); } } while(!heap_is_empty(heap)){ HeapNode min = heap_pop_min(heap); Edge* edge = min.edge; if(visit[min.to] || edge==cannot_use_edge) continue; visit[min.to] = TRUE; mst_val += edge-\u003eweight; for(int i=0; i\u003cgraph-\u003enode_num; i++){ if(!visit[i] \u0026\u0026 graph-\u003eweights[min.to][i]!=NULL){ heap_insert(heap, graph-\u003eweights[min.to][i], i); } } } if(mst_val==min_mst_val) return PLURAL; } return UNIQUE; } ResType prim(Graph* graph, int* mst_val, int* tree_count){ int mst_edge_count = 0; Heap* heap = heap_init(); boolean visit[MAXN]; memset(visit, FALSE, sizeof(visit)); ResType res = find_mst(graph, heap, visit, 0, mst_val, \u0026mst_edge_count); if(res==NONE){ (*tree_count) = find_tree_count(graph, heap, visit); } else{ res = tree_unique(graph, heap, *mst_val, mst_edge_count); } heap_delete(heap); return res; } int main(int argc, char *argv[]){ int node_num, edge_num; scanf(\"%d %d\", \u0026node_num, \u0026edge_num); Graph* graph = graph_init(node_num, edge_num); for(int i=0; i\u003cedge_num; i++){ int v1, v2, weight; scanf(\"%d %d %d\", \u0026v1, \u0026v2, \u0026weight); graph_insert_edge(graph, v1, v2, weight); } int mst_val = 0; int tree_count = 0; ResType res = prim(graph, \u0026mst_val, \u0026tree_count); switch (res) { case UNIQUE: printf(\"%d\\nYes\\n\", mst_val); break; case PLURAL: printf(\"%d\\nNo\\n\", mst_val); break; case NONE: printf(\"No MST\\n%d\\n\", tree_count); break; default: break; } return 0; } Code Kruskal Normal #include #include #include #define MAXN 150000 typedef enum { FALSE, TRUE } boolean; typedef enum { UNIQUE, PLURAL, NONE } ResType; typedef struct Node{ int val; struct Node* parent; }Node ; typedef struct Edge{ Node* v1; Node* v2; int weight; }Edge ; typedef struct Graph{ int node_num; int edge_num; Edge* edges[MAXN]; Node* nodes[MAXN]; }Graph ; Node* node_init(int val){ Node* res = (Node*)malloc(sizeof(Node)); res-\u003eval = val; res-\u003eparent = res; return res; } Node* node_find_parent(Node* node){ if(node == node-\u003eparent) return node; node-\u003eparent = node_find_parent(node-\u003eparent); return node-\u003eparent; } boolean node_is_same_set(Node* node1, Node* node2){ Node* n1_parent = node_find_parent(node1); Node* n2_parent = node_find_parent(node2); if(n1_parent==n2_parent) return TRUE; return FALSE; } void node_union(Node* node1, Node* node2){ node_find_parent(node1)-\u003eparent = node_find_parent(node2); } Graph* graph_init(int node_num, int edge_num){ Graph* res = (Graph*)malloc(sizeof(Graph)); res-\u003enode_num = node_num; res-\u003eedge_num = edge_num; for(int i=0; i\u003cres-\u003enode_num; i++){ res-\u003enodes[i] = node_init(i+1); } return res; } void graph_insert_edge(Graph* graph, int idx, int v1, int v2, int weight){ graph-\u003eedges[idx] = (Edge*)malloc(sizeof(Edge)); graph-\u003eedges[idx]-\u003ev1 = graph-\u003enodes[v1-1]; graph-\u003eedges[idx]-\u003ev2 = graph-\u003enodes[v2-1];; graph-\u003eedges[idx]-\u003eweight = weight; } void merge_sort_conquer(Edge** arr, Edge** tmp, int low, int mid, int high){ int start_1 = low; int end_1 = mid; int start_2 = mid+1; int end_2 = high; int idx = 0; while(start_1\u003c=end_1 \u0026\u0026 start_2\u003c=end_2){ if(arr[start_1]-\u003eweight \u003c arr[start_2]-\u003eweight){ tmp[idx++] = arr[start_1++]; } else{ tmp[idx++] = arr[start_2++]; } } while(start_1 \u003c= end_1){ tmp[idx++] = arr[start_1++]; } while(start_2 \u003c= end_2){ tmp[idx++] = arr[start_2++]; } idx = 0; while(low \u003c= high){ arr[low++] = tmp[idx++]; } } void merge_sort_divide(Edge** arr, Edge** tmp, int low, int high){ if(low\u003chigh){ int mid = (low+high)/2; merge_sort_divide(arr, tmp, low, mid); merge_sort_divide(arr, tmp, mid+1, high); merge_sort_conquer(arr, tmp, low, mid, high); } } void merge_sort_edge(Graph* graph){ Edge* tmp[MAXN]; merge_sort_divide(graph-\u003eedges, tmp, 0, graph-\u003eedge_num-1); } ResType kruskal(Graph* graph, int* mst_val){ int mst_edge_count = 0; // find MST Edge* MST_edge[MAXN]; for(int i=0; i\u003cgraph-\u003eedge_num\u0026\u0026mst_edge_count\u003cgraph-\u003enode_num-1; i++){ Edge* cur_edge = graph-\u003eedges[i]; if(!node_is_same_set(cur_edge-\u003ev1, cur_edge-\u003ev2)){ (*mst_val) += cur_edge-\u003eweight; MST_edge[mst_edge_count++] = cur_edge; node_union(cur_edge-\u003ev1, cur_edge-\u003ev2); } } if(mst_edge_count!=graph-\u003enode_num-1) return NONE; // find SMST for(int i=0; i\u003cmst_edge_count; i++){ int sum_SMST = 0; for(int ii=0; ii\u003cgraph-\u003enode_num; ii++) graph-\u003enodes[ii]-\u003eparent = graph-\u003enodes[ii]; for(int j=0; j\u003cgraph-\u003eedge_num; j++){ Edge* cur_edge = graph-\u003eedges[j]; if(cur_edge==MST_edge[i]) continue; if(!node_is_same_set(cur_edge-\u003ev1, cur_edge-\u003ev2)){ sum_SMST += cur_edge-\u003eweight; node_union(cur_edge-\u003ev1, cur_edge-\u003ev2); } } if(sum_SMST==(*mst_val)) return PLURAL; } return UNIQUE; } int graph_count_set(Graph* graph){ int res = 0; for(int i=0; i\u003cgraph-\u003enode_num; i++){ if(graph-\u003enodes[i]-\u003eparent==graph-\u003enodes[i]) res++; } return res; } int main(int argc, char *argv[]){ int node_num, edge_num; scanf(\"%d %d\", \u0026node_num, \u0026edge_num); Graph* graph = graph_init(node_num, edge_num); for(int i=0; i\u003cedge_num; i++){ int v1, v2, weight; scanf(\"%d %d %d\", \u0026v1, \u0026v2, \u0026weight); graph_insert_edge(graph, i, v1, v2, weight); } merge_sort_edge(graph); int mst_val = 0; ResType res = kruskal(graph, \u0026mst_val); switch (res) { case UNIQUE: printf(\"%d\\nYes\\n\", mst_val); break; case PLURAL: printf(\"%d\\nNo\\n\", mst_val); break; case NONE: printf(\"No MST\\n%d\\n\", graph_count_set(graph)); break; default: break; } return 0; } Code Kruskal Better #include #include #include #define MAXN 150000 typedef enum { FALSE, TRUE } boolean; typedef enum { UNIQUE, PLURAL, NONE } ResType; typedef struct Node{ int val; struct Node* parent; }Node ; typedef struct Edge{ Node* v1; Node* v2; int weight; }Edge ; typedef struct Graph{ int node_num; int edge_num; Edge* edges[MAXN]; Node* nodes[MAXN]; }Graph ; Node* node_init(int val){ Node* res = (Node*)malloc(sizeof(Node)); res-\u003eval = val; res-\u003eparent = res; return res; } Node* node_find_parent(Node* node){ if(node == node-\u003eparent) return node; node-\u003eparent = node_find_parent(node-\u003eparent); return node-\u003eparent; } boolean node_is_same_set(Node* node1, Node* node2){ Node* n1_parent = node_find_parent(node1); Node* n2_parent = node_find_parent(node2); if(n1_parent==n2_parent) return TRUE; return FALSE; } void node_union(Node* node1, Node* node2){ node_find_parent(node1)-\u003eparent = node_find_parent(node2); } Graph* graph_init(int node_num, int edge_num){ Graph* res = (Graph*)malloc(sizeof(Graph)); res-\u003enode_num = node_num; res-\u003eedge_num = edge_num; for(int i=0; i\u003cres-\u003enode_num; i++){ res-\u003enodes[i] = node_init(i+1); } return res; } void graph_insert_edge(Graph* graph, int idx, int v1, int v2, int weight){ graph-\u003eedges[idx] = (Edge*)malloc(sizeof(Edge)); graph-\u003eedges[idx]-\u003ev1 = graph-\u003enodes[v1-1]; graph-\u003eedges[idx]-\u003ev2 = graph-\u003enodes[v2-1];; graph-\u003eedges[idx]-\u003eweight = weight; } void merge_sort_conquer(Edge** arr, Edge** tmp, int low, int mid, int high){ int start_1 = low; int end_1 = mid; int start_2 = mid+1; int end_2 = high; int idx = 0; while(start_1\u003c=end_1 \u0026\u0026 start_2\u003c=end_2){ if(arr[start_1]-\u003eweight \u003c arr[start_2]-\u003eweight){ tmp[idx++] = arr[start_1++]; } else{ tmp[idx++] = arr[start_2++]; } } while(start_1 \u003c= end_1){ tmp[idx++] = arr[start_1++]; } while(start_2 \u003c= end_2){ tmp[idx++] = arr[start_2++]; } idx = 0; while(low \u003c= high){ arr[low++] = tmp[idx++]; } } void merge_sort_divide(Edge** arr, Edge** tmp, int low, int high){ if(low\u003chigh){ int mid = (low+high)/2; merge_sort_divide(arr, tmp, low, mid); merge_sort_divide(arr, tmp, mid+1, high); merge_sort_conquer(arr, tmp, low, mid, high); } } void merge_sort_edge(Graph* graph){ Edge* tmp[MAXN]; merge_sort_divide(graph-\u003eedges, tmp, 0, graph-\u003eedge_num-1); } ResType kruskal(Graph* graph, int* mst_val){ int mst_edge_count = 0; // find MST int flag = 0; for(int i=0; i\u003cgraph-\u003eedge_num\u0026\u0026mst_edge_count\u003cgraph-\u003enode_num-1; i++){ Edge* cur_edge = graph-\u003eedges[i]; if(!node_is_same_set(cur_edge-\u003ev1, cur_edge-\u003ev2)){ for(int j=i+1; flag==0\u0026\u0026j\u003cgraph-\u003eedge_num\u0026\u0026graph-\u003eedges[j]-\u003eweight==cur_edge-\u003eweight; j++){ Edge* edge = graph-\u003eedges[j]; if(node_is_same_set(cur_edge-\u003ev1, edge-\u003ev1) \u0026\u0026 node_is_same_set(cur_edge-\u003ev2, edge-\u003ev2)){ flag = 1; break; } if(node_is_same_set(cur_edge-\u003ev1, edge-\u003ev2) \u0026\u0026 node_is_same_set(cur_edge-\u003ev2, edge-\u003ev1)){ flag = 1; break; } } (*mst_val) += cur_edge-\u003eweight; mst_edge_count++; node_union(cur_edge-\u003ev1, cur_edge-\u003ev2); } } if(mst_edge_count!=graph-\u003enode_num-1) return NONE; if(flag) return PLURAL; return UNIQUE; } int graph_count_set(Graph* graph){ int res = 0; for(int i=0; i\u003cgraph-\u003enode_num; i++){ if(graph-\u003enodes[i]-\u003eparent==graph-\u003enodes[i]) res++; } return res; } int main(int argc, char *argv[]){ int node_num, edge_num; scanf(\"%d %d\", \u0026node_num, \u0026edge_num); Graph* graph = graph_init(node_num, edge_num); for(int i=0; i\u003cedge_num; i++){ int v1, v2, weight; scanf(\"%d %d %d\", \u0026v1, \u0026v2, \u0026weight); graph_insert_edge(graph, i, v1, v2, weight); } merge_sort_edge(graph); int mst_val = 0; ResType res = kruskal(graph, \u0026mst_val); switch (res) { case UNIQUE: printf(\"%d\\nYes\\n\", mst_val); break; case PLURAL: printf(\"%d\\nNo\\n\", mst_val); break; case NONE: printf(\"No MST\\n%d\\n\", graph_count_set(graph)); break; default: break; } return 0; } ",
+  "wordCount" : "1791",
+  "inLanguage": "en",
+  "datePublished": "2024-02-14T01:18:35+08:00",
+  "dateModified": "2024-02-14T01:18:35+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yejsgk.top/notes/uniqueness-of-mst/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Web | Wei, Feng",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.yejsgk.top/img/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.yejsgk.top/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.yejsgk.top/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/ideas/" title="Ideas">
+                    <span>Ideas</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.yejsgk.top/">Home</a>&nbsp;»&nbsp;<a href="https://www.yejsgk.top/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Uniqueness of MST
+    </h1>
+    <div class="post-meta"><span title='2024-02-14 01:18:35 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;4 min
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#uniqueness-of-mst" aria-label="Uniqueness of MST">Uniqueness of MST</a><ul>
+                            
+                    <li>
+                        <a href="#input-specification" aria-label="Input Specification:">Input Specification:</a></li>
+                    <li>
+                        <a href="#output-specification" aria-label="Output Specification:">Output Specification:</a></li>
+                    <li>
+                        <a href="#sample-input-1" aria-label="Sample Input 1:">Sample Input 1:</a></li>
+                    <li>
+                        <a href="#sample-output-1" aria-label="Sample Output 1:">Sample Output 1:</a></li>
+                    <li>
+                        <a href="#sample-input-2" aria-label="Sample Input 2:">Sample Input 2:</a></li>
+                    <li>
+                        <a href="#sample-output-2" aria-label="Sample Output 2:">Sample Output 2:</a></li>
+                    <li>
+                        <a href="#sample-input-3" aria-label="Sample Input 3:">Sample Input 3:</a></li>
+                    <li>
+                        <a href="#sample-output-3" aria-label="Sample Output 3:">Sample Output 3:</a></li>
+                    <li>
+                        <a href="#code-prim" aria-label="Code Prim">Code Prim</a></li>
+                    <li>
+                        <a href="#code-kruskal-normal" aria-label="Code Kruskal Normal">Code Kruskal Normal</a></li>
+                    <li>
+                        <a href="#code-kruskal-better" aria-label="Code Kruskal Better">Code Kruskal Better</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="uniqueness-of-mst">Uniqueness of MST<a hidden class="anchor" aria-hidden="true" href="#uniqueness-of-mst">#</a></h1>
+<p>Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not.</p>
+<h2 id="input-specification">Input Specification:<a hidden class="anchor" aria-hidden="true" href="#input-specification">#</a></h2>
+<p>Each input file contains one test case. Each case starts with a line containing 2 numbers N (≤ 500), and M, which are the total number of vertices, and the number of edges, respectively. Then M lines follow, each describes an edge by 3 integers:</p>
+<pre tabindex="0"><code>V1 V2 Weight
+</code></pre><p>where <code>V1</code> and <code>V2</code> are the two ends of the edge (the vertices are numbered from 1 to N), and <code>Weight</code> is the positive weight on that edge. It is guaranteed that the total weight of the graph will not exceed 2<sup>30</sup>.</p>
+<h2 id="output-specification">Output Specification:<a hidden class="anchor" aria-hidden="true" href="#output-specification">#</a></h2>
+<p>For each test case, first print in a line the total weight of the minimum spanning tree if there exists one, or else print No MST instead. Then if the MST exists, print in the next line <code>Yes</code> if the tree is unique, or <code>No</code> otherwise. There there is <code>no MST</code>, print the number of connected components instead.</p>
+<h2 id="sample-input-1">Sample Input 1:<a hidden class="anchor" aria-hidden="true" href="#sample-input-1">#</a></h2>
+<pre tabindex="0"><code>5 7
+1 2 6
+5 1 1
+2 3 4
+3 4 3
+4 1 7
+2 4 2
+4 5 5
+</code></pre><h2 id="sample-output-1">Sample Output 1:<a hidden class="anchor" aria-hidden="true" href="#sample-output-1">#</a></h2>
+<pre tabindex="0"><code>11
+Yes
+</code></pre><h2 id="sample-input-2">Sample Input 2:<a hidden class="anchor" aria-hidden="true" href="#sample-input-2">#</a></h2>
+<pre tabindex="0"><code>4 5
+1 2 1
+2 3 1
+3 4 2
+4 1 2
+3 1 3
+</code></pre><h2 id="sample-output-2">Sample Output 2:<a hidden class="anchor" aria-hidden="true" href="#sample-output-2">#</a></h2>
+<pre tabindex="0"><code>4
+No
+</code></pre><h2 id="sample-input-3">Sample Input 3:<a hidden class="anchor" aria-hidden="true" href="#sample-input-3">#</a></h2>
+<pre tabindex="0"><code>5 5
+1 2 1
+2 3 1
+3 4 2
+4 1 2
+3 1 3
+</code></pre><h2 id="sample-output-3">Sample Output 3:<a hidden class="anchor" aria-hidden="true" href="#sample-output-3">#</a></h2>
+<pre tabindex="0"><code>No MST
+2
+</code></pre><h2 id="code-prim">Code Prim<a hidden class="anchor" aria-hidden="true" href="#code-prim">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXN 2000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXE 150000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> { FALSE, TRUE } boolean;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> {
+</span></span><span style="display:flex;"><span>  UNIQUE,
+</span></span><span style="display:flex;"><span>  PLURAL,
+</span></span><span style="display:flex;"><span>  NONE
+</span></span><span style="display:flex;"><span>} ResType;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Edge{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> v1;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> v2;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> weight;
+</span></span><span style="display:flex;"><span>}Edge ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Graph{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> node_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> edge_num;
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> weights[MAXN][MAXN];
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> MST_edges[MAXE];
+</span></span><span style="display:flex;"><span>}Graph ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> HeapNode{
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> edge;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> to;
+</span></span><span style="display:flex;"><span>}HeapNode ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Heap{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> size;
+</span></span><span style="display:flex;"><span>  HeapNode<span style="color:#f92672">*</span> value[MAXE];
+</span></span><span style="display:flex;"><span>}Heap ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span>(<span style="color:#66d9ef">int</span> pos1, <span style="color:#66d9ef">int</span> pos2, Heap<span style="color:#f92672">*</span> H){
+</span></span><span style="display:flex;"><span>  HeapNode<span style="color:#f92672">*</span> tmp <span style="color:#f92672">=</span> H<span style="color:#f92672">-&gt;</span>value[pos1];
+</span></span><span style="display:flex;"><span>  H<span style="color:#f92672">-&gt;</span>value[pos1] <span style="color:#f92672">=</span> H<span style="color:#f92672">-&gt;</span>value[pos2];
+</span></span><span style="display:flex;"><span>  H<span style="color:#f92672">-&gt;</span>value[pos2] <span style="color:#f92672">=</span> tmp;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">min_idx</span>(<span style="color:#66d9ef">int</span> idx1, <span style="color:#66d9ef">int</span> idx2, Heap<span style="color:#f92672">*</span> H){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(H<span style="color:#f92672">-&gt;</span>value[idx1]<span style="color:#f92672">-&gt;</span>edge<span style="color:#f92672">-&gt;</span>weight <span style="color:#f92672">&lt;</span> H<span style="color:#f92672">-&gt;</span>value[idx2]<span style="color:#f92672">-&gt;</span>edge<span style="color:#f92672">-&gt;</span>weight) <span style="color:#66d9ef">return</span> idx1;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> idx2;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Heap<span style="color:#f92672">*</span> <span style="color:#a6e22e">heap_init</span>(){
+</span></span><span style="display:flex;"><span>  Heap<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Heap<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Heap));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heap_node_delete</span>(HeapNode<span style="color:#f92672">*</span> node){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(node<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">free</span>(node);
+</span></span><span style="display:flex;"><span>  node <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>boolean <span style="color:#a6e22e">heap_is_empty</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> FALSE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heap_delete</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">&lt;=</span>heap<span style="color:#f92672">-&gt;</span>size; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">heap_node_delete</span>(heap<span style="color:#f92672">-&gt;</span>value[i]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">free</span>(heap);
+</span></span><span style="display:flex;"><span>  heap <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>HeapNode <span style="color:#a6e22e">heap_pop_min</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  HeapNode<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>value[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>value[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>value[heap<span style="color:#f92672">-&gt;</span>size];
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> pos<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, child_idx; pos<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&lt;=</span>heap<span style="color:#f92672">-&gt;</span>size; pos<span style="color:#f92672">=</span>child_idx){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> val <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>value[pos]<span style="color:#f92672">-&gt;</span>edge<span style="color:#f92672">-&gt;</span>weight;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(pos<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> heap<span style="color:#f92672">-&gt;</span>size)
+</span></span><span style="display:flex;"><span>      child_idx <span style="color:#f92672">=</span> <span style="color:#a6e22e">min_idx</span>(pos<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>, pos<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, heap);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> child_idx <span style="color:#f92672">=</span> pos<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>value[child_idx]<span style="color:#f92672">-&gt;</span>edge<span style="color:#f92672">-&gt;</span>weight <span style="color:#f92672">&lt;</span> val) <span style="color:#a6e22e">swap</span>(pos, child_idx, heap);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  HeapNode node;
+</span></span><span style="display:flex;"><span>  node.edge <span style="color:#f92672">=</span> res<span style="color:#f92672">-&gt;</span>edge;
+</span></span><span style="display:flex;"><span>  node.to <span style="color:#f92672">=</span> res<span style="color:#f92672">-&gt;</span>to;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">heap_node_delete</span>(res);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> node;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heap_insert</span>(Heap<span style="color:#f92672">*</span> heap, Edge<span style="color:#f92672">*</span> edge, <span style="color:#66d9ef">int</span> to){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  HeapNode<span style="color:#f92672">*</span> new_node <span style="color:#f92672">=</span> (HeapNode<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(HeapNode));
+</span></span><span style="display:flex;"><span>  new_node<span style="color:#f92672">-&gt;</span>edge <span style="color:#f92672">=</span> edge;
+</span></span><span style="display:flex;"><span>  new_node<span style="color:#f92672">-&gt;</span>to <span style="color:#f92672">=</span> to;
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>value[heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> new_node;
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> pos<span style="color:#f92672">=</span>heap<span style="color:#f92672">-&gt;</span>size,parent_idx; pos<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>; pos<span style="color:#f92672">=</span>parent_idx){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> val <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>value[pos]<span style="color:#f92672">-&gt;</span>edge<span style="color:#f92672">-&gt;</span>weight;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(pos<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) parent_idx <span style="color:#f92672">=</span> pos<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> parent_idx <span style="color:#f92672">=</span> (pos<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>value[parent_idx]<span style="color:#f92672">-&gt;</span>edge<span style="color:#f92672">-&gt;</span>weight<span style="color:#f92672">&gt;</span>val) <span style="color:#a6e22e">swap</span>(pos, parent_idx, heap);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Graph<span style="color:#f92672">*</span> <span style="color:#a6e22e">graph_init</span>(<span style="color:#66d9ef">int</span> node_num, <span style="color:#66d9ef">int</span> edge_num){
+</span></span><span style="display:flex;"><span>  Graph<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Graph<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Graph));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>node_num <span style="color:#f92672">=</span> node_num;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>edge_num <span style="color:#f92672">=</span> edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>node_num; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>      res<span style="color:#f92672">-&gt;</span>weights[i][j] <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">graph_insert_edge</span>(Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span> v1, <span style="color:#66d9ef">int</span> v2, <span style="color:#66d9ef">int</span> weight){
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> edge <span style="color:#f92672">=</span> (Edge<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Edge));
+</span></span><span style="display:flex;"><span>  edge<span style="color:#f92672">-&gt;</span>v1 <span style="color:#f92672">=</span> v1;
+</span></span><span style="display:flex;"><span>  edge<span style="color:#f92672">-&gt;</span>v2 <span style="color:#f92672">=</span> v2;
+</span></span><span style="display:flex;"><span>  edge<span style="color:#f92672">-&gt;</span>weight <span style="color:#f92672">=</span> weight;
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>weights[v1<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][v2<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> edge;
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>weights[v2<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][v1<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> edge;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ResType <span style="color:#a6e22e">find_mst</span>(Graph<span style="color:#f92672">*</span> graph, Heap<span style="color:#f92672">*</span> heap, boolean<span style="color:#f92672">*</span> visit, <span style="color:#66d9ef">int</span> start_idx, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> mst_val, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> mst_edge_count){
+</span></span><span style="display:flex;"><span>  visit[start_idx] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(graph<span style="color:#f92672">-&gt;</span>weights[start_idx][i]<span style="color:#f92672">!=</span>NULL){
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">heap_insert</span>(heap, graph<span style="color:#f92672">-&gt;</span>weights[start_idx][i], i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">heap_is_empty</span>(heap)){
+</span></span><span style="display:flex;"><span>    HeapNode min <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_pop_min</span>(heap);
+</span></span><span style="display:flex;"><span>    Edge<span style="color:#f92672">*</span> edge <span style="color:#f92672">=</span> min.edge;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(visit[min.to]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    visit[min.to] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>    (<span style="color:#f92672">*</span>mst_val) <span style="color:#f92672">+=</span> min.edge<span style="color:#f92672">-&gt;</span>weight;
+</span></span><span style="display:flex;"><span>    graph<span style="color:#f92672">-&gt;</span>MST_edges[(<span style="color:#f92672">*</span>mst_edge_count)<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> edge;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>visit[i] <span style="color:#f92672">&amp;&amp;</span> graph<span style="color:#f92672">-&gt;</span>weights[min.to][i]<span style="color:#f92672">!=</span>NULL){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">heap_insert</span>(heap, graph<span style="color:#f92672">-&gt;</span>weights[min.to][i], i);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>((<span style="color:#f92672">*</span>mst_edge_count)<span style="color:#f92672">!=</span>graph<span style="color:#f92672">-&gt;</span>node_num<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> NONE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> UNIQUE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">find_tree_count</span>(Graph<span style="color:#f92672">*</span> graph, Heap<span style="color:#f92672">*</span> heap, boolean<span style="color:#f92672">*</span> visit){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_edge_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>visit[i]){
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">find_mst</span>(graph, heap, visit, i, <span style="color:#f92672">&amp;</span>mst_val, <span style="color:#f92672">&amp;</span>mst_edge_count);
+</span></span><span style="display:flex;"><span>      res<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>ResType <span style="color:#a6e22e">tree_unique</span>(Graph<span style="color:#f92672">*</span> graph, Heap<span style="color:#f92672">*</span> heap, <span style="color:#66d9ef">int</span> min_mst_val, <span style="color:#66d9ef">int</span> mst_edge_count){
+</span></span><span style="display:flex;"><span>  boolean visit[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> ii<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; ii<span style="color:#f92672">&lt;</span>mst_edge_count; ii<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    Edge<span style="color:#f92672">*</span> cannot_use_edge <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>MST_edges[ii];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">memset</span>(visit, FALSE, <span style="color:#66d9ef">sizeof</span>(visit));
+</span></span><span style="display:flex;"><span>    visit[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> mst_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(graph<span style="color:#f92672">-&gt;</span>weights[<span style="color:#ae81ff">0</span>][i]<span style="color:#f92672">!=</span>NULL){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">heap_insert</span>(heap, graph<span style="color:#f92672">-&gt;</span>weights[<span style="color:#ae81ff">0</span>][i], i);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">heap_is_empty</span>(heap)){
+</span></span><span style="display:flex;"><span>      HeapNode min <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_pop_min</span>(heap);
+</span></span><span style="display:flex;"><span>      Edge<span style="color:#f92672">*</span> edge <span style="color:#f92672">=</span> min.edge;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(visit[min.to] <span style="color:#f92672">||</span> edge<span style="color:#f92672">==</span>cannot_use_edge) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>      visit[min.to] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>      mst_val <span style="color:#f92672">+=</span> edge<span style="color:#f92672">-&gt;</span>weight;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>visit[i] <span style="color:#f92672">&amp;&amp;</span> graph<span style="color:#f92672">-&gt;</span>weights[min.to][i]<span style="color:#f92672">!=</span>NULL){
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">heap_insert</span>(heap, graph<span style="color:#f92672">-&gt;</span>weights[min.to][i], i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(mst_val<span style="color:#f92672">==</span>min_mst_val) <span style="color:#66d9ef">return</span> PLURAL;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> UNIQUE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>ResType <span style="color:#a6e22e">prim</span>(Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> mst_val, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> tree_count){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_edge_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  Heap<span style="color:#f92672">*</span> heap <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_init</span>();
+</span></span><span style="display:flex;"><span>  boolean visit[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">memset</span>(visit, FALSE, <span style="color:#66d9ef">sizeof</span>(visit));
+</span></span><span style="display:flex;"><span>  ResType res <span style="color:#f92672">=</span> <span style="color:#a6e22e">find_mst</span>(graph, heap, visit, <span style="color:#ae81ff">0</span>, mst_val, <span style="color:#f92672">&amp;</span>mst_edge_count);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(res<span style="color:#f92672">==</span>NONE){
+</span></span><span style="display:flex;"><span>    (<span style="color:#f92672">*</span>tree_count) <span style="color:#f92672">=</span> <span style="color:#a6e22e">find_tree_count</span>(graph, heap, visit);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> <span style="color:#a6e22e">tree_unique</span>(graph, heap, <span style="color:#f92672">*</span>mst_val, mst_edge_count);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">heap_delete</span>(heap);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> node_num, edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>node_num, <span style="color:#f92672">&amp;</span>edge_num);
+</span></span><span style="display:flex;"><span>  Graph<span style="color:#f92672">*</span> graph <span style="color:#f92672">=</span> <span style="color:#a6e22e">graph_init</span>(node_num, edge_num);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>edge_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> v1, v2, weight;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d %d&#34;</span>, <span style="color:#f92672">&amp;</span>v1, <span style="color:#f92672">&amp;</span>v2, <span style="color:#f92672">&amp;</span>weight);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">graph_insert_edge</span>(graph, v1, v2, weight);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> tree_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  ResType res <span style="color:#f92672">=</span> <span style="color:#a6e22e">prim</span>(graph, <span style="color:#f92672">&amp;</span>mst_val, <span style="color:#f92672">&amp;</span>tree_count);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> (res) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> UNIQUE:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Yes</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mst_val);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> PLURAL:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">No</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mst_val);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> NONE:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;No MST</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, tree_count);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="code-kruskal-normal">Code Kruskal Normal<a hidden class="anchor" aria-hidden="true" href="#code-kruskal-normal">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXN 150000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> { FALSE, TRUE } boolean;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> {
+</span></span><span style="display:flex;"><span>  UNIQUE,
+</span></span><span style="display:flex;"><span>  PLURAL,
+</span></span><span style="display:flex;"><span>  NONE
+</span></span><span style="display:flex;"><span>} ResType;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Node{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> val;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> Node<span style="color:#f92672">*</span> parent;
+</span></span><span style="display:flex;"><span>}Node ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Edge{
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> v1;
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> v2;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> weight;
+</span></span><span style="display:flex;"><span>}Edge ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Graph{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> node_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> edge_num;
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> edges[MAXN];
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> nodes[MAXN];
+</span></span><span style="display:flex;"><span>}Graph ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node<span style="color:#f92672">*</span> <span style="color:#a6e22e">node_init</span>(<span style="color:#66d9ef">int</span> val){
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Node<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Node));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">=</span> val;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>parent <span style="color:#f92672">=</span> res;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Node<span style="color:#f92672">*</span> <span style="color:#a6e22e">node_find_parent</span>(Node<span style="color:#f92672">*</span> node){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(node <span style="color:#f92672">==</span> node<span style="color:#f92672">-&gt;</span>parent) <span style="color:#66d9ef">return</span> node;
+</span></span><span style="display:flex;"><span>  node<span style="color:#f92672">-&gt;</span>parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node<span style="color:#f92672">-&gt;</span>parent);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> node<span style="color:#f92672">-&gt;</span>parent;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>boolean <span style="color:#a6e22e">node_is_same_set</span>(Node<span style="color:#f92672">*</span> node1, Node<span style="color:#f92672">*</span> node2){
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> n1_parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node1);
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> n2_parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node2);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(n1_parent<span style="color:#f92672">==</span>n2_parent) <span style="color:#66d9ef">return</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> FALSE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">node_union</span>(Node<span style="color:#f92672">*</span> node1, Node<span style="color:#f92672">*</span> node2){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">node_find_parent</span>(node1)<span style="color:#f92672">-&gt;</span>parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node2);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Graph<span style="color:#f92672">*</span> <span style="color:#a6e22e">graph_init</span>(<span style="color:#66d9ef">int</span> node_num, <span style="color:#66d9ef">int</span> edge_num){
+</span></span><span style="display:flex;"><span>  Graph<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Graph<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Graph));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>node_num <span style="color:#f92672">=</span> node_num;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>edge_num <span style="color:#f92672">=</span> edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>res<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    res<span style="color:#f92672">-&gt;</span>nodes[i] <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_init</span>(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">graph_insert_edge</span>(Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span> idx, <span style="color:#66d9ef">int</span> v1, <span style="color:#66d9ef">int</span> v2, <span style="color:#66d9ef">int</span> weight){
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx] <span style="color:#f92672">=</span> (Edge<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Edge));
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx]<span style="color:#f92672">-&gt;</span>v1 <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>nodes[v1<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx]<span style="color:#f92672">-&gt;</span>v2 <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>nodes[v2<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];;
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx]<span style="color:#f92672">-&gt;</span>weight <span style="color:#f92672">=</span> weight;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge_sort_conquer</span>(Edge<span style="color:#f92672">**</span> arr, Edge<span style="color:#f92672">**</span> tmp, <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> mid, <span style="color:#66d9ef">int</span> high){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> start_1 <span style="color:#f92672">=</span> low;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> end_1 <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> start_2 <span style="color:#f92672">=</span> mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> end_2 <span style="color:#f92672">=</span> high;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(start_1<span style="color:#f92672">&lt;=</span>end_1 <span style="color:#f92672">&amp;&amp;</span> start_2<span style="color:#f92672">&lt;=</span>end_2){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(arr[start_1]<span style="color:#f92672">-&gt;</span>weight <span style="color:#f92672">&lt;</span> arr[start_2]<span style="color:#f92672">-&gt;</span>weight){
+</span></span><span style="display:flex;"><span>      tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_1<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>      tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_2<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(start_1 <span style="color:#f92672">&lt;=</span> end_1){
+</span></span><span style="display:flex;"><span>    tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_1<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(start_2 <span style="color:#f92672">&lt;=</span> end_2){
+</span></span><span style="display:flex;"><span>    tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_2<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(low <span style="color:#f92672">&lt;=</span> high){
+</span></span><span style="display:flex;"><span>    arr[low<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> tmp[idx<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge_sort_divide</span>(Edge<span style="color:#f92672">**</span> arr, Edge<span style="color:#f92672">**</span> tmp, <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(low<span style="color:#f92672">&lt;</span>high){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (low<span style="color:#f92672">+</span>high)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">merge_sort_divide</span>(arr, tmp, low, mid);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">merge_sort_divide</span>(arr, tmp, mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, high);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">merge_sort_conquer</span>(arr, tmp, low, mid, high);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge_sort_edge</span>(Graph<span style="color:#f92672">*</span> graph){
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> tmp[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">merge_sort_divide</span>(graph<span style="color:#f92672">-&gt;</span>edges, tmp, <span style="color:#ae81ff">0</span>, graph<span style="color:#f92672">-&gt;</span>edge_num<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ResType <span style="color:#a6e22e">kruskal</span>(Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> mst_val){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_edge_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// find MST
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Edge<span style="color:#f92672">*</span> MST_edge[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>edge_num<span style="color:#f92672">&amp;&amp;</span>mst_edge_count<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    Edge<span style="color:#f92672">*</span> cur_edge <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>edges[i];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">node_is_same_set</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, cur_edge<span style="color:#f92672">-&gt;</span>v2)){
+</span></span><span style="display:flex;"><span>      (<span style="color:#f92672">*</span>mst_val) <span style="color:#f92672">+=</span> cur_edge<span style="color:#f92672">-&gt;</span>weight;
+</span></span><span style="display:flex;"><span>      MST_edge[mst_edge_count<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> cur_edge;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">node_union</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, cur_edge<span style="color:#f92672">-&gt;</span>v2);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(mst_edge_count<span style="color:#f92672">!=</span>graph<span style="color:#f92672">-&gt;</span>node_num<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> NONE;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// find SMST
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>mst_edge_count; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sum_SMST <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> ii<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; ii<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; ii<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>      graph<span style="color:#f92672">-&gt;</span>nodes[ii]<span style="color:#f92672">-&gt;</span>parent <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>nodes[ii];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>edge_num; j<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>      Edge<span style="color:#f92672">*</span> cur_edge <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>edges[j];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(cur_edge<span style="color:#f92672">==</span>MST_edge[i]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">node_is_same_set</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, cur_edge<span style="color:#f92672">-&gt;</span>v2)){
+</span></span><span style="display:flex;"><span>        sum_SMST <span style="color:#f92672">+=</span> cur_edge<span style="color:#f92672">-&gt;</span>weight;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">node_union</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, cur_edge<span style="color:#f92672">-&gt;</span>v2);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(sum_SMST<span style="color:#f92672">==</span>(<span style="color:#f92672">*</span>mst_val)) <span style="color:#66d9ef">return</span> PLURAL;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> UNIQUE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">graph_count_set</span>(Graph<span style="color:#f92672">*</span> graph){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(graph<span style="color:#f92672">-&gt;</span>nodes[i]<span style="color:#f92672">-&gt;</span>parent<span style="color:#f92672">==</span>graph<span style="color:#f92672">-&gt;</span>nodes[i]) res<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> node_num, edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>node_num, <span style="color:#f92672">&amp;</span>edge_num);
+</span></span><span style="display:flex;"><span>  Graph<span style="color:#f92672">*</span> graph <span style="color:#f92672">=</span> <span style="color:#a6e22e">graph_init</span>(node_num, edge_num);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>edge_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> v1, v2, weight;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d %d&#34;</span>, <span style="color:#f92672">&amp;</span>v1, <span style="color:#f92672">&amp;</span>v2, <span style="color:#f92672">&amp;</span>weight);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">graph_insert_edge</span>(graph, i, v1, v2, weight);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">merge_sort_edge</span>(graph);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  ResType res <span style="color:#f92672">=</span> <span style="color:#a6e22e">kruskal</span>(graph, <span style="color:#f92672">&amp;</span>mst_val);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> (res) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> UNIQUE:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Yes</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mst_val);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> PLURAL:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">No</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mst_val);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> NONE:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;No MST</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#a6e22e">graph_count_set</span>(graph));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="code-kruskal-better">Code Kruskal Better<a hidden class="anchor" aria-hidden="true" href="#code-kruskal-better">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXN 150000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> { FALSE, TRUE } boolean;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> {
+</span></span><span style="display:flex;"><span>  UNIQUE,
+</span></span><span style="display:flex;"><span>  PLURAL,
+</span></span><span style="display:flex;"><span>  NONE
+</span></span><span style="display:flex;"><span>} ResType;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Node{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> val;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> Node<span style="color:#f92672">*</span> parent;
+</span></span><span style="display:flex;"><span>}Node ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Edge{
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> v1;
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> v2;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> weight;
+</span></span><span style="display:flex;"><span>}Edge ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Graph{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> node_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> edge_num;
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> edges[MAXN];
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> nodes[MAXN];
+</span></span><span style="display:flex;"><span>}Graph ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node<span style="color:#f92672">*</span> <span style="color:#a6e22e">node_init</span>(<span style="color:#66d9ef">int</span> val){
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Node<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Node));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">=</span> val;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>parent <span style="color:#f92672">=</span> res;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Node<span style="color:#f92672">*</span> <span style="color:#a6e22e">node_find_parent</span>(Node<span style="color:#f92672">*</span> node){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(node <span style="color:#f92672">==</span> node<span style="color:#f92672">-&gt;</span>parent) <span style="color:#66d9ef">return</span> node;
+</span></span><span style="display:flex;"><span>  node<span style="color:#f92672">-&gt;</span>parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node<span style="color:#f92672">-&gt;</span>parent);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> node<span style="color:#f92672">-&gt;</span>parent;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>boolean <span style="color:#a6e22e">node_is_same_set</span>(Node<span style="color:#f92672">*</span> node1, Node<span style="color:#f92672">*</span> node2){
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> n1_parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node1);
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> n2_parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node2);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(n1_parent<span style="color:#f92672">==</span>n2_parent) <span style="color:#66d9ef">return</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> FALSE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">node_union</span>(Node<span style="color:#f92672">*</span> node1, Node<span style="color:#f92672">*</span> node2){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">node_find_parent</span>(node1)<span style="color:#f92672">-&gt;</span>parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_find_parent</span>(node2);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Graph<span style="color:#f92672">*</span> <span style="color:#a6e22e">graph_init</span>(<span style="color:#66d9ef">int</span> node_num, <span style="color:#66d9ef">int</span> edge_num){
+</span></span><span style="display:flex;"><span>  Graph<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Graph<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Graph));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>node_num <span style="color:#f92672">=</span> node_num;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>edge_num <span style="color:#f92672">=</span> edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>res<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    res<span style="color:#f92672">-&gt;</span>nodes[i] <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_init</span>(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">graph_insert_edge</span>(Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span> idx, <span style="color:#66d9ef">int</span> v1, <span style="color:#66d9ef">int</span> v2, <span style="color:#66d9ef">int</span> weight){
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx] <span style="color:#f92672">=</span> (Edge<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Edge));
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx]<span style="color:#f92672">-&gt;</span>v1 <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>nodes[v1<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx]<span style="color:#f92672">-&gt;</span>v2 <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>nodes[v2<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];;
+</span></span><span style="display:flex;"><span>  graph<span style="color:#f92672">-&gt;</span>edges[idx]<span style="color:#f92672">-&gt;</span>weight <span style="color:#f92672">=</span> weight;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge_sort_conquer</span>(Edge<span style="color:#f92672">**</span> arr, Edge<span style="color:#f92672">**</span> tmp, <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> mid, <span style="color:#66d9ef">int</span> high){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> start_1 <span style="color:#f92672">=</span> low;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> end_1 <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> start_2 <span style="color:#f92672">=</span> mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> end_2 <span style="color:#f92672">=</span> high;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(start_1<span style="color:#f92672">&lt;=</span>end_1 <span style="color:#f92672">&amp;&amp;</span> start_2<span style="color:#f92672">&lt;=</span>end_2){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(arr[start_1]<span style="color:#f92672">-&gt;</span>weight <span style="color:#f92672">&lt;</span> arr[start_2]<span style="color:#f92672">-&gt;</span>weight){
+</span></span><span style="display:flex;"><span>      tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_1<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>      tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_2<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(start_1 <span style="color:#f92672">&lt;=</span> end_1){
+</span></span><span style="display:flex;"><span>    tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_1<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(start_2 <span style="color:#f92672">&lt;=</span> end_2){
+</span></span><span style="display:flex;"><span>    tmp[idx<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> arr[start_2<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(low <span style="color:#f92672">&lt;=</span> high){
+</span></span><span style="display:flex;"><span>    arr[low<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> tmp[idx<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge_sort_divide</span>(Edge<span style="color:#f92672">**</span> arr, Edge<span style="color:#f92672">**</span> tmp, <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(low<span style="color:#f92672">&lt;</span>high){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (low<span style="color:#f92672">+</span>high)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">merge_sort_divide</span>(arr, tmp, low, mid);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">merge_sort_divide</span>(arr, tmp, mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, high);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">merge_sort_conquer</span>(arr, tmp, low, mid, high);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge_sort_edge</span>(Graph<span style="color:#f92672">*</span> graph){
+</span></span><span style="display:flex;"><span>  Edge<span style="color:#f92672">*</span> tmp[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">merge_sort_divide</span>(graph<span style="color:#f92672">-&gt;</span>edges, tmp, <span style="color:#ae81ff">0</span>, graph<span style="color:#f92672">-&gt;</span>edge_num<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ResType <span style="color:#a6e22e">kruskal</span>(Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> mst_val){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_edge_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// find MST
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>edge_num<span style="color:#f92672">&amp;&amp;</span>mst_edge_count<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    Edge<span style="color:#f92672">*</span> cur_edge <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>edges[i];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">node_is_same_set</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, cur_edge<span style="color:#f92672">-&gt;</span>v2)){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>; flag<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&amp;&amp;</span>j<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>edge_num<span style="color:#f92672">&amp;&amp;</span>graph<span style="color:#f92672">-&gt;</span>edges[j]<span style="color:#f92672">-&gt;</span>weight<span style="color:#f92672">==</span>cur_edge<span style="color:#f92672">-&gt;</span>weight; j<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>        Edge<span style="color:#f92672">*</span> edge <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>edges[j];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">node_is_same_set</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, edge<span style="color:#f92672">-&gt;</span>v1) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">node_is_same_set</span>(cur_edge<span style="color:#f92672">-&gt;</span>v2, edge<span style="color:#f92672">-&gt;</span>v2)){
+</span></span><span style="display:flex;"><span>          flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">node_is_same_set</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, edge<span style="color:#f92672">-&gt;</span>v2) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">node_is_same_set</span>(cur_edge<span style="color:#f92672">-&gt;</span>v2, edge<span style="color:#f92672">-&gt;</span>v1)){
+</span></span><span style="display:flex;"><span>          flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      (<span style="color:#f92672">*</span>mst_val) <span style="color:#f92672">+=</span> cur_edge<span style="color:#f92672">-&gt;</span>weight;
+</span></span><span style="display:flex;"><span>      mst_edge_count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">node_union</span>(cur_edge<span style="color:#f92672">-&gt;</span>v1, cur_edge<span style="color:#f92672">-&gt;</span>v2);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(mst_edge_count<span style="color:#f92672">!=</span>graph<span style="color:#f92672">-&gt;</span>node_num<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> NONE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(flag) <span style="color:#66d9ef">return</span> PLURAL;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> UNIQUE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">graph_count_set</span>(Graph<span style="color:#f92672">*</span> graph){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>node_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(graph<span style="color:#f92672">-&gt;</span>nodes[i]<span style="color:#f92672">-&gt;</span>parent<span style="color:#f92672">==</span>graph<span style="color:#f92672">-&gt;</span>nodes[i]) res<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> node_num, edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>node_num, <span style="color:#f92672">&amp;</span>edge_num);
+</span></span><span style="display:flex;"><span>  Graph<span style="color:#f92672">*</span> graph <span style="color:#f92672">=</span> <span style="color:#a6e22e">graph_init</span>(node_num, edge_num);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>edge_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> v1, v2, weight;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d %d&#34;</span>, <span style="color:#f92672">&amp;</span>v1, <span style="color:#f92672">&amp;</span>v2, <span style="color:#f92672">&amp;</span>weight);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">graph_insert_edge</span>(graph, i, v1, v2, weight);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">merge_sort_edge</span>(graph);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> mst_val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  ResType res <span style="color:#f92672">=</span> <span style="color:#a6e22e">kruskal</span>(graph, <span style="color:#f92672">&amp;</span>mst_val);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> (res) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> UNIQUE:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Yes</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mst_val);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> PLURAL:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">No</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mst_val);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> NONE:
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;No MST</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#a6e22e">graph_count_set</span>(graph));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.yejsgk.top/tags/fds-homework/">FDS Homework</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://www.yejsgk.top/">My Web | Wei, Feng</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

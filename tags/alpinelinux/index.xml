@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AlpineLinux on My Web | Wei, Feng</title>
+    <link>https://www.yejsgk.top/tags/alpinelinux/</link>
+    <description>Recent content in AlpineLinux on My Web | Wei, Feng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Apr 2024 20:03:09 +0800</lastBuildDate>
+    <atom:link href="https://www.yejsgk.top/tags/alpinelinux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alpine to Sway</title>
+      <link>https://www.yejsgk.top/notes/alpine-to-sway/</link>
+      <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
+      <guid>https://www.yejsgk.top/notes/alpine-to-sway/</guid>
+      <description>Alpine Linux with Sway Bash, Text Editor Packages apk add vim bash Create Non Root User Packages apk add sudo shadow Command Add User useradd -m -G wheel -s /bin/bash &amp;lt;user_name&amp;gt; passwd &amp;lt;user_name&amp;gt; sudo file EDITOR=vim visudo # Make wheel group can use sudo Setup eudev setup-devd udev GPU Intel apk add mesa-dri-gallium AMD Read here Nvidia Read here PAM apk add linux-pam shadow-login Elogind apk add elogind polkit-elogind dbus</description>
+    </item>
+    <item>
+      <title>Basic AlpineLinux (UEFI) Install</title>
+      <link>https://www.yejsgk.top/notes/basic-alpinelinux-install/</link>
+      <pubDate>Fri, 05 Apr 2024 15:12:21 +0800</pubDate>
+      <guid>https://www.yejsgk.top/notes/basic-alpinelinux-install/</guid>
+      <description>Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi &amp;amp;&amp;amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer &amp;#39;us&amp;#39; twice Hostname setup-hostname &amp;lt;your_hostname&amp;gt; Networking Alpine Linux&amp;rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update</description>
+    </item>
+  </channel>
+</rss>

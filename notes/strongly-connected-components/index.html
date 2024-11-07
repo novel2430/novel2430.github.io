@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Strongly Connected Components | My Web | Wei, Feng</title>
+<meta name="keywords" content="FDS Homework">
+<meta name="description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.yejsgk.top/notes/strongly-connected-components/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.yejsgk.top/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.yejsgk.top/img/favicon/favicon16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.yejsgk.top/img/favicon/favicon32x32.png">
+<link rel="apple-touch-icon" href="https://www.yejsgk.top/img/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.yejsgk.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.yejsgk.top/notes/strongly-connected-components/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Strongly Connected Components" />
+<meta property="og:description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.yejsgk.top/notes/strongly-connected-components/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-02-14T01:22:00+08:00" />
+<meta property="article:modified_time" content="2024-02-14T01:22:00+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Strongly Connected Components"/>
+<meta name="twitter:description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://www.yejsgk.top/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Strongly Connected Components",
+      "item": "https://www.yejsgk.top/notes/strongly-connected-components/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Strongly Connected Components",
+  "name": "Strongly Connected Components",
+  "description": "6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is",
+  "keywords": [
+    "FDS Homework"
+  ],
+  "articleBody": "6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph.\nFormat of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following:\ntypedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.\nSample program of judge: #include #include #define MaxVertices 10 /* maximum number of vertices */ typedef int Vertex; /* vertices are numbered from 0 to MaxVertices-1 */ typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Graph ReadG(); /* details omitted */ void PrintV( Vertex V ) { printf(\"%d \", V); } void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); int main() { Graph G = ReadG(); StronglyConnectedComponents( G, PrintV ); return 0; } /* Your function will be put here */ Sample Input (for the graph shown in the figure): 4 5 0 1 1 2 2 0 3 1 3 2 Sample Output: 3 1 2 0 Note: The output order does not matter. That is, a solution like\n0 1 2 3 is also considered correct.\nCode Tarjan #include #include #define MaxVertices 10 /* maximum number of vertices */ typedef int Vertex; /* vertices are numbered from 0 to MaxVertices-1 */ typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Graph ReadG(); /* details omitted */ void PrintV( Vertex V ) { printf(\"%d \", V); } void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); int main() { Graph G = ReadG(); StronglyConnectedComponents( G, PrintV ); return 0; } PtrToVNode ptr_node_init(Vertex v){ PtrToVNode res = (PtrToVNode)malloc(sizeof(struct VNode)); res-\u003eVert = v; res-\u003eNext = NULL; return res; } Graph ReadG(){ Graph res = (Graph)malloc(sizeof(struct GNode)); int vertice_num, edge_num; scanf(\"%d %d\", \u0026vertice_num, \u0026edge_num); res-\u003eNumOfVertices = vertice_num; res-\u003eNumOfEdges = edge_num; res-\u003eArray = (PtrToVNode*)malloc(sizeof(PtrToVNode)*res-\u003eNumOfVertices); for(int i=0; i\u003cvertice_num; i++) res-\u003eArray[i] = NULL; for(int i=0; i\u003cedge_num; i++){ int v1, v2; scanf(\"%d %d\", \u0026v1, \u0026v2); PtrToVNode node = ptr_node_init(v2); if(res-\u003eArray[v1]==NULL) res-\u003eArray[v1] = node; else{ node-\u003eNext = res-\u003eArray[v1]; res-\u003eArray[v1] = node; } } return res; } /* Your function will be put here */ typedef enum Boolean {FALSE, TRUE} Boolean ; typedef int StackVal; ; typedef struct Stack{ int max_size; int cur_top; StackVal* array; } Stack; Stack* stack_init(int max){ Stack* res = (Stack*)malloc(sizeof(Stack)); res-\u003emax_size = max; res-\u003ecur_top = -1; res-\u003earray = (StackVal*)malloc(sizeof(StackVal)*res-\u003emax_size); return res; } Boolean stack_is_empty(Stack* stack){ if(stack-\u003ecur_top==-1) return TRUE; return FALSE; } void stack_insert(Stack* stack, StackVal val){ stack-\u003ecur_top++; stack-\u003earray[stack-\u003ecur_top] = val; } StackVal stack_pop(Stack* stack){ int res = stack-\u003earray[stack-\u003ecur_top]; stack-\u003ecur_top--; return res; } StackVal stack_peak(Stack* stack){ int res = stack-\u003earray[stack-\u003ecur_top]; return res; } void stack_empty(Stack* stack){ while(!stack_is_empty(stack)){ stack_pop(stack); } } int min(int a, int b){ if(a \u003c b) return a; return b; } void tarjan(Graph G, Stack* stack, int* dfn, int* low, Boolean* in_stack, int cur_idx, int* visit_count, void (*visit)(Vertex V)){ dfn[cur_idx] = *visit_count; low[cur_idx] = *visit_count; (*visit_count)++; stack_insert(stack, cur_idx); in_stack[cur_idx] = TRUE; for(PtrToVNode cur=G-\u003eArray[cur_idx]; cur!=NULL; cur=cur-\u003eNext){ if(dfn[cur-\u003eVert]\u003c0){ tarjan(G, stack, dfn, low, in_stack, cur-\u003eVert, visit_count, visit); low[cur_idx] = min(low[cur_idx], low[cur-\u003eVert]); } else if(in_stack[cur-\u003eVert]){ low[cur_idx] = min(low[cur_idx], dfn[cur-\u003eVert]); } } if(low[cur_idx]==dfn[cur_idx]){ while(!stack_is_empty(stack)){ int stack_top = stack_pop(stack); in_stack[stack_top] = FALSE; visit(stack_top); if(cur_idx==stack_top) break; } printf(\"\\n\"); } } void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ){ Stack* stack = stack_init(G-\u003eNumOfVertices); int dfn[G-\u003eNumOfVertices]; int low[G-\u003eNumOfVertices]; Boolean in_stack[G-\u003eNumOfVertices]; for(int i=0; i\u003cG-\u003eNumOfVertices; i++){ dfn[i] = -1; low[i] = -1; in_stack[i] = FALSE; } for(int i=0; i\u003cG-\u003eNumOfVertices; i++){ int visit_count = 0; if(dfn[i]==-1) tarjan(G, stack, dfn, low, in_stack, i, \u0026visit_count, visit); stack_empty(stack); } } Code Kosaraju #include #include #define MaxVertices 10 /* maximum number of vertices */ typedef int Vertex; /* vertices are numbered from 0 to MaxVertices-1 */ typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Graph ReadG(); /* details omitted */ void PrintV( Vertex V ) { printf(\"%d \", V); } void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); int main() { Graph G = ReadG(); StronglyConnectedComponents( G, PrintV ); return 0; } PtrToVNode ptr_node_init(Vertex v){ PtrToVNode res = (PtrToVNode)malloc(sizeof(struct VNode)); res-\u003eVert = v; res-\u003eNext = NULL; return res; } Graph ReadG(){ Graph res = (Graph)malloc(sizeof(struct GNode)); int vertice_num, edge_num; scanf(\"%d %d\", \u0026vertice_num, \u0026edge_num); res-\u003eNumOfVertices = vertice_num; res-\u003eNumOfEdges = edge_num; res-\u003eArray = (PtrToVNode*)malloc(sizeof(PtrToVNode)*res-\u003eNumOfVertices); for(int i=0; i\u003cvertice_num; i++) res-\u003eArray[i] = NULL; for(int i=0; i\u003cedge_num; i++){ int v1, v2; scanf(\"%d %d\", \u0026v1, \u0026v2); PtrToVNode node = ptr_node_init(v2); if(res-\u003eArray[v1]==NULL) res-\u003eArray[v1] = node; else{ node-\u003eNext = res-\u003eArray[v1]; res-\u003eArray[v1] = node; } } return res; } /* Your function will be put here */ typedef enum Boolean {FALSE, TRUE} Boolean ; typedef int StackVal; ; typedef struct Stack{ int max_size; int cur_top; StackVal* array; } Stack; Stack* stack_init(int max){ Stack* res = (Stack*)malloc(sizeof(Stack)); res-\u003emax_size = max; res-\u003ecur_top = -1; res-\u003earray = (StackVal*)malloc(sizeof(StackVal)*res-\u003emax_size); return res; } Boolean stack_is_empty(Stack* stack){ if(stack-\u003ecur_top==-1) return TRUE; return FALSE; } void stack_insert(Stack* stack, StackVal val){ stack-\u003ecur_top++; stack-\u003earray[stack-\u003ecur_top] = val; } StackVal stack_pop(Stack* stack){ int res = stack-\u003earray[stack-\u003ecur_top]; stack-\u003ecur_top--; return res; } StackVal stack_peak(Stack* stack){ int res = stack-\u003earray[stack-\u003ecur_top]; return res; } void stack_empty(Stack* stack){ while(!stack_is_empty(stack)){ stack_pop(stack); } } int min(int a, int b){ if(a \u003c b) return a; return b; } Graph build_graph_inverse(Graph graph){ Graph res = (Graph)malloc(sizeof(struct GNode)); res-\u003eNumOfEdges = graph-\u003eNumOfEdges; res-\u003eNumOfVertices = graph-\u003eNumOfVertices; res-\u003eArray = (PtrToVNode*)malloc(sizeof(PtrToVNode)*res-\u003eNumOfVertices); for(int i=0; i\u003cres-\u003eNumOfVertices; i++) res-\u003eArray[i] = NULL; for(int i=0; i\u003cres-\u003eNumOfVertices; i++){ for(PtrToVNode cur = graph-\u003eArray[i]; cur!=NULL; cur=cur-\u003eNext){ int v1 = cur-\u003eVert; int v2 = i; PtrToVNode node = (PtrToVNode)malloc(sizeof(struct VNode)); node-\u003eVert = v2; node-\u003eNext = NULL; if(res-\u003eArray[v1]==NULL) res-\u003eArray[v1] = node; else{ node-\u003eNext = res-\u003eArray[v1]; res-\u003eArray[v1] = node; } } } return res; } void kosaraju_first_dfs(Graph graph, Stack* stack, Boolean* visit, Boolean* in_stack, int cur_idx){ if(visit[cur_idx]) return; visit[cur_idx] = TRUE; for(PtrToVNode cur=graph-\u003eArray[cur_idx]; cur!=NULL; cur=cur-\u003eNext){ kosaraju_first_dfs(graph, stack, visit, in_stack, cur-\u003eVert); } stack_insert(stack, cur_idx); in_stack[cur_idx] = TRUE; } void kosaraju_second_dfs(Graph graph, Boolean* visit, Boolean* in_stack, int cur_idx, void (*print_visit)(Vertex V)){ if(visit[cur_idx] || !in_stack[cur_idx]) return; visit[cur_idx] = TRUE; print_visit(cur_idx); for(PtrToVNode cur=graph-\u003eArray[cur_idx]; cur!=NULL; cur=cur-\u003eNext){ kosaraju_second_dfs(graph, visit, in_stack, cur-\u003eVert, print_visit); } } void kosaraju(Graph graph, Boolean* is_visit, int start, void (*visit)(Vertex V)){ Graph inverse_graph = build_graph_inverse(graph); Stack* stack = stack_init(graph-\u003eNumOfVertices); Boolean is_visit_2[graph-\u003eNumOfVertices]; Boolean in_stack[graph-\u003eNumOfVertices]; for(int i=0; i\u003cgraph-\u003eNumOfVertices; i++) is_visit_2[i] = FALSE; for(int i=0; i\u003cgraph-\u003eNumOfVertices; i++) in_stack[i] = FALSE; kosaraju_first_dfs(graph, stack, is_visit, in_stack, start); while(!stack_is_empty(stack)){ int stack_top = stack_pop(stack); if(is_visit_2[stack_top]) continue; kosaraju_second_dfs(inverse_graph, is_visit_2, in_stack, stack_top, visit); printf(\"\\n\"); } } void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ){ Boolean is_visit[G-\u003eNumOfVertices]; for(int i=0; i\u003cG-\u003eNumOfVertices; i++) is_visit[i] = FALSE; for(int i=0; i\u003cG-\u003eNumOfVertices; i++){ if(is_visit[i]) continue; kosaraju(G, is_visit, i, visit); } } ",
+  "wordCount" : "1145",
+  "inLanguage": "en",
+  "datePublished": "2024-02-14T01:22:00+08:00",
+  "dateModified": "2024-02-14T01:22:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yejsgk.top/notes/strongly-connected-components/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Web | Wei, Feng",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.yejsgk.top/img/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.yejsgk.top/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.yejsgk.top/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/ideas/" title="Ideas">
+                    <span>Ideas</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.yejsgk.top/">Home</a>&nbsp;»&nbsp;<a href="https://www.yejsgk.top/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Strongly Connected Components
+    </h1>
+    <div class="post-meta"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#6-1-strongly-connected-components" aria-label="6-1 Strongly Connected Components">6-1 Strongly Connected Components</a><ul>
+                            
+                    <li>
+                        <a href="#format-of-functions" aria-label="Format of functions:">Format of functions:</a></li>
+                    <li>
+                        <a href="#sample-program-of-judge" aria-label="Sample program of judge:">Sample program of judge:</a></li>
+                    <li>
+                        <a href="#sample-input-for-the-graph-shown-in-the-figure" aria-label="Sample Input (for the graph shown in the figure):">Sample Input (for the graph shown in the figure):</a></li>
+                    <li>
+                        <a href="#sample-output" aria-label="Sample Output:">Sample Output:</a></li>
+                    <li>
+                        <a href="#code-tarjan" aria-label="Code Tarjan">Code Tarjan</a></li>
+                    <li>
+                        <a href="#code-kosaraju" aria-label="Code Kosaraju">Code Kosaraju</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="6-1-strongly-connected-components">6-1 Strongly Connected Components<a hidden class="anchor" aria-hidden="true" href="#6-1-strongly-connected-components">#</a></h1>
+<p>Write a program to find the strongly connected components in a digraph.</p>
+<h2 id="format-of-functions">Format of functions:<a hidden class="anchor" aria-hidden="true" href="#format-of-functions">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">StronglyConnectedComponents</span>( Graph G, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V) );
+</span></span></code></pre></div><p>where <code>Graph</code> is defined as the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> VNode <span style="color:#f92672">*</span>PtrToVNode;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> VNode {
+</span></span><span style="display:flex;"><span>    Vertex Vert;
+</span></span><span style="display:flex;"><span>    PtrToVNode Next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> GNode <span style="color:#f92672">*</span>Graph;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> GNode {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfVertices;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfEdges;
+</span></span><span style="display:flex;"><span>    PtrToVNode <span style="color:#f92672">*</span>Array;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Here <code>void (*visit)(Vertex V)</code> is a function parameter that is passed into <code>StronglyConnectedComponents</code> to handle (print with a certain format) each vertex that is visited. The function <code>StronglyConnectedComponents</code> is supposed to print a return after each component is found.</p>
+<h2 id="sample-program-of-judge">Sample program of judge:<a hidden class="anchor" aria-hidden="true" href="#sample-program-of-judge">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MaxVertices 10  </span><span style="color:#75715e">/* maximum number of vertices */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> Vertex;     <span style="color:#75715e">/* vertices are numbered from 0 to MaxVertices-1 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> VNode <span style="color:#f92672">*</span>PtrToVNode;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> VNode {
+</span></span><span style="display:flex;"><span>    Vertex Vert;
+</span></span><span style="display:flex;"><span>    PtrToVNode Next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> GNode <span style="color:#f92672">*</span>Graph;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> GNode {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfVertices;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfEdges;
+</span></span><span style="display:flex;"><span>    PtrToVNode <span style="color:#f92672">*</span>Array;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Graph <span style="color:#a6e22e">ReadG</span>(); <span style="color:#75715e">/* details omitted */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintV</span>( Vertex V )
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, V);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">StronglyConnectedComponents</span>( Graph G, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V) );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Graph G <span style="color:#f92672">=</span> <span style="color:#a6e22e">ReadG</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">StronglyConnectedComponents</span>( G, PrintV );
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Your function will be put here */</span>
+</span></span></code></pre></div><h2 id="sample-input-for-the-graph-shown-in-the-figure">Sample Input (for the graph shown in the figure):<a hidden class="anchor" aria-hidden="true" href="#sample-input-for-the-graph-shown-in-the-figure">#</a></h2>
+<p><img loading="lazy" src="https://github.com/novel2430/ZJU-2023-FDS/blob/main/ZJUFDS_2023_HW11/6-1-Strongly-Connected-Components/001.jpg?raw=true" alt="image"  />
+</p>
+<pre tabindex="0"><code>4 5
+0 1
+1 2
+2 0
+3 1
+3 2
+</code></pre><h2 id="sample-output">Sample Output:<a hidden class="anchor" aria-hidden="true" href="#sample-output">#</a></h2>
+<pre tabindex="0"><code>3 
+1 2 0 
+</code></pre><p>Note: The output order does not matter. That is, a solution like</p>
+<pre tabindex="0"><code>0 1 2 
+3
+</code></pre><p>is also considered correct.</p>
+<h2 id="code-tarjan">Code Tarjan<a hidden class="anchor" aria-hidden="true" href="#code-tarjan">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MaxVertices 10  </span><span style="color:#75715e">/* maximum number of vertices */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> Vertex;     <span style="color:#75715e">/* vertices are numbered from 0 to MaxVertices-1 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> VNode <span style="color:#f92672">*</span>PtrToVNode;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> VNode {
+</span></span><span style="display:flex;"><span>    Vertex Vert;
+</span></span><span style="display:flex;"><span>    PtrToVNode Next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> GNode <span style="color:#f92672">*</span>Graph;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> GNode {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfVertices;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfEdges;
+</span></span><span style="display:flex;"><span>    PtrToVNode <span style="color:#f92672">*</span>Array;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Graph <span style="color:#a6e22e">ReadG</span>(); <span style="color:#75715e">/* details omitted */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintV</span>( Vertex V )
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, V);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">StronglyConnectedComponents</span>( Graph G, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V) );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Graph G <span style="color:#f92672">=</span> <span style="color:#a6e22e">ReadG</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">StronglyConnectedComponents</span>( G, PrintV );
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PtrToVNode <span style="color:#a6e22e">ptr_node_init</span>(Vertex v){
+</span></span><span style="display:flex;"><span>  PtrToVNode res <span style="color:#f92672">=</span> (PtrToVNode)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> VNode));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>Vert <span style="color:#f92672">=</span> v;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Graph <span style="color:#a6e22e">ReadG</span>(){
+</span></span><span style="display:flex;"><span>  Graph res <span style="color:#f92672">=</span> (Graph)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> GNode));
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> vertice_num, edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>vertice_num, <span style="color:#f92672">&amp;</span>edge_num);
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>NumOfVertices <span style="color:#f92672">=</span> vertice_num;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>NumOfEdges <span style="color:#f92672">=</span> edge_num;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>Array <span style="color:#f92672">=</span> (PtrToVNode<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(PtrToVNode)<span style="color:#f92672">*</span>res<span style="color:#f92672">-&gt;</span>NumOfVertices);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>vertice_num; i<span style="color:#f92672">++</span>) res<span style="color:#f92672">-&gt;</span>Array[i] <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>edge_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> v1, v2;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>v1, <span style="color:#f92672">&amp;</span>v2);
+</span></span><span style="display:flex;"><span>    PtrToVNode node <span style="color:#f92672">=</span> <span style="color:#a6e22e">ptr_node_init</span>(v2);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(res<span style="color:#f92672">-&gt;</span>Array[v1]<span style="color:#f92672">==</span>NULL) res<span style="color:#f92672">-&gt;</span>Array[v1] <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>      node<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> res<span style="color:#f92672">-&gt;</span>Array[v1];
+</span></span><span style="display:flex;"><span>      res<span style="color:#f92672">-&gt;</span>Array[v1] <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Your function will be put here */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> Boolean {FALSE, TRUE} Boolean ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> StackVal; ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Stack{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> max_size; 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> cur_top;
+</span></span><span style="display:flex;"><span>  StackVal<span style="color:#f92672">*</span> array;
+</span></span><span style="display:flex;"><span>} Stack;
+</span></span><span style="display:flex;"><span>Stack<span style="color:#f92672">*</span> <span style="color:#a6e22e">stack_init</span>(<span style="color:#66d9ef">int</span> max){
+</span></span><span style="display:flex;"><span>  Stack<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Stack<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Stack));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>max_size <span style="color:#f92672">=</span> max;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>cur_top <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>array <span style="color:#f92672">=</span> (StackVal<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(StackVal)<span style="color:#f92672">*</span>res<span style="color:#f92672">-&gt;</span>max_size);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Boolean <span style="color:#a6e22e">stack_is_empty</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(stack<span style="color:#f92672">-&gt;</span>cur_top<span style="color:#f92672">==-</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> FALSE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stack_insert</span>(Stack<span style="color:#f92672">*</span> stack, StackVal val){
+</span></span><span style="display:flex;"><span>  stack<span style="color:#f92672">-&gt;</span>cur_top<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  stack<span style="color:#f92672">-&gt;</span>array[stack<span style="color:#f92672">-&gt;</span>cur_top] <span style="color:#f92672">=</span> val;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>StackVal <span style="color:#a6e22e">stack_pop</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> stack<span style="color:#f92672">-&gt;</span>array[stack<span style="color:#f92672">-&gt;</span>cur_top]; 
+</span></span><span style="display:flex;"><span>  stack<span style="color:#f92672">-&gt;</span>cur_top<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>StackVal <span style="color:#a6e22e">stack_peak</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> stack<span style="color:#f92672">-&gt;</span>array[stack<span style="color:#f92672">-&gt;</span>cur_top]; 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stack_empty</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">stack_is_empty</span>(stack)){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">stack_pop</span>(stack);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">min</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(a <span style="color:#f92672">&lt;</span> b) <span style="color:#66d9ef">return</span> a;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">tarjan</span>(Graph G, Stack<span style="color:#f92672">*</span> stack, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> dfn, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> low, Boolean<span style="color:#f92672">*</span> in_stack, <span style="color:#66d9ef">int</span> cur_idx, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> visit_count, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V)){
+</span></span><span style="display:flex;"><span>  dfn[cur_idx] <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>visit_count;
+</span></span><span style="display:flex;"><span>  low[cur_idx] <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>visit_count;
+</span></span><span style="display:flex;"><span>  (<span style="color:#f92672">*</span>visit_count)<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">stack_insert</span>(stack, cur_idx);
+</span></span><span style="display:flex;"><span>  in_stack[cur_idx] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(PtrToVNode cur<span style="color:#f92672">=</span>G<span style="color:#f92672">-&gt;</span>Array[cur_idx]; cur<span style="color:#f92672">!=</span>NULL; cur<span style="color:#f92672">=</span>cur<span style="color:#f92672">-&gt;</span>Next){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(dfn[cur<span style="color:#f92672">-&gt;</span>Vert]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tarjan</span>(G, stack, dfn, low, in_stack, cur<span style="color:#f92672">-&gt;</span>Vert, visit_count, visit);
+</span></span><span style="display:flex;"><span>      low[cur_idx] <span style="color:#f92672">=</span> <span style="color:#a6e22e">min</span>(low[cur_idx], low[cur<span style="color:#f92672">-&gt;</span>Vert]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(in_stack[cur<span style="color:#f92672">-&gt;</span>Vert]){
+</span></span><span style="display:flex;"><span>      low[cur_idx] <span style="color:#f92672">=</span> <span style="color:#a6e22e">min</span>(low[cur_idx], dfn[cur<span style="color:#f92672">-&gt;</span>Vert]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(low[cur_idx]<span style="color:#f92672">==</span>dfn[cur_idx]){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">stack_is_empty</span>(stack)){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> stack_top <span style="color:#f92672">=</span> <span style="color:#a6e22e">stack_pop</span>(stack);
+</span></span><span style="display:flex;"><span>      in_stack[stack_top] <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">visit</span>(stack_top);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(cur_idx<span style="color:#f92672">==</span>stack_top) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">StronglyConnectedComponents</span>( Graph G, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V) ){
+</span></span><span style="display:flex;"><span>  Stack<span style="color:#f92672">*</span> stack <span style="color:#f92672">=</span> <span style="color:#a6e22e">stack_init</span>(G<span style="color:#f92672">-&gt;</span>NumOfVertices);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> dfn[G<span style="color:#f92672">-&gt;</span>NumOfVertices];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> low[G<span style="color:#f92672">-&gt;</span>NumOfVertices];
+</span></span><span style="display:flex;"><span>  Boolean in_stack[G<span style="color:#f92672">-&gt;</span>NumOfVertices];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>G<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    dfn[i] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    low[i] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    in_stack[i] <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>G<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> visit_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(dfn[i]<span style="color:#f92672">==-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tarjan</span>(G, stack, dfn, low, in_stack, i, <span style="color:#f92672">&amp;</span>visit_count, visit);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">stack_empty</span>(stack);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="code-kosaraju">Code Kosaraju<a hidden class="anchor" aria-hidden="true" href="#code-kosaraju">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MaxVertices 10  </span><span style="color:#75715e">/* maximum number of vertices */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> Vertex;     <span style="color:#75715e">/* vertices are numbered from 0 to MaxVertices-1 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> VNode <span style="color:#f92672">*</span>PtrToVNode;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> VNode {
+</span></span><span style="display:flex;"><span>    Vertex Vert;
+</span></span><span style="display:flex;"><span>    PtrToVNode Next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> GNode <span style="color:#f92672">*</span>Graph;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> GNode {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfVertices;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumOfEdges;
+</span></span><span style="display:flex;"><span>    PtrToVNode <span style="color:#f92672">*</span>Array;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Graph <span style="color:#a6e22e">ReadG</span>(); <span style="color:#75715e">/* details omitted */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintV</span>( Vertex V )
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, V);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">StronglyConnectedComponents</span>( Graph G, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V) );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Graph G <span style="color:#f92672">=</span> <span style="color:#a6e22e">ReadG</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">StronglyConnectedComponents</span>( G, PrintV );
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PtrToVNode <span style="color:#a6e22e">ptr_node_init</span>(Vertex v){
+</span></span><span style="display:flex;"><span>  PtrToVNode res <span style="color:#f92672">=</span> (PtrToVNode)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> VNode));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>Vert <span style="color:#f92672">=</span> v;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Graph <span style="color:#a6e22e">ReadG</span>(){
+</span></span><span style="display:flex;"><span>  Graph res <span style="color:#f92672">=</span> (Graph)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> GNode));
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> vertice_num, edge_num;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>vertice_num, <span style="color:#f92672">&amp;</span>edge_num);
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>NumOfVertices <span style="color:#f92672">=</span> vertice_num;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>NumOfEdges <span style="color:#f92672">=</span> edge_num;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>Array <span style="color:#f92672">=</span> (PtrToVNode<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(PtrToVNode)<span style="color:#f92672">*</span>res<span style="color:#f92672">-&gt;</span>NumOfVertices);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>vertice_num; i<span style="color:#f92672">++</span>) res<span style="color:#f92672">-&gt;</span>Array[i] <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>edge_num; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> v1, v2;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>v1, <span style="color:#f92672">&amp;</span>v2);
+</span></span><span style="display:flex;"><span>    PtrToVNode node <span style="color:#f92672">=</span> <span style="color:#a6e22e">ptr_node_init</span>(v2);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(res<span style="color:#f92672">-&gt;</span>Array[v1]<span style="color:#f92672">==</span>NULL) res<span style="color:#f92672">-&gt;</span>Array[v1] <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>      node<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> res<span style="color:#f92672">-&gt;</span>Array[v1];
+</span></span><span style="display:flex;"><span>      res<span style="color:#f92672">-&gt;</span>Array[v1] <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Your function will be put here */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> Boolean {FALSE, TRUE} Boolean ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> StackVal; ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Stack{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> max_size; 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> cur_top;
+</span></span><span style="display:flex;"><span>  StackVal<span style="color:#f92672">*</span> array;
+</span></span><span style="display:flex;"><span>} Stack;
+</span></span><span style="display:flex;"><span>Stack<span style="color:#f92672">*</span> <span style="color:#a6e22e">stack_init</span>(<span style="color:#66d9ef">int</span> max){
+</span></span><span style="display:flex;"><span>  Stack<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Stack<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Stack));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>max_size <span style="color:#f92672">=</span> max;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>cur_top <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>array <span style="color:#f92672">=</span> (StackVal<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(StackVal)<span style="color:#f92672">*</span>res<span style="color:#f92672">-&gt;</span>max_size);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Boolean <span style="color:#a6e22e">stack_is_empty</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(stack<span style="color:#f92672">-&gt;</span>cur_top<span style="color:#f92672">==-</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> FALSE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stack_insert</span>(Stack<span style="color:#f92672">*</span> stack, StackVal val){
+</span></span><span style="display:flex;"><span>  stack<span style="color:#f92672">-&gt;</span>cur_top<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  stack<span style="color:#f92672">-&gt;</span>array[stack<span style="color:#f92672">-&gt;</span>cur_top] <span style="color:#f92672">=</span> val;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>StackVal <span style="color:#a6e22e">stack_pop</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> stack<span style="color:#f92672">-&gt;</span>array[stack<span style="color:#f92672">-&gt;</span>cur_top]; 
+</span></span><span style="display:flex;"><span>  stack<span style="color:#f92672">-&gt;</span>cur_top<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>StackVal <span style="color:#a6e22e">stack_peak</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> stack<span style="color:#f92672">-&gt;</span>array[stack<span style="color:#f92672">-&gt;</span>cur_top]; 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stack_empty</span>(Stack<span style="color:#f92672">*</span> stack){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">stack_is_empty</span>(stack)){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">stack_pop</span>(stack);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">min</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(a <span style="color:#f92672">&lt;</span> b) <span style="color:#66d9ef">return</span> a;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Graph <span style="color:#a6e22e">build_graph_inverse</span>(Graph graph){
+</span></span><span style="display:flex;"><span>  Graph res <span style="color:#f92672">=</span> (Graph)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> GNode));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>NumOfEdges <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>NumOfEdges;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>NumOfVertices <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>NumOfVertices;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>Array <span style="color:#f92672">=</span> (PtrToVNode<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(PtrToVNode)<span style="color:#f92672">*</span>res<span style="color:#f92672">-&gt;</span>NumOfVertices);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>res<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>) res<span style="color:#f92672">-&gt;</span>Array[i] <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>res<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(PtrToVNode cur <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>Array[i]; cur<span style="color:#f92672">!=</span>NULL; cur<span style="color:#f92672">=</span>cur<span style="color:#f92672">-&gt;</span>Next){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> v1 <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>Vert;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> v2 <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>      PtrToVNode node <span style="color:#f92672">=</span> (PtrToVNode)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> VNode));
+</span></span><span style="display:flex;"><span>      node<span style="color:#f92672">-&gt;</span>Vert <span style="color:#f92672">=</span> v2;
+</span></span><span style="display:flex;"><span>      node<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(res<span style="color:#f92672">-&gt;</span>Array[v1]<span style="color:#f92672">==</span>NULL) res<span style="color:#f92672">-&gt;</span>Array[v1] <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>        node<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> res<span style="color:#f92672">-&gt;</span>Array[v1];
+</span></span><span style="display:flex;"><span>        res<span style="color:#f92672">-&gt;</span>Array[v1] <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">kosaraju_first_dfs</span>(Graph graph, Stack<span style="color:#f92672">*</span> stack, Boolean<span style="color:#f92672">*</span> visit, Boolean<span style="color:#f92672">*</span> in_stack, <span style="color:#66d9ef">int</span> cur_idx){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(visit[cur_idx]) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  visit[cur_idx] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(PtrToVNode cur<span style="color:#f92672">=</span>graph<span style="color:#f92672">-&gt;</span>Array[cur_idx]; cur<span style="color:#f92672">!=</span>NULL; cur<span style="color:#f92672">=</span>cur<span style="color:#f92672">-&gt;</span>Next){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">kosaraju_first_dfs</span>(graph, stack, visit, in_stack, cur<span style="color:#f92672">-&gt;</span>Vert);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">stack_insert</span>(stack, cur_idx);
+</span></span><span style="display:flex;"><span>  in_stack[cur_idx] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">kosaraju_second_dfs</span>(Graph graph, Boolean<span style="color:#f92672">*</span> visit, Boolean<span style="color:#f92672">*</span> in_stack, <span style="color:#66d9ef">int</span> cur_idx, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>print_visit)(Vertex V)){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(visit[cur_idx] <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>in_stack[cur_idx]) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  visit[cur_idx] <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">print_visit</span>(cur_idx);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(PtrToVNode cur<span style="color:#f92672">=</span>graph<span style="color:#f92672">-&gt;</span>Array[cur_idx]; cur<span style="color:#f92672">!=</span>NULL; cur<span style="color:#f92672">=</span>cur<span style="color:#f92672">-&gt;</span>Next){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">kosaraju_second_dfs</span>(graph, visit, in_stack, cur<span style="color:#f92672">-&gt;</span>Vert, print_visit);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">kosaraju</span>(Graph graph, Boolean<span style="color:#f92672">*</span> is_visit, <span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V)){
+</span></span><span style="display:flex;"><span>  Graph inverse_graph <span style="color:#f92672">=</span> <span style="color:#a6e22e">build_graph_inverse</span>(graph);
+</span></span><span style="display:flex;"><span>  Stack<span style="color:#f92672">*</span> stack <span style="color:#f92672">=</span> <span style="color:#a6e22e">stack_init</span>(graph<span style="color:#f92672">-&gt;</span>NumOfVertices);
+</span></span><span style="display:flex;"><span>  Boolean is_visit_2[graph<span style="color:#f92672">-&gt;</span>NumOfVertices];
+</span></span><span style="display:flex;"><span>  Boolean in_stack[graph<span style="color:#f92672">-&gt;</span>NumOfVertices];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>) is_visit_2[i] <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>graph<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>) in_stack[i] <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">kosaraju_first_dfs</span>(graph, stack, is_visit, in_stack, start);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">stack_is_empty</span>(stack)){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> stack_top <span style="color:#f92672">=</span> <span style="color:#a6e22e">stack_pop</span>(stack);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(is_visit_2[stack_top]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">kosaraju_second_dfs</span>(inverse_graph, is_visit_2, in_stack, stack_top, visit);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">StronglyConnectedComponents</span>( Graph G, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>visit)(Vertex V) ){
+</span></span><span style="display:flex;"><span>  Boolean is_visit[G<span style="color:#f92672">-&gt;</span>NumOfVertices];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>G<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>) is_visit[i] <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>G<span style="color:#f92672">-&gt;</span>NumOfVertices; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(is_visit[i]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">kosaraju</span>(G, is_visit, i, visit);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.yejsgk.top/tags/fds-homework/">FDS Homework</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://www.yejsgk.top/">My Web | Wei, Feng</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

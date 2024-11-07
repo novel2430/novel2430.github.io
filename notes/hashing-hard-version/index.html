@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Hashing Hard Version | My Web | Wei, Feng</title>
+<meta name="keywords" content="FDS Homework">
+<meta name="description" content="7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers. However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.yejsgk.top/notes/hashing-hard-version/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.yejsgk.top/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.yejsgk.top/img/favicon/favicon16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.yejsgk.top/img/favicon/favicon32x32.png">
+<link rel="apple-touch-icon" href="https://www.yejsgk.top/img/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.yejsgk.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.yejsgk.top/notes/hashing-hard-version/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Hashing Hard Version" />
+<meta property="og:description" content="7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers. However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.yejsgk.top/notes/hashing-hard-version/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-02-14T01:30:02+08:00" />
+<meta property="article:modified_time" content="2024-02-14T01:30:02+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hashing Hard Version"/>
+<meta name="twitter:description" content="7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers. However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://www.yejsgk.top/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Hashing Hard Version",
+      "item": "https://www.yejsgk.top/notes/hashing-hard-version/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hashing Hard Version",
+  "name": "Hashing Hard Version",
+  "description": "7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers. However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there",
+  "keywords": [
+    "FDS Homework"
+  ],
+  "articleBody": "7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers.\nHowever, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there are multiple choices, the smallest number is always taken.\nInput Specification: Each input file contains one test case. For each test case, the first line contains a positive integer N (≤1000), which is the size of the hash table. The next line contains N integers, separated by a space. A negative integer represents an empty cell in the hash table. It is guaranteed that all the non-negative integers are distinct in the table.\nOutput Specification: For each test case, print a line that contains the input sequence, with the numbers separated by a space. Notice that there must be no extra space at the end of each line.\nSample Input: 11 33 1 13 12 34 38 27 22 32 -1 21 Sample Output: 1 13 12 21 33 34 38 27 22 32 Code #include #include #define MAXN 1000 typedef enum Boolean {FALSE, TRUE} Boolean ; typedef struct Node{ int value; int before_count; int after_count; struct Node* after[MAXN]; }Node ; typedef struct Heap{ int size; Node* nodes[MAXN]; }Heap ; Node* node_init(int value){ Node* res = (Node*)malloc(sizeof(Node)); res-\u003evalue = value; res-\u003eafter_count = 0; res-\u003ebefore_count = 0; return res; } void node_delete(Node* node){ if(node==NULL) return; free(node); node = NULL; } void node_add_after(Node* cur, Node* after){ if(cur==NULL || after==NULL) return; cur-\u003eafter[cur-\u003eafter_count] = after; cur-\u003eafter_count++; after-\u003ebefore_count++; } Heap* heap_init(){ Heap* res = (Heap*)malloc(sizeof(Heap)); res-\u003esize = 0; return res; } void heap_delete(Heap* heap){ if(heap==NULL) return; for(int i=0; i\u003cheap-\u003esize; i++) node_delete(heap-\u003enodes[i]); free(heap); heap = NULL; } Boolean heap_is_empty(Heap* heap){ if(heap-\u003esize==0) return TRUE; return FALSE; } int min_idx(Heap* heap, int idx1, int idx2){ if(heap-\u003enodes[idx1]-\u003evalue \u003c heap-\u003enodes[idx2]-\u003evalue) return idx1; return idx2; } void swap(Heap* heap, int idx1, int idx2){ Node* tmp = heap-\u003enodes[idx1]; heap-\u003enodes[idx1] = heap-\u003enodes[idx2]; heap-\u003enodes[idx2] = tmp; } void heap_insert(Heap* heap, Node* node){ if(heap==NULL || node==NULL) return; heap-\u003enodes[heap-\u003esize] = node; for(int i=heap-\u003esize; i\u003e0; i=(i-1)/2){ Node* cur = heap-\u003enodes[i]; Node* father = heap-\u003enodes[(i-1)/2]; if(cur-\u003evalue \u003e= father-\u003evalue) break; swap(heap, i, (i-1)/2); } heap-\u003esize++; } Node* heap_pop(Heap* heap){ if(heap==NULL || heap-\u003esize==0) return NULL; heap-\u003esize--; Node* res = heap-\u003enodes[0]; swap(heap, 0, heap-\u003esize); int next = 0; for(int i=0; i*2+1\u003cheap-\u003esize; i=next){ if(i*2+2 \u003c heap-\u003esize) next = min_idx(heap, i*2+1, i*2+2); else next = i*2+1; if(heap-\u003enodes[i]-\u003evalue \u003c= heap-\u003enodes[next]-\u003evalue) break; swap(heap, i, next); } return res; } void build_node_reletions(Node* nodes[MAXN], int size){ for(int i=0; i\u003csize; i++){ Node* cur = nodes[i]; if(cur==NULL) continue; int dist = i - cur-\u003evalue%size; if(dist \u003c 0) dist = size + dist; for(int ii=cur-\u003evalue%size; ii\u003c(cur-\u003evalue%size)+dist; ii++){ int idx = ii%size; node_add_after(nodes[idx], cur); } } } void build_input_seq(Node* nodes[MAXN], int size){ Heap* heap = heap_init(); for(int i=0; i\u003csize; i++){ if(nodes[i]==NULL) continue; if(nodes[i]-\u003ebefore_count==0) heap_insert(heap, nodes[i]); } int count = 0; while(!heap_is_empty(heap)){ Node* cur = heap_pop(heap); for(int i=0; i\u003ccur-\u003eafter_count; i++){ cur-\u003eafter[i]-\u003ebefore_count--; if(cur-\u003eafter[i]-\u003ebefore_count==0) heap_insert(heap, cur-\u003eafter[i]); } if(count \u003e 0) printf(\" \"); printf(\"%d\", cur-\u003evalue); count++; } heap_delete(heap); } int main(int argc, char *argv[]){ int size; Node* nodes[MAXN]; scanf(\"%d\", \u0026size); for(int i=0; i\u003csize; i++){ int tmp; scanf(\"%d\", \u0026tmp); if(tmp\u003c0) nodes[i] = NULL; else nodes[i] = node_init(tmp); } build_node_reletions(nodes, size); build_input_seq(nodes, size); return 0; } ",
+  "wordCount" : "568",
+  "inLanguage": "en",
+  "datePublished": "2024-02-14T01:30:02+08:00",
+  "dateModified": "2024-02-14T01:30:02+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yejsgk.top/notes/hashing-hard-version/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Web | Wei, Feng",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.yejsgk.top/img/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.yejsgk.top/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.yejsgk.top/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/ideas/" title="Ideas">
+                    <span>Ideas</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.yejsgk.top/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.yejsgk.top/">Home</a>&nbsp;»&nbsp;<a href="https://www.yejsgk.top/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Hashing Hard Version
+    </h1>
+    <div class="post-meta"><span title='2024-02-14 01:30:02 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#7-1-hashing---hard-version" aria-label="7-1 Hashing - Hard Version">7-1 Hashing - Hard Version</a><ul>
+                            
+                    <li>
+                        <a href="#input-specification" aria-label="Input Specification:">Input Specification:</a></li>
+                    <li>
+                        <a href="#output-specification" aria-label="Output Specification:">Output Specification:</a></li>
+                    <li>
+                        <a href="#sample-input" aria-label="Sample Input:">Sample Input:</a></li>
+                    <li>
+                        <a href="#sample-output" aria-label="Sample Output:">Sample Output:</a></li>
+                    <li>
+                        <a href="#code" aria-label="Code">Code</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="7-1-hashing---hard-version">7-1 Hashing - Hard Version<a hidden class="anchor" aria-hidden="true" href="#7-1-hashing---hard-version">#</a></h1>
+<p>Given a hash table of size N, we can define a hash function <code>H(x)=x%N</code>. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers.<br>
+However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there are multiple choices, the smallest number is always taken.</p>
+<h2 id="input-specification">Input Specification:<a hidden class="anchor" aria-hidden="true" href="#input-specification">#</a></h2>
+<p>Each input file contains one test case. For each test case, the first line contains a positive integer N (≤1000), which is the size of the hash table. The next line contains N integers, separated by a space. A negative integer represents an empty cell in the hash table. It is guaranteed that all the non-negative integers are distinct in the table.</p>
+<h2 id="output-specification">Output Specification:<a hidden class="anchor" aria-hidden="true" href="#output-specification">#</a></h2>
+<p>For each test case, print a line that contains the input sequence, with the numbers separated by a space. Notice that there must be no extra space at the end of each line.</p>
+<h2 id="sample-input">Sample Input:<a hidden class="anchor" aria-hidden="true" href="#sample-input">#</a></h2>
+<pre tabindex="0"><code>11
+33 1 13 12 34 38 27 22 32 -1 21
+</code></pre><h2 id="sample-output">Sample Output:<a hidden class="anchor" aria-hidden="true" href="#sample-output">#</a></h2>
+<pre tabindex="0"><code>1 13 12 21 33 34 38 27 22 32
+</code></pre><h2 id="code">Code<a hidden class="anchor" aria-hidden="true" href="#code">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define MAXN 1000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> Boolean {FALSE, TRUE} Boolean ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Node{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> value;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> before_count;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> after_count;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> Node<span style="color:#f92672">*</span> after[MAXN];
+</span></span><span style="display:flex;"><span>}Node ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Heap{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> size;
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> nodes[MAXN];
+</span></span><span style="display:flex;"><span>}Heap ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node<span style="color:#f92672">*</span> <span style="color:#a6e22e">node_init</span>(<span style="color:#66d9ef">int</span> value){
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Node<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Node));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>value <span style="color:#f92672">=</span> value;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>after_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>before_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">node_delete</span>(Node<span style="color:#f92672">*</span> node){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(node<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">free</span>(node);
+</span></span><span style="display:flex;"><span>  node <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">node_add_after</span>(Node<span style="color:#f92672">*</span> cur, Node<span style="color:#f92672">*</span> after){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(cur<span style="color:#f92672">==</span>NULL <span style="color:#f92672">||</span> after<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  cur<span style="color:#f92672">-&gt;</span>after[cur<span style="color:#f92672">-&gt;</span>after_count] <span style="color:#f92672">=</span> after;
+</span></span><span style="display:flex;"><span>  cur<span style="color:#f92672">-&gt;</span>after_count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  after<span style="color:#f92672">-&gt;</span>before_count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Heap<span style="color:#f92672">*</span> <span style="color:#a6e22e">heap_init</span>(){
+</span></span><span style="display:flex;"><span>  Heap<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> (Heap<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(Heap));
+</span></span><span style="display:flex;"><span>  res<span style="color:#f92672">-&gt;</span>size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heap_delete</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>heap<span style="color:#f92672">-&gt;</span>size; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">node_delete</span>(heap<span style="color:#f92672">-&gt;</span>nodes[i]);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">free</span>(heap);
+</span></span><span style="display:flex;"><span>  heap <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Boolean <span style="color:#a6e22e">heap_is_empty</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> TRUE;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> FALSE;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">min_idx</span>(Heap<span style="color:#f92672">*</span> heap, <span style="color:#66d9ef">int</span> idx1, <span style="color:#66d9ef">int</span> idx2){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>nodes[idx1]<span style="color:#f92672">-&gt;</span>value <span style="color:#f92672">&lt;</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx2]<span style="color:#f92672">-&gt;</span>value) <span style="color:#66d9ef">return</span> idx1;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> idx2;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span>(Heap<span style="color:#f92672">*</span> heap, <span style="color:#66d9ef">int</span> idx1, <span style="color:#66d9ef">int</span> idx2){
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> tmp <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx1];
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>nodes[idx1] <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[idx2];
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>nodes[idx2] <span style="color:#f92672">=</span> tmp;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heap_insert</span>(Heap<span style="color:#f92672">*</span> heap, Node<span style="color:#f92672">*</span> node){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL <span style="color:#f92672">||</span> node<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>nodes[heap<span style="color:#f92672">-&gt;</span>size] <span style="color:#f92672">=</span> node;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>heap<span style="color:#f92672">-&gt;</span>size; i<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">=</span>(i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>){
+</span></span><span style="display:flex;"><span>    Node<span style="color:#f92672">*</span> cur <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[i];
+</span></span><span style="display:flex;"><span>    Node<span style="color:#f92672">*</span> father <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[(i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(cur<span style="color:#f92672">-&gt;</span>value <span style="color:#f92672">&gt;=</span> father<span style="color:#f92672">-&gt;</span>value) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">swap</span>(heap, i, (i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>Node<span style="color:#f92672">*</span> <span style="color:#a6e22e">heap_pop</span>(Heap<span style="color:#f92672">*</span> heap){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">==</span>NULL <span style="color:#f92672">||</span> heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> NULL;
+</span></span><span style="display:flex;"><span>  heap<span style="color:#f92672">-&gt;</span>size<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> res <span style="color:#f92672">=</span> heap<span style="color:#f92672">-&gt;</span>nodes[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">swap</span>(heap, <span style="color:#ae81ff">0</span>, heap<span style="color:#f92672">-&gt;</span>size);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> next <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;</span>heap<span style="color:#f92672">-&gt;</span>size; i<span style="color:#f92672">=</span>next){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> heap<span style="color:#f92672">-&gt;</span>size) next <span style="color:#f92672">=</span> <span style="color:#a6e22e">min_idx</span>(heap, i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> next <span style="color:#f92672">=</span> i<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(heap<span style="color:#f92672">-&gt;</span>nodes[i]<span style="color:#f92672">-&gt;</span>value <span style="color:#f92672">&lt;=</span> heap<span style="color:#f92672">-&gt;</span>nodes[next]<span style="color:#f92672">-&gt;</span>value) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">swap</span>(heap, i, next);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">build_node_reletions</span>(Node<span style="color:#f92672">*</span> nodes[MAXN], <span style="color:#66d9ef">int</span> size){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>size; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    Node<span style="color:#f92672">*</span> cur <span style="color:#f92672">=</span> nodes[i];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(cur<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> dist <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> cur<span style="color:#f92672">-&gt;</span>value<span style="color:#f92672">%</span>size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(dist <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) dist <span style="color:#f92672">=</span> size <span style="color:#f92672">+</span> dist;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> ii<span style="color:#f92672">=</span>cur<span style="color:#f92672">-&gt;</span>value<span style="color:#f92672">%</span>size; ii<span style="color:#f92672">&lt;</span>(cur<span style="color:#f92672">-&gt;</span>value<span style="color:#f92672">%</span>size)<span style="color:#f92672">+</span>dist; ii<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> idx <span style="color:#f92672">=</span> ii<span style="color:#f92672">%</span>size;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">node_add_after</span>(nodes[idx], cur);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">build_input_seq</span>(Node<span style="color:#f92672">*</span> nodes[MAXN], <span style="color:#66d9ef">int</span> size){
+</span></span><span style="display:flex;"><span>  Heap<span style="color:#f92672">*</span> heap <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>size; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(nodes[i]<span style="color:#f92672">==</span>NULL) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(nodes[i]<span style="color:#f92672">-&gt;</span>before_count<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">heap_insert</span>(heap, nodes[i]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">heap_is_empty</span>(heap)){
+</span></span><span style="display:flex;"><span>    Node<span style="color:#f92672">*</span> cur <span style="color:#f92672">=</span> <span style="color:#a6e22e">heap_pop</span>(heap);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>cur<span style="color:#f92672">-&gt;</span>after_count; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>      cur<span style="color:#f92672">-&gt;</span>after[i]<span style="color:#f92672">-&gt;</span>before_count<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(cur<span style="color:#f92672">-&gt;</span>after[i]<span style="color:#f92672">-&gt;</span>before_count<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">heap_insert</span>(heap, cur<span style="color:#f92672">-&gt;</span>after[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d&#34;</span>, cur<span style="color:#f92672">-&gt;</span>value);
+</span></span><span style="display:flex;"><span>    count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">heap_delete</span>(heap);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> size;
+</span></span><span style="display:flex;"><span>  Node<span style="color:#f92672">*</span> nodes[MAXN];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>size);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>size; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tmp;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>tmp);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(tmp<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>) nodes[i] <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> nodes[i] <span style="color:#f92672">=</span> <span style="color:#a6e22e">node_init</span>(tmp);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">build_node_reletions</span>(nodes, size);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">build_input_seq</span>(nodes, size);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.yejsgk.top/tags/fds-homework/">FDS Homework</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://www.yejsgk.top/">My Web | Wei, Feng</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

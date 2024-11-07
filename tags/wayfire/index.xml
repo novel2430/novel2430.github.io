@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Wayfire on My Web | Wei, Feng</title>
+    <link>https://www.yejsgk.top/tags/wayfire/</link>
+    <description>Recent content in Wayfire on My Web | Wei, Feng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Apr 2024 18:03:02 +0800</lastBuildDate>
+    <atom:link href="https://www.yejsgk.top/tags/wayfire/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple Wayfire Keybind</title>
+      <link>https://www.yejsgk.top/notes/simple-wayfire-keybind/</link>
+      <pubDate>Mon, 08 Apr 2024 18:03:02 +0800</pubDate>
+      <guid>https://www.yejsgk.top/notes/simple-wayfire-keybind/</guid>
+      <description>Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&amp;#34;/home/novel2430/Pictures/screenshot/&amp;#34; # &amp;lt;--- Where you want to save your screenshots now_date=$(date &amp;#39;+%Y%m%d-%H%M%S&amp;#39;) file_name=&amp;#34;${path}${now_date}.png&amp;#34; msg=&amp;#34;save as ${file_name}&amp;#34; case $1 in full) grim ${file_name} &amp;amp;&amp;amp; dunstify -a &amp;#34;Screenshot&amp;#34; &amp;#34;Full&amp;#34; &amp;#34;${msg}&amp;#34; -r 2003 ;; select) grim -g</description>
+    </item>
+    <item>
+      <title>Basic Wayfire Applications</title>
+      <link>https://www.yejsgk.top/notes/basic-wayfire-applications/</link>
+      <pubDate>Tue, 26 Mar 2024 21:53:17 +0800</pubDate>
+      <guid>https://www.yejsgk.top/notes/basic-wayfire-applications/</guid>
+      <description>Applications on Wayfire Setup Wayfire Basic Environment [ App Menu ] (wofi) yay -S wofi # ~/.config/wayfire.ini ... # Start your launcher # https://hg.sr.ht/~scoopta/wofi # Note: Add mode=run or mode=drun to ~/.config/wofi/config. # You can also specify the mode with --show option. binding_launcher = &amp;lt;super&amp;gt; KEY_D # &amp;lt;-- Change key binding command_launcher = wofi --show drun # &amp;lt;-- Change exec command ... [ Web Browser ] (firefox) yay -S firefox</description>
+    </item>
+    <item>
+      <title>Basic Archlinux Wayfire Install</title>
+      <link>https://www.yejsgk.top/notes/basic-archlinux-wayfire-install/</link>
+      <pubDate>Tue, 26 Mar 2024 21:40:18 +0800</pubDate>
+      <guid>https://www.yejsgk.top/notes/basic-archlinux-wayfire-install/</guid>
+      <description>Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]</description>
+    </item>
+  </channel>
+</rss>
