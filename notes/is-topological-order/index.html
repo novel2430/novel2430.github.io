@@ -7,10 +7,32 @@
 <meta name="robots" content="index, follow">
 <title>Is Topological Order | My Web | Wei, Feng</title>
 <meta name="keywords" content="FDS Homework">
-<meta name="description" content="6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;">
+<meta name="description" content="6-1 Is Topological Order
+Write a program to test if a give sequence Seq is a topological order of a given graph Graph.
+Format of functions:
+bool IsTopSeq( LGraph Graph, Vertex Seq[] );
+where LGraph is defined as the following:
+typedef struct AdjVNode *PtrToAdjVNode; 
+struct AdjVNode{
+    Vertex AdjV;
+    PtrToAdjVNode Next;
+};
+
+typedef struct Vnode{
+    PtrToAdjVNode FirstEdge;
+} AdjList[MaxVertexNum];
+
+typedef struct GNode *PtrToGNode;
+struct GNode{  
+    int Nv;
+    int Ne;
+    AdjList G;
+};
+typedef PtrToGNode LGraph;
+The function IsTopSeq must return true if Seq does correspond to a topological order; otherwise return false.">
 <meta name="author" content="">
 <link rel="canonical" href="https://novel2430.github.io/notes/is-topological-order/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -55,19 +77,43 @@
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:url" content="https://novel2430.github.io/notes/is-topological-order/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="Is Topological Order">
+  <meta property="og:description" content="6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph.
+Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following:
+typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G; }; typedef PtrToGNode LGraph; The function IsTopSeq must return true if Seq does correspond to a topological order; otherwise return false.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-02-13T18:46:14+08:00">
+    <meta property="article:modified_time" content="2024-02-13T18:46:14+08:00">
+    <meta property="article:tag" content="FDS Homework">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Is Topological Order">
+<meta name="twitter:description" content="6-1 Is Topological Order
+Write a program to test if a give sequence Seq is a topological order of a given graph Graph.
+Format of functions:
+bool IsTopSeq( LGraph Graph, Vertex Seq[] );
+where LGraph is defined as the following:
+typedef struct AdjVNode *PtrToAdjVNode; 
+struct AdjVNode{
+    Vertex AdjV;
+    PtrToAdjVNode Next;
+};
 
-<meta property="og:title" content="Is Topological Order" />
-<meta property="og:description" content="6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://novel2430.github.io/notes/is-topological-order/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-02-13T18:46:14+08:00" />
-<meta property="article:modified_time" content="2024-02-13T18:46:14+08:00" />
+typedef struct Vnode{
+    PtrToAdjVNode FirstEdge;
+} AdjList[MaxVertexNum];
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Is Topological Order"/>
-<meta name="twitter:description" content="6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;"/>
+typedef struct GNode *PtrToGNode;
+struct GNode{  
+    int Nv;
+    int Ne;
+    AdjList G;
+};
+typedef PtrToGNode LGraph;
+The function IsTopSeq must return true if Seq does correspond to a topological order; otherwise return false.">
 
 
 <script type="application/ld+json">
@@ -96,7 +142,7 @@
   "@type": "BlogPosting",
   "headline": "Is Topological Order",
   "name": "Is Topological Order",
-  "description": "6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;",
+  "description": "6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph.\nFormat of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following:\ntypedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G; }; typedef PtrToGNode LGraph; The function IsTopSeq must return true if Seq does correspond to a topological order; otherwise return false.\n",
   "keywords": [
     "FDS Homework"
   ],
@@ -158,8 +204,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -207,94 +251,33 @@
     <div class="post-meta"><span title='2024-02-13 18:46:14 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
-            </summary>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#6-1-is-topological-order" aria-label="6-1 Is Topological Order">6-1 Is Topological Order</a><ul>
-                            
-                    <li>
-                        <a href="#format-of-functions" aria-label="Format of functions:">Format of functions:</a></li>
-                    <li>
-                        <a href="#sample-program-of-judge" aria-label="Sample program of judge:">Sample program of judge:</a></li>
-                    <li>
-                        <a href="#sample-input-for-the-graph-shown-in-the-figure" aria-label="Sample Input (for the graph shown in the figure):">Sample Input (for the graph shown in the figure):</a></li>
-                    <li>
-                        <a href="#sample-output" aria-label="Sample Output:">Sample Output:</a></li>
-                    <li>
-                        <a href="#code" aria-label="Code">Code</a>
-                    </li>
-                </ul>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#6-1-is-topological-order" aria-label="6-1 Is Topological Order">6-1 Is Topological Order</a><ul>
+                        
+                <li>
+                    <a href="#format-of-functions" aria-label="Format of functions:">Format of functions:</a></li>
+                <li>
+                    <a href="#sample-program-of-judge" aria-label="Sample program of judge:">Sample program of judge:</a></li>
+                <li>
+                    <a href="#sample-input-for-the-graph-shown-in-the-figure" aria-label="Sample Input (for the graph shown in the figure):">Sample Input (for the graph shown in the figure):</a></li>
+                <li>
+                    <a href="#sample-output" aria-label="Sample Output:">Sample Output:</a></li>
+                <li>
+                    <a href="#code" aria-label="Code">Code</a>
                 </li>
-                </ul>
-            </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
-
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
-    }
-</script>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
   <div class="post-content"><h1 id="6-1-is-topological-order">6-1 Is Topological Order<a hidden class="anchor" aria-hidden="true" href="#6-1-is-topological-order">#</a></h1>
 <p>Write a program to test if a give sequence <code>Seq</code> is a topological order of a given graph <code>Graph</code>.</p>
@@ -368,8 +351,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* Your function will be put here */</span>
 </span></span></code></pre></div><h2 id="sample-input-for-the-graph-shown-in-the-figure">Sample Input (for the graph shown in the figure):<a hidden class="anchor" aria-hidden="true" href="#sample-input-for-the-graph-shown-in-the-figure">#</a></h2>
-<p><img loading="lazy" src="https://images.ptausercontent.com/5373e878-196d-45dd-a82f-555b1fea6929.JPG" alt="image"  />
-</p>
+<p><img alt="image" loading="lazy" src="https://images.ptausercontent.com/5373e878-196d-45dd-a82f-555b1fea6929.JPG"></p>
 <pre tabindex="0"><code>6 8
 1 2
 1 3
@@ -477,7 +459,8 @@ no
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span>
+        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

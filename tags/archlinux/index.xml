@@ -4,7 +4,7 @@
     <title>Archlinux on My Web | Wei, Feng</title>
     <link>https://novel2430.github.io/tags/archlinux/</link>
     <description>Recent content in Archlinux on My Web | Wei, Feng</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.136.5</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Mar 2024 21:40:18 +0800</lastBuildDate>
     <atom:link href="https://novel2430.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,25 @@
       <link>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</link>
       <pubDate>Tue, 26 Mar 2024 21:40:18 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</guid>
-      <description>Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]</description>
+      <description>&lt;h1 id=&#34;basic-archlinuxuefi--wayfire-install&#34;&gt;Basic ArchLinux(UEFI) + WayFire Install&lt;/h1&gt;
+&lt;h2 id=&#34;basic-arch-install&#34;&gt;Basic Arch Install&lt;/h2&gt;
+&lt;h3 id=&#34;-check-uefi-or-bios-&#34;&gt;[ Check UEFI or BIOS ]&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls /sys/firmware/efi/efivars
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the directory not exist, you are not in UEFI mode.&lt;/p&gt;
+&lt;h3 id=&#34;-internet-&#34;&gt;[ Internet ]&lt;/h3&gt;
+&lt;h4 id=&#34;check-system-activate-internet-interface&#34;&gt;Check system activate internet interface&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip link
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;for-ethernet-dhcp&#34;&gt;For Ethernet (DHCP)&lt;/h4&gt;
+&lt;p&gt;Good to go!&lt;/p&gt;
+&lt;h4 id=&#34;for-wifi-iwd&#34;&gt;For WiFi (iwd)&lt;/h4&gt;
+&lt;p&gt;enter interactive prompt&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;iwctl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;list all wifi device&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; device list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;select the device you want to use, i.e: wlan0&lt;br&gt;
+and start scanning&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; station &amp;lt;device&amp;gt; scan
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;after scanning, you can list all available networks&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ideas on My Web | Wei, Feng</title>
-    <link>https://novel2430.github.io/ideas/</link>
-    <description>Recent content in Ideas on My Web | Wei, Feng</description>
+    <title>Study on My Web | Wei, Feng</title>
+    <link>https://novel2430.github.io/tags/study/</link>
+    <description>Recent content in Study on My Web | Wei, Feng</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Dec 2024 13:57:42 +0800</lastBuildDate>
-    <atom:link href="https://novel2430.github.io/ideas/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://novel2430.github.io/tags/study/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ZJU_postgraduate_entrance examination sharing</title>
       <link>https://novel2430.github.io/ideas/zju_postgraduate_entrance_exam/</link>
@@ -19,17 +19,6 @@
 &lt;h3 id=&#34;城市选择-生活成本&#34;&gt;城市选择: 生活成本&lt;/h3&gt;
 &lt;p&gt;&lt;img alt=&#34;image&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/novel2430/MyImage/refs/heads/main/ZJU_postgraduate_exam_04.png&#34;&gt;
 第一个你可能会好奇的就是城市的选择，浙江大学在杭州，杭州不像上海是一个节奏快速，举世闻名的大城市，最直观的比如说物价可能就会低一点。那对于杭州，我会以在这个地方的生活成本，还有我所知道在杭州的实习机会来跟各位分享。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cozy</title>
-      <link>https://novel2430.github.io/ideas/cozy/</link>
-      <pubDate>Tue, 20 Feb 2024 21:46:47 +0800</pubDate>
-      <guid>https://novel2430.github.io/ideas/cozy/</guid>
-      <description>&lt;h1 id=&#34;song---cozy&#34;&gt;Song - Cozy&lt;/h1&gt;
-&lt;p&gt;A little song for my ex.&lt;br&gt;
-I hope you can be happy even when I&amp;rsquo;m not with you 🫠
-&lt;img alt=&#34;img&#34; loading=&#34;lazy&#34; src=&#34;https://cloud.yejsgk.top/f/eZT0/20231225232420_small.jpg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;audio controls src=&#34;https://cloud.yejsgk.top/f/4jha/Cozy.mp3&#34;&gt;&lt;/audio&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

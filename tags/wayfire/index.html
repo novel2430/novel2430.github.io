@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://novel2430.github.io/tags/wayfire/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -56,17 +56,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Wayfire" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://novel2430.github.io/tags/wayfire/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Wayfire"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://novel2430.github.io/tags/wayfire/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="Wayfire">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wayfire">
+<meta name="twitter:description" content="">
 
 </head>
 
@@ -107,8 +104,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -158,7 +153,13 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&#34;/home/novel2430/Pictures/screenshot/&#34; # &lt;--- Where you want to save your screenshots now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;) file_name=&#34;${path}${now_date}.png&#34; msg=&#34;save as ${file_name}&#34; case $1 in full) grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003 ;; select) grim -g...</p>
+    <p>Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function
+grim
+screenshot slurp
+select a region Install grim and slurp
+yay -S grim slurp For example shell script
+# ~/.config/wayfire/scripts/screenshot.sh path=&#34;/home/novel2430/Pictures/screenshot/&#34; # &lt;--- Where you want to save your screenshots now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;) file_name=&#34;${path}${now_date}.png&#34; msg=&#34;save as ${file_name}&#34; case $1 in full) grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003 ;; select) grim -g &#34;$(slurp)&#34; ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Select&#34; &#34;${msg}&#34; -r 2003 ;; esac Clipboard Manager We need two packages: cliphist and wl-clipboard
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-04-08 18:03:02 +0800 CST'>April 8, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Simple Wayfire Keybind" href="https://novel2430.github.io/notes/simple-wayfire-keybind/"></a>
@@ -170,7 +171,8 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Applications on Wayfire Setup Wayfire Basic Environment [ App Menu ] (wofi) yay -S wofi # ~/.config/wayfire.ini ... # Start your launcher # https://hg.sr.ht/~scoopta/wofi # Note: Add mode=run or mode=drun to ~/.config/wofi/config. # You can also specify the mode with --show option. binding_launcher = &lt;super&gt; KEY_D # &lt;-- Change key binding command_launcher = wofi --show drun # &lt;-- Change exec command ... [ Web Browser ] (firefox) yay -S firefox...</p>
+    <p>Applications on Wayfire Setup Wayfire Basic Environment [ App Menu ] (wofi) yay -S wofi # ~/.config/wayfire.ini ... # Start your launcher # https://hg.sr.ht/~scoopta/wofi # Note: Add mode=run or mode=drun to ~/.config/wofi/config. # You can also specify the mode with --show option. binding_launcher = &lt;super&gt; KEY_D # &lt;-- Change key binding command_launcher = wofi --show drun # &lt;-- Change exec command ... [ Web Browser ] (firefox) yay -S firefox Now you can use Wofi to open Firefox
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-03-26 21:53:17 +0800 CST'>March 26, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Basic Wayfire Applications" href="https://novel2430.github.io/notes/basic-wayfire-applications/"></a>
@@ -182,7 +184,14 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Basic ArchLinux(UEFI) &#43; WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]...</p>
+    <p>Basic ArchLinux(UEFI) &#43; WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode.
+[ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go!
+For WiFi (iwd) enter interactive prompt
+iwctl list all wifi device
+[iwd] device list select the device you want to use, i.e: wlan0
+and start scanning
+[iwd] station &lt;device&gt; scan after scanning, you can list all available networks
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-03-26 21:40:18 +0800 CST'>March 26, 2024</span>&nbsp;·&nbsp;3 min</footer>
   <a class="entry-link" aria-label="post link to Basic Archlinux Wayfire Install" href="https://novel2430.github.io/notes/basic-archlinux-wayfire-install/"></a>
@@ -190,7 +199,8 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span>
+        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

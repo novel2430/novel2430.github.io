@@ -4,7 +4,7 @@
     <title>AlpineLinux on My Web | Wei, Feng</title>
     <link>https://novel2430.github.io/tags/alpinelinux/</link>
     <description>Recent content in AlpineLinux on My Web | Wei, Feng</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.136.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 07 Apr 2024 20:03:09 +0800</lastBuildDate>
     <atom:link href="https://novel2430.github.io/tags/alpinelinux/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,72 @@
       <link>https://novel2430.github.io/notes/alpine-to-sway/</link>
       <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/alpine-to-sway/</guid>
-      <description>Alpine Linux with Sway Bash, Text Editor Packages apk add vim bash Create Non Root User Packages apk add sudo shadow Command Add User useradd -m -G wheel -s /bin/bash &amp;lt;user_name&amp;gt; passwd &amp;lt;user_name&amp;gt; sudo file EDITOR=vim visudo # Make wheel group can use sudo Setup eudev setup-devd udev GPU Intel apk add mesa-dri-gallium AMD Read here Nvidia Read here PAM apk add linux-pam shadow-login Elogind apk add elogind polkit-elogind dbus</description>
+      <description>&lt;h1 id=&#34;alpine-linux-with-sway&#34;&gt;Alpine Linux with Sway&lt;/h1&gt;
+&lt;h2 id=&#34;bash-text-editor&#34;&gt;Bash, Text Editor&lt;/h2&gt;
+&lt;h3 id=&#34;packages&#34;&gt;Packages&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add vim bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-non-root-user&#34;&gt;Create Non Root User&lt;/h2&gt;
+&lt;h3 id=&#34;packages-1&#34;&gt;Packages&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add sudo shadow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;command&#34;&gt;Command&lt;/h3&gt;
+&lt;h4 id=&#34;add-user&#34;&gt;Add User&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;useradd -m -G wheel -s /bin/bash &amp;lt;user_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd &amp;lt;user_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;sudo-file&#34;&gt;sudo file&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;EDITOR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vim visudo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Make wheel group can use sudo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;setup-eudev&#34;&gt;Setup eudev&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-devd udev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gpu&#34;&gt;GPU&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Intel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add mesa-dri-gallium
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;AMD&lt;br&gt;
+Read &lt;a href=&#34;https://wiki.alpinelinux.org/wiki/Radeon_Video&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Nvidia&lt;br&gt;
+Read &lt;a href=&#34;https://wiki.alpinelinux.org/wiki/NVIDIA&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pam&#34;&gt;PAM&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add linux-pam shadow-login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elogind&#34;&gt;Elogind&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add elogind polkit-elogind dbus
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add elogind
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add polkit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add dbus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sway&#34;&gt;Sway&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add sway
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;reboot&#34;&gt;Reboot&lt;/h2&gt;
+&lt;p&gt;After rebooting your computer, you should use your non-root userer to log in&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic AlpineLinux (UEFI) Install</title>
       <link>https://novel2430.github.io/notes/basic-alpinelinux-install/</link>
       <pubDate>Fri, 05 Apr 2024 15:12:21 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/basic-alpinelinux-install/</guid>
-      <description>Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi &amp;amp;&amp;amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer &amp;#39;us&amp;#39; twice Hostname setup-hostname &amp;lt;your_hostname&amp;gt; Networking Alpine Linux&amp;rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update</description>
+      <description>&lt;h1 id=&#34;alpine-linuxuefi-semi-automatic-installation&#34;&gt;Alpine Linux(UEFI) Semi-Automatic Installation&lt;/h1&gt;
+&lt;h2 id=&#34;enter-installation&#34;&gt;Enter Installation&lt;/h2&gt;
+&lt;p&gt;Your login username is &lt;code&gt;root&lt;/code&gt;, password is empty&lt;/p&gt;
+&lt;h2 id=&#34;check-uefi&#34;&gt;Check UEFI&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;test -d /sys/firmware/efi &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; echo UEFI &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; echo BIOS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;keyboard-layout&#34;&gt;Keyboard Layout&lt;/h2&gt;
+&lt;p&gt;Answer some questions&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-keymap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## answer &amp;#39;us&amp;#39; twice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;hostname&#34;&gt;Hostname&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-hostname &amp;lt;your_hostname&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;networking&#34;&gt;Networking&lt;/h2&gt;
+&lt;p&gt;Alpine Linux&amp;rsquo;s wiki recommend you using ethernet to connect internet&lt;br&gt;
+But you can also use &lt;code&gt;setup-interfaces&lt;/code&gt; to use wireless connection
+Answer some questions&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-interfaces
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After the configuration&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-service networking start
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add networking boot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;apk-repositories&#34;&gt;Apk Repositories&lt;/h2&gt;
+&lt;p&gt;You can find all repositories mirrors in &lt;a href=&#34;https://mirrors.alpinelinux.org/&#34;&gt;here&lt;/a&gt;&lt;br&gt;
+Edit &lt;code&gt;/etc/apk/repositories&lt;/code&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

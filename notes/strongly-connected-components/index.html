@@ -7,10 +7,26 @@
 <meta name="robots" content="index, follow">
 <title>Strongly Connected Components | My Web | Wei, Feng</title>
 <meta name="keywords" content="FDS Homework">
-<meta name="description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is">
+<meta name="description" content="6-1 Strongly Connected Components
+Write a program to find the strongly connected components in a digraph.
+Format of functions:
+void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) );
+where Graph is defined as the following:
+typedef struct VNode *PtrToVNode;
+struct VNode {
+    Vertex Vert;
+    PtrToVNode Next;
+};
+typedef struct GNode *Graph;
+struct GNode {
+    int NumOfVertices;
+    int NumOfEdges;
+    PtrToVNode *Array;
+};
+Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.">
 <meta name="author" content="">
 <link rel="canonical" href="https://novel2430.github.io/notes/strongly-connected-components/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -55,19 +71,37 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Strongly Connected Components" />
-<meta property="og:description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://novel2430.github.io/notes/strongly-connected-components/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-02-14T01:22:00+08:00" />
-<meta property="article:modified_time" content="2024-02-14T01:22:00+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Strongly Connected Components"/>
-<meta name="twitter:description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is"/>
+</noscript><meta property="og:url" content="https://novel2430.github.io/notes/strongly-connected-components/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="Strongly Connected Components">
+  <meta property="og:description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph.
+Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following:
+typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-02-14T01:22:00+08:00">
+    <meta property="article:modified_time" content="2024-02-14T01:22:00+08:00">
+    <meta property="article:tag" content="FDS Homework">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Strongly Connected Components">
+<meta name="twitter:description" content="6-1 Strongly Connected Components
+Write a program to find the strongly connected components in a digraph.
+Format of functions:
+void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) );
+where Graph is defined as the following:
+typedef struct VNode *PtrToVNode;
+struct VNode {
+    Vertex Vert;
+    PtrToVNode Next;
+};
+typedef struct GNode *Graph;
+struct GNode {
+    int NumOfVertices;
+    int NumOfEdges;
+    PtrToVNode *Array;
+};
+Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.">
 
 
 <script type="application/ld+json">
@@ -96,7 +130,7 @@
   "@type": "BlogPosting",
   "headline": "Strongly Connected Components",
   "name": "Strongly Connected Components",
-  "description": "6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is",
+  "description": "6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph.\nFormat of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following:\ntypedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.\n",
   "keywords": [
     "FDS Homework"
   ],
@@ -158,8 +192,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -207,96 +239,35 @@
     <div class="post-meta"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
-            </summary>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#6-1-strongly-connected-components" aria-label="6-1 Strongly Connected Components">6-1 Strongly Connected Components</a><ul>
-                            
-                    <li>
-                        <a href="#format-of-functions" aria-label="Format of functions:">Format of functions:</a></li>
-                    <li>
-                        <a href="#sample-program-of-judge" aria-label="Sample program of judge:">Sample program of judge:</a></li>
-                    <li>
-                        <a href="#sample-input-for-the-graph-shown-in-the-figure" aria-label="Sample Input (for the graph shown in the figure):">Sample Input (for the graph shown in the figure):</a></li>
-                    <li>
-                        <a href="#sample-output" aria-label="Sample Output:">Sample Output:</a></li>
-                    <li>
-                        <a href="#code-tarjan" aria-label="Code Tarjan">Code Tarjan</a></li>
-                    <li>
-                        <a href="#code-kosaraju" aria-label="Code Kosaraju">Code Kosaraju</a>
-                    </li>
-                </ul>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#6-1-strongly-connected-components" aria-label="6-1 Strongly Connected Components">6-1 Strongly Connected Components</a><ul>
+                        
+                <li>
+                    <a href="#format-of-functions" aria-label="Format of functions:">Format of functions:</a></li>
+                <li>
+                    <a href="#sample-program-of-judge" aria-label="Sample program of judge:">Sample program of judge:</a></li>
+                <li>
+                    <a href="#sample-input-for-the-graph-shown-in-the-figure" aria-label="Sample Input (for the graph shown in the figure):">Sample Input (for the graph shown in the figure):</a></li>
+                <li>
+                    <a href="#sample-output" aria-label="Sample Output:">Sample Output:</a></li>
+                <li>
+                    <a href="#code-tarjan" aria-label="Code Tarjan">Code Tarjan</a></li>
+                <li>
+                    <a href="#code-kosaraju" aria-label="Code Kosaraju">Code Kosaraju</a>
                 </li>
-                </ul>
-            </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
-
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
-    }
-</script>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
   <div class="post-content"><h1 id="6-1-strongly-connected-components">6-1 Strongly Connected Components<a hidden class="anchor" aria-hidden="true" href="#6-1-strongly-connected-components">#</a></h1>
 <p>Write a program to find the strongly connected components in a digraph.</p>
@@ -350,8 +321,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* Your function will be put here */</span>
 </span></span></code></pre></div><h2 id="sample-input-for-the-graph-shown-in-the-figure">Sample Input (for the graph shown in the figure):<a hidden class="anchor" aria-hidden="true" href="#sample-input-for-the-graph-shown-in-the-figure">#</a></h2>
-<p><img loading="lazy" src="https://github.com/novel2430/ZJU-2023-FDS/blob/main/ZJUFDS_2023_HW11/6-1-Strongly-Connected-Components/001.jpg?raw=true" alt="image"  />
-</p>
+<p><img alt="image" loading="lazy" src="https://github.com/novel2430/ZJU-2023-FDS/blob/main/ZJUFDS_2023_HW11/6-1-Strongly-Connected-Components/001.jpg?raw=true"></p>
 <pre tabindex="0"><code>4 5
 0 1
 1 2
@@ -689,7 +659,8 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span>
+        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

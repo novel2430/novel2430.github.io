@@ -4,163 +4,569 @@
     <title>My Web | Wei, Feng</title>
     <link>https://novel2430.github.io/</link>
     <description>Recent content on My Web | Wei, Feng</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.136.5</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Apr 2024 18:03:02 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2024 13:57:42 +0800</lastBuildDate>
     <atom:link href="https://novel2430.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ZJU_postgraduate_entrance examination sharing</title>
+      <link>https://novel2430.github.io/ideas/zju_postgraduate_entrance_exam/</link>
+      <pubDate>Sat, 14 Dec 2024 13:57:42 +0800</pubDate>
+      <guid>https://novel2430.github.io/ideas/zju_postgraduate_entrance_exam/</guid>
+      <description>&lt;h1 id=&#34;zju考研分享&#34;&gt;ZJU考研分享&lt;/h1&gt;
+&lt;h2 id=&#34;part1---来内地考研&#34;&gt;Part1 - 来内地考研?&lt;/h2&gt;
+&lt;p&gt;那首先，就是关于考研的选择。&lt;/p&gt;
+&lt;h3 id=&#34;城市选择-生活成本&#34;&gt;城市选择: 生活成本&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;image&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/novel2430/MyImage/refs/heads/main/ZJU_postgraduate_exam_04.png&#34;&gt;
+第一个你可能会好奇的就是城市的选择，浙江大学在杭州，杭州不像上海是一个节奏快速，举世闻名的大城市，最直观的比如说物价可能就会低一点。那对于杭州，我会以在这个地方的生活成本，还有我所知道在杭州的实习机会来跟各位分享。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Simple Wayfire Keybind</title>
       <link>https://novel2430.github.io/notes/simple-wayfire-keybind/</link>
       <pubDate>Mon, 08 Apr 2024 18:03:02 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/simple-wayfire-keybind/</guid>
-      <description>Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&amp;#34;/home/novel2430/Pictures/screenshot/&amp;#34; # &amp;lt;--- Where you want to save your screenshots now_date=$(date &amp;#39;+%Y%m%d-%H%M%S&amp;#39;) file_name=&amp;#34;${path}${now_date}.png&amp;#34; msg=&amp;#34;save as ${file_name}&amp;#34; case $1 in full) grim ${file_name} &amp;amp;&amp;amp; dunstify -a &amp;#34;Screenshot&amp;#34; &amp;#34;Full&amp;#34; &amp;#34;${msg}&amp;#34; -r 2003 ;; select) grim -g</description>
+      <description>&lt;h1 id=&#34;some-simple-wayfire-custom-keybind&#34;&gt;Some simple Wayfire custom keybind&lt;/h1&gt;
+&lt;h2 id=&#34;screenshot&#34;&gt;ScreenShot&lt;/h2&gt;
+&lt;p&gt;You can use &lt;code&gt;grim&lt;/code&gt; and &lt;code&gt;slurp&lt;/code&gt; to have screenshot function&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;grim&lt;br&gt;
+screenshot&lt;/li&gt;
+&lt;li&gt;slurp&lt;br&gt;
+select a region&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Install grim and slurp&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yay -S grim slurp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For example shell script&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ~/.config/wayfire/scripts/screenshot.sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/novel2430/Pictures/screenshot/&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;# &amp;lt;--- Where you want to save your screenshots&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;now_date&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;date &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;+%Y%m%d-%H%M%S&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;file_name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;path&lt;span style=&#34;color:#e6db74&#34;&gt;}${&lt;/span&gt;now_date&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;save as &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;file_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; $1 in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  full&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    grim &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;file_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; dunstify -a &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Screenshot&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Full&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;msg&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -r &lt;span style=&#34;color:#ae81ff&#34;&gt;2003&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    grim -g &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;slurp&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;file_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; dunstify -a &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Screenshot&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Select&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;msg&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -r &lt;span style=&#34;color:#ae81ff&#34;&gt;2003&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;clipboard-manager&#34;&gt;Clipboard Manager&lt;/h2&gt;
+&lt;p&gt;We need two packages: &lt;code&gt;cliphist&lt;/code&gt; and &lt;code&gt;wl-clipboard&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Alpine to Sway</title>
       <link>https://novel2430.github.io/notes/alpine-to-sway/</link>
       <pubDate>Sun, 07 Apr 2024 20:03:09 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/alpine-to-sway/</guid>
-      <description>Alpine Linux with Sway Bash, Text Editor Packages apk add vim bash Create Non Root User Packages apk add sudo shadow Command Add User useradd -m -G wheel -s /bin/bash &amp;lt;user_name&amp;gt; passwd &amp;lt;user_name&amp;gt; sudo file EDITOR=vim visudo # Make wheel group can use sudo Setup eudev setup-devd udev GPU Intel apk add mesa-dri-gallium AMD Read here Nvidia Read here PAM apk add linux-pam shadow-login Elogind apk add elogind polkit-elogind dbus</description>
+      <description>&lt;h1 id=&#34;alpine-linux-with-sway&#34;&gt;Alpine Linux with Sway&lt;/h1&gt;
+&lt;h2 id=&#34;bash-text-editor&#34;&gt;Bash, Text Editor&lt;/h2&gt;
+&lt;h3 id=&#34;packages&#34;&gt;Packages&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add vim bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-non-root-user&#34;&gt;Create Non Root User&lt;/h2&gt;
+&lt;h3 id=&#34;packages-1&#34;&gt;Packages&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add sudo shadow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;command&#34;&gt;Command&lt;/h3&gt;
+&lt;h4 id=&#34;add-user&#34;&gt;Add User&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;useradd -m -G wheel -s /bin/bash &amp;lt;user_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd &amp;lt;user_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;sudo-file&#34;&gt;sudo file&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;EDITOR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vim visudo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Make wheel group can use sudo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;setup-eudev&#34;&gt;Setup eudev&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-devd udev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gpu&#34;&gt;GPU&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Intel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add mesa-dri-gallium
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;AMD&lt;br&gt;
+Read &lt;a href=&#34;https://wiki.alpinelinux.org/wiki/Radeon_Video&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Nvidia&lt;br&gt;
+Read &lt;a href=&#34;https://wiki.alpinelinux.org/wiki/NVIDIA&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pam&#34;&gt;PAM&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add linux-pam shadow-login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elogind&#34;&gt;Elogind&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add elogind polkit-elogind dbus
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add elogind
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add polkit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add dbus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sway&#34;&gt;Sway&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apk add sway
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;reboot&#34;&gt;Reboot&lt;/h2&gt;
+&lt;p&gt;After rebooting your computer, you should use your non-root userer to log in&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic AlpineLinux (UEFI) Install</title>
       <link>https://novel2430.github.io/notes/basic-alpinelinux-install/</link>
       <pubDate>Fri, 05 Apr 2024 15:12:21 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/basic-alpinelinux-install/</guid>
-      <description>Alpine Linux(UEFI) Semi-Automatic Installation Enter Installation Your login username is root, password is empty Check UEFI test -d /sys/firmware/efi &amp;amp;&amp;amp; echo UEFI || echo BIOS Keyboard Layout Answer some questions setup-keymap ## answer &amp;#39;us&amp;#39; twice Hostname setup-hostname &amp;lt;your_hostname&amp;gt; Networking Alpine Linux&amp;rsquo;s wiki recommend you using ethernet to connect internet But you can also use setup-interfaces to use wireless connection Answer some questions setup-interfaces After the configuration rc-service networking start rc-update</description>
+      <description>&lt;h1 id=&#34;alpine-linuxuefi-semi-automatic-installation&#34;&gt;Alpine Linux(UEFI) Semi-Automatic Installation&lt;/h1&gt;
+&lt;h2 id=&#34;enter-installation&#34;&gt;Enter Installation&lt;/h2&gt;
+&lt;p&gt;Your login username is &lt;code&gt;root&lt;/code&gt;, password is empty&lt;/p&gt;
+&lt;h2 id=&#34;check-uefi&#34;&gt;Check UEFI&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;test -d /sys/firmware/efi &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; echo UEFI &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; echo BIOS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;keyboard-layout&#34;&gt;Keyboard Layout&lt;/h2&gt;
+&lt;p&gt;Answer some questions&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-keymap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## answer &amp;#39;us&amp;#39; twice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;hostname&#34;&gt;Hostname&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-hostname &amp;lt;your_hostname&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;networking&#34;&gt;Networking&lt;/h2&gt;
+&lt;p&gt;Alpine Linux&amp;rsquo;s wiki recommend you using ethernet to connect internet&lt;br&gt;
+But you can also use &lt;code&gt;setup-interfaces&lt;/code&gt; to use wireless connection
+Answer some questions&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setup-interfaces
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After the configuration&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-service networking start
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rc-update add networking boot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;apk-repositories&#34;&gt;Apk Repositories&lt;/h2&gt;
+&lt;p&gt;You can find all repositories mirrors in &lt;a href=&#34;https://mirrors.alpinelinux.org/&#34;&gt;here&lt;/a&gt;&lt;br&gt;
+Edit &lt;code&gt;/etc/apk/repositories&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic Wayfire Applications</title>
       <link>https://novel2430.github.io/notes/basic-wayfire-applications/</link>
       <pubDate>Tue, 26 Mar 2024 21:53:17 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/basic-wayfire-applications/</guid>
-      <description>Applications on Wayfire Setup Wayfire Basic Environment [ App Menu ] (wofi) yay -S wofi # ~/.config/wayfire.ini ... # Start your launcher # https://hg.sr.ht/~scoopta/wofi # Note: Add mode=run or mode=drun to ~/.config/wofi/config. # You can also specify the mode with --show option. binding_launcher = &amp;lt;super&amp;gt; KEY_D # &amp;lt;-- Change key binding command_launcher = wofi --show drun # &amp;lt;-- Change exec command ... [ Web Browser ] (firefox) yay -S firefox</description>
+      <description>&lt;h1 id=&#34;applications-on-wayfire&#34;&gt;Applications on Wayfire&lt;/h1&gt;
+&lt;h2 id=&#34;setup-wayfire-basic-environment&#34;&gt;Setup Wayfire Basic Environment&lt;/h2&gt;
+&lt;h3 id=&#34;-app-menu--wofi&#34;&gt;[ App Menu ] (wofi)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yay -S wofi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ~/.config/wayfire.ini&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Start your launcher&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# https://hg.sr.ht/~scoopta/wofi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note: Add mode=run or mode=drun to ~/.config/wofi/config.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# You can also specify the mode with --show option.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;binding_launcher &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &amp;lt;super&amp;gt; KEY_D &lt;span style=&#34;color:#75715e&#34;&gt;# &amp;lt;-- Change key binding&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;command_launcher &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; wofi --show drun &lt;span style=&#34;color:#75715e&#34;&gt;# &amp;lt;-- Change exec command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;-web-browser--firefox&#34;&gt;[ Web Browser ] (firefox)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yay -S firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you can use &lt;code&gt;Wofi&lt;/code&gt; to open &lt;code&gt;Firefox&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic Archlinux Wayfire Install</title>
       <link>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</link>
       <pubDate>Tue, 26 Mar 2024 21:40:18 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</guid>
-      <description>Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]</description>
+      <description>&lt;h1 id=&#34;basic-archlinuxuefi--wayfire-install&#34;&gt;Basic ArchLinux(UEFI) + WayFire Install&lt;/h1&gt;
+&lt;h2 id=&#34;basic-arch-install&#34;&gt;Basic Arch Install&lt;/h2&gt;
+&lt;h3 id=&#34;-check-uefi-or-bios-&#34;&gt;[ Check UEFI or BIOS ]&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls /sys/firmware/efi/efivars
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the directory not exist, you are not in UEFI mode.&lt;/p&gt;
+&lt;h3 id=&#34;-internet-&#34;&gt;[ Internet ]&lt;/h3&gt;
+&lt;h4 id=&#34;check-system-activate-internet-interface&#34;&gt;Check system activate internet interface&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip link
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;for-ethernet-dhcp&#34;&gt;For Ethernet (DHCP)&lt;/h4&gt;
+&lt;p&gt;Good to go!&lt;/p&gt;
+&lt;h4 id=&#34;for-wifi-iwd&#34;&gt;For WiFi (iwd)&lt;/h4&gt;
+&lt;p&gt;enter interactive prompt&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;iwctl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;list all wifi device&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; device list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;select the device you want to use, i.e: wlan0&lt;br&gt;
+and start scanning&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; station &amp;lt;device&amp;gt; scan
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;after scanning, you can list all available networks&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cozy</title>
       <link>https://novel2430.github.io/ideas/cozy/</link>
       <pubDate>Tue, 20 Feb 2024 21:46:47 +0800</pubDate>
       <guid>https://novel2430.github.io/ideas/cozy/</guid>
-      <description>Song - Cozy A little song for my ex. I hope you can be happy even when I&amp;rsquo;m not with you 🫠</description>
+      <description>&lt;h1 id=&#34;song---cozy&#34;&gt;Song - Cozy&lt;/h1&gt;
+&lt;p&gt;A little song for my ex.&lt;br&gt;
+I hope you can be happy even when I&amp;rsquo;m not with you 🫠
+&lt;img alt=&#34;img&#34; loading=&#34;lazy&#34; src=&#34;https://cloud.yejsgk.top/f/eZT0/20231225232420_small.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;audio controls src=&#34;https://cloud.yejsgk.top/f/4jha/Cozy.mp3&#34;&gt;&lt;/audio&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Replacement Selection</title>
       <link>https://novel2430.github.io/notes/replacement-selection/</link>
       <pubDate>Wed, 14 Feb 2024 01:48:15 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/replacement-selection/</guid>
-      <description>7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back</description>
+      <description>&lt;h1 id=&#34;7-1-replacement-selection&#34;&gt;7-1 Replacement Selection&lt;/h1&gt;
+&lt;p&gt;When the input is much too large to fit into memory, we have to do &lt;strong&gt;external sorting&lt;/strong&gt; instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back to some tape. The size of each run is the same as the capacity of the internal memory.&lt;br&gt;
+&lt;strong&gt;Replacement Selection&lt;/strong&gt; sorting algorithm was described in 1965 by Donald Knuth. Notice that as soon as the first record is written to an output tape, the memory it used becomes available for another record. Assume that we are sorting in ascending order, if the next record is not smaller than the record we have just output, then it can be included in the run.&lt;br&gt;
+For example, suppose that we have a set of input { 81, 94, 11, 96, 12, 99, 35 }, and our memory can sort 3 records only. By the simplest method we will obtain three runs: { 11, 81, 94 }, { 12, 96, 99 } and { 35 }. According to the replacement selection algorithm, we would read and sort the first 3 records { 81, 94, 11 } and output 11 as the smallest one. Then one space is available so 96 is read in and will join the first run since it is larger than 11. Now we have { 81, 94, 96 }. After 81 is out, 12 comes in but it must belong to the next run since it is smaller than 81. Hence we have { 94, 96, 12 } where 12 will stay since it belongs to the next run. When 94 is out and 99 is in, since 99 is larger than 94, it must belong to the &lt;strong&gt;first run&lt;/strong&gt;. Eventually we will obtain two runs: the first one contains { 11, 81, 94, 96, 99 } and the second one contains { 12, 35 }.&lt;br&gt;
+Your job is to implement this replacement selection algorithm.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Queue Using Two Stacks</title>
       <link>https://novel2430.github.io/notes/queue-using-two-stacks/</link>
       <pubDate>Wed, 14 Feb 2024 01:46:47 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/queue-using-two-stacks/</guid>
-      <description>7-1 Queue Using Two Stacks A queue (FIFO structure) can be implemented by two stacks (LIFO structure) in the following way: Start from two empty stacks s1 and s2 When element e is enqueued, it is actually pushed onto s1 When we are supposed to dequeue, s2 is checked first. If s2 is empty, everything in s1 will be transferred to s2 by popping from s1 and immediately pushing onto</description>
+      <description>&lt;h1 id=&#34;7-1-queue-using-two-stacks&#34;&gt;7-1 Queue Using Two Stacks&lt;/h1&gt;
+&lt;p&gt;A queue (FIFO structure) can be implemented by two stacks (LIFO structure) in the following way:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Start from two empty stacks s&lt;sub&gt;1&lt;/sub&gt; and s&lt;sub&gt;2&lt;/sub&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When element &lt;code&gt;e&lt;/code&gt; is enqueued, it is actually pushed onto s&lt;sub&gt;1&lt;/sub&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When we are supposed to dequeue, s&lt;sub&gt;2&lt;/sub&gt; is checked first. If s&lt;sub&gt;2&lt;/sub&gt; is empty, everything in s&lt;sub&gt;1&lt;/sub&gt; will be transferred to s&lt;sub&gt;2&lt;/sub&gt; by popping from s&lt;sub&gt;1&lt;/sub&gt; and immediately pushing onto s&lt;sub&gt;2&lt;/sub&gt;. Then we just pop from s&lt;sub&gt;2&lt;/sub&gt; &amp;ndash; the top element of s&lt;sub&gt;2&lt;/sub&gt; must be the first one to enter s&lt;sub&gt;1&lt;/sub&gt; thus is the first element that was enqueued.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hashing Hard Version</title>
       <link>https://novel2430.github.io/notes/hashing-hard-version/</link>
       <pubDate>Wed, 14 Feb 2024 01:30:02 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/hashing-hard-version/</guid>
-      <description>7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers. However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there</description>
+      <description>&lt;h1 id=&#34;7-1-hashing---hard-version&#34;&gt;7-1 Hashing - Hard Version&lt;/h1&gt;
+&lt;p&gt;Given a hash table of size N, we can define a hash function &lt;code&gt;H(x)=x%N&lt;/code&gt;. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers.&lt;br&gt;
+However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there are multiple choices, the smallest number is always taken.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Insertion or Heap Sort</title>
       <link>https://novel2430.github.io/notes/insertion-or-heap-sort/</link>
       <pubDate>Wed, 14 Feb 2024 01:28:32 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/insertion-or-heap-sort/</guid>
-      <description>7-1 Insertion or Heap Sort According to Wikipedia: Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain. Heap sort divides its input into a sorted and an unsorted region, and it iteratively shrinks</description>
+      <description>&lt;h1 id=&#34;7-1-insertion-or-heap-sort&#34;&gt;7-1 Insertion or Heap Sort&lt;/h1&gt;
+&lt;p&gt;According to Wikipedia:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Insertion sort&lt;/strong&gt; iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Heap sort&lt;/strong&gt; divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. it involves the use of a heap data structure rather than a linear-time search to find the maximum.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Iterative Mergesort</title>
       <link>https://novel2430.github.io/notes/iterative-mergesort/</link>
       <pubDate>Wed, 14 Feb 2024 01:26:20 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/iterative-mergesort/</guid>
-      <description>6-1 Iterative Mergesort How would you implement mergesort without using recursion? The idea of iterative mergesort is to start from N sorted sublists of length 1, and each time to merge a pair of adjacent sublists until one sorted list is obtained. You are supposed to implement the key function of merging. Format of functions: void merge_pass( ElementType list[], ElementType sorted[], int N, int length ); The function merge_pass performs</description>
+      <description>&lt;h1 id=&#34;6-1-iterative-mergesort&#34;&gt;6-1 Iterative Mergesort&lt;/h1&gt;
+&lt;p&gt;How would you implement mergesort without using recursion?&lt;/p&gt;
+&lt;p&gt;The idea of iterative mergesort is to start from N sorted sublists of length 1, and each time to merge a pair of adjacent sublists until one sorted list is obtained. You are supposed to implement the key function of merging.&lt;/p&gt;
+&lt;h2 id=&#34;format-of-functions&#34;&gt;Format of functions:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;merge_pass&lt;/span&gt;( ElementType list[], ElementType sorted[], &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; N, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; length );
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The function &lt;code&gt;merge_pass&lt;/code&gt; performs one pass of the merge sort that merges adjacent pairs of sublists from &lt;code&gt;list&lt;/code&gt; into &lt;code&gt;sorted&lt;/code&gt;. &lt;code&gt;N&lt;/code&gt; is the number of elements in the &lt;code&gt;list&lt;/code&gt; and length is the &lt;code&gt;length&lt;/code&gt; of the sublists.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Strongly Connected Components</title>
       <link>https://novel2430.github.io/notes/strongly-connected-components/</link>
       <pubDate>Wed, 14 Feb 2024 01:22:00 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/strongly-connected-components/</guid>
-      <description>6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is</description>
+      <description>&lt;h1 id=&#34;6-1-strongly-connected-components&#34;&gt;6-1 Strongly Connected Components&lt;/h1&gt;
+&lt;p&gt;Write a program to find the strongly connected components in a digraph.&lt;/p&gt;
+&lt;h2 id=&#34;format-of-functions&#34;&gt;Format of functions:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;StronglyConnectedComponents&lt;/span&gt;( Graph G, &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;visit)(Vertex V) );
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where &lt;code&gt;Graph&lt;/code&gt; is defined as the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; VNode &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;PtrToVNode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; VNode {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Vertex Vert;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PtrToVNode Next;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; GNode &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;Graph;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; GNode {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; NumOfVertices;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; NumOfEdges;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PtrToVNode &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;Array;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here &lt;code&gt;void (*visit)(Vertex V)&lt;/code&gt; is a function parameter that is passed into &lt;code&gt;StronglyConnectedComponents&lt;/code&gt; to handle (print with a certain format) each vertex that is visited. The function &lt;code&gt;StronglyConnectedComponents&lt;/code&gt; is supposed to print a return after each component is found.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Uniqueness of MST</title>
       <link>https://novel2430.github.io/notes/uniqueness-of-mst/</link>
       <pubDate>Wed, 14 Feb 2024 01:18:35 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/uniqueness-of-mst/</guid>
-      <description>Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers</description>
+      <description>&lt;h1 id=&#34;uniqueness-of-mst&#34;&gt;Uniqueness of MST&lt;/h1&gt;
+&lt;p&gt;Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not.&lt;/p&gt;
+&lt;h2 id=&#34;input-specification&#34;&gt;Input Specification:&lt;/h2&gt;
+&lt;p&gt;Each input file contains one test case. Each case starts with a line containing 2 numbers N (≤ 500), and M, which are the total number of vertices, and the number of edges, respectively. Then M lines follow, each describes an edge by 3 integers:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Universal Travel Sites</title>
       <link>https://novel2430.github.io/notes/universal-travel-sites/</link>
       <pubDate>Wed, 14 Feb 2024 01:12:56 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/universal-travel-sites/</guid>
-      <description>Universal Travel Sites After finishing her tour around the Earth, CYLL is now planning a universal travel sites development project. After a careful investigation, she has a list of capacities of all the satellite transportation stations in hand. To estimate a budget, she must know the minimum capacity that a planet station must have to guarantee that every space vessel can dock and download its passengers on arrival. Input Specification:</description>
+      <description>&lt;h1 id=&#34;universal-travel-sites&#34;&gt;Universal Travel Sites&lt;/h1&gt;
+&lt;p&gt;After finishing her tour around the Earth, CYLL is now planning a universal travel sites development project. After a careful investigation, she has a list of capacities of all the satellite transportation stations in hand. To estimate a budget, she must know the minimum capacity that a planet station must have to guarantee that every space vessel can dock and download its passengers on arrival.&lt;/p&gt;
+&lt;h2 id=&#34;input-specification&#34;&gt;Input Specification:&lt;/h2&gt;
+&lt;p&gt;Each input file contains one test case. For each case, the first line contains the names of the source and the destination planets, and a positive integer N (≤500). Then N lines follow, each in the format: &lt;code&gt;source[i]&lt;/code&gt; &lt;code&gt;destination[i]&lt;/code&gt; &lt;code&gt;capacity[i]&lt;/code&gt; where &lt;code&gt;source[i]&lt;/code&gt; and &lt;code&gt;destination[i]&lt;/code&gt; are the names of the satellites and the two involved planets, and &lt;code&gt;capacity[i]&lt;/code&gt; &amp;gt; 0 is the maximum number of passengers that can be transported at one pass from &lt;code&gt;source[i]&lt;/code&gt; to &lt;code&gt;destination[i]&lt;/code&gt;. Each name is a string of 3 uppercase characters chosen from {A-Z}, e.g., ZJU.
+Note that the satellite transportation stations have no accommodation facilities for the passengers. Therefore none of the passengers can stay. Such a station will not allow arrivals of space vessels that contain more than its own capacity. It is guaranteed that the list contains neither the routes to the source planet nor that from the destination planet.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hamiltonian Cycle</title>
       <link>https://novel2430.github.io/notes/hamiltonian-cycle/</link>
       <pubDate>Tue, 13 Feb 2024 18:48:19 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/hamiltonian-cycle/</guid>
-      <description>7-1 Hamiltonian Cycle The &amp;ldquo;Hamilton cycle problem&amp;rdquo; is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a &amp;ldquo;Hamiltonian cycle&amp;rdquo;. In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle. Input Specification: Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&amp;lt;</description>
+      <description>&lt;h1 id=&#34;7-1-hamiltonian-cycle&#34;&gt;7-1 Hamiltonian Cycle&lt;/h1&gt;
+&lt;p&gt;The &amp;ldquo;Hamilton cycle problem&amp;rdquo; is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a &amp;ldquo;Hamiltonian cycle&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle.&lt;/p&gt;
+&lt;h2 id=&#34;input-specification&#34;&gt;Input Specification:&lt;/h2&gt;
+&lt;p&gt;Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&amp;lt;N≤200), the number of vertices, and M, the number of edges in an undirected graph. Then M lines follow, each describes an edge in the format &lt;code&gt;Vertex1 Vertex2&lt;/code&gt;, where the vertices are numbered from 1 to N. The next line gives a positive integer K which is the number of queries, followed by K lines of queries, each in the format:&lt;br&gt;
+n V&lt;sub&gt;1&lt;/sub&gt; V&lt;sub&gt;2&lt;/sub&gt; &amp;hellip; V&lt;sub&gt;n&lt;/sub&gt;&lt;br&gt;
+where n is the number of vertices in the list, and V&lt;sub&gt;i&lt;/sub&gt;&amp;rsquo;s are the vertices on a path.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Is Topological Order</title>
       <link>https://novel2430.github.io/notes/is-topological-order/</link>
       <pubDate>Tue, 13 Feb 2024 18:46:14 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/is-topological-order/</guid>
-      <description>6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;</description>
+      <description>&lt;h1 id=&#34;6-1-is-topological-order&#34;&gt;6-1 Is Topological Order&lt;/h1&gt;
+&lt;p&gt;Write a program to test if a give sequence &lt;code&gt;Seq&lt;/code&gt; is a topological order of a given graph &lt;code&gt;Graph&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;format-of-functions&#34;&gt;Format of functions:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;IsTopSeq&lt;/span&gt;( LGraph Graph, Vertex Seq[] );
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where &lt;code&gt;LGraph&lt;/code&gt; is defined as the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; AdjVNode &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;PtrToAdjVNode; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; AdjVNode{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Vertex AdjV;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PtrToAdjVNode Next;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; Vnode{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PtrToAdjVNode FirstEdge;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} AdjList[MaxVertexNum];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; GNode &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;PtrToGNode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; GNode{  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Nv;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Ne;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    AdjList G;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; PtrToGNode LGraph;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The function &lt;code&gt;IsTopSeq&lt;/code&gt; must return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;Seq&lt;/code&gt; does correspond to a topological order; otherwise return &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>File Transfer</title>
       <link>https://novel2430.github.io/notes/file-transfer/</link>
       <pubDate>Tue, 13 Feb 2024 18:44:00 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/file-transfer/</guid>
-      <description>7-1 File Transfer We have a network of computers and a list of bi-directional connections. Each of these connections allows a file transfer from one computer to another. Is it possible to send a file from any computer on the network to any other? Input Specification: Each input file contains one test case. For each test case, the first line contains N (2≤N≤104</description>
+      <description>&lt;h1 id=&#34;7-1-file-transfer&#34;&gt;7-1 File Transfer&lt;/h1&gt;
+&lt;p&gt;We have a network of computers and a list of bi-directional connections. Each of these connections allows a file transfer from one computer to another. Is it possible to send a file from any computer on the network to any other?&lt;/p&gt;
+&lt;h2 id=&#34;input-specification&#34;&gt;Input Specification:&lt;/h2&gt;
+&lt;p&gt;Each input file contains one test case. For each test case, the first line contains N (2≤N≤10&lt;sup&gt;4&lt;/sup&gt;), the total number of computers in a network. Each computer in the network is then represented by a positive integer between 1 and N. Then in the following lines, the input is given in the format:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Complete Binart Search Tree</title>
       <link>https://novel2430.github.io/notes/complete-binart-search-tree/</link>
       <pubDate>Tue, 13 Feb 2024 18:41:08 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/complete-binart-search-tree/</guid>
-      <description>7-1 Complete Binary Search Tree A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties: The left subtree of a node contains only nodes with keys less than the node&amp;rsquo;s key. The right subtree of a node contains only nodes with keys greater than or equal to the node&amp;rsquo;s key. Both the left and right subtrees must also be binary search trees. A</description>
+      <description>&lt;h1 id=&#34;7-1-complete-binary-search-tree&#34;&gt;7-1 Complete Binary Search Tree&lt;/h1&gt;
+&lt;p&gt;A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The left subtree of a node contains only nodes with keys less than the node&amp;rsquo;s key.&lt;/li&gt;
+&lt;li&gt;The right subtree of a node contains only nodes with keys greater than or equal to the node&amp;rsquo;s key.&lt;/li&gt;
+&lt;li&gt;Both the left and right subtrees must also be binary search trees.
+A Complete Binary Tree (CBT) is a tree that is completely filled, with the possible exception of the bottom level, which is filled from left to right.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now given a sequence of distinct non-negative integer keys, a unique BST can be constructed if it is required that the tree must also be a CBT. You are supposed to output the level order traversal sequence of this BST.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Percolate Up and Down</title>
       <link>https://novel2430.github.io/notes/percolate-up-and-down/</link>
       <pubDate>Tue, 13 Feb 2024 18:36:26 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/percolate-up-and-down/</guid>
-      <description>6-1 Percolate Up and Down Write the routines to do a &amp;ldquo;percolate up&amp;rdquo; and a &amp;ldquo;percolate down&amp;rdquo; in a binary min-heap. Format of functions: void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); where int p is the position of the element, and PriorityQueue is defined as the following: typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; Sample program</description>
+      <description>&lt;h1 id=&#34;6-1-percolate-up-and-down&#34;&gt;6-1 Percolate Up and Down&lt;/h1&gt;
+&lt;p&gt;Write the routines to do a &amp;ldquo;percolate up&amp;rdquo; and a &amp;ldquo;percolate down&amp;rdquo; in a binary min-heap.&lt;/p&gt;
+&lt;h2 id=&#34;format-of-functions&#34;&gt;Format of functions:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateUp&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateDown&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H );
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where &lt;code&gt;int p&lt;/code&gt; is the position of the element, and &lt;code&gt;PriorityQueue&lt;/code&gt; is defined as the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; HeapStruct &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;PriorityQueue;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; HeapStruct {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ElementType  &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;Elements;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Capacity;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Size;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sample-program-of-judge&#34;&gt;Sample program of judge:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ElementType;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define MinData -1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; HeapStruct &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;PriorityQueue;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; HeapStruct {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ElementType  &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;Elements;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Capacity;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Size;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PriorityQueue &lt;span style=&#34;color:#a6e22e&#34;&gt;Initialize&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; MaxElements ); &lt;span style=&#34;color:#75715e&#34;&gt;/* details omitted */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateUp&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateDown&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Insert&lt;/span&gt;( ElementType X, PriorityQueue H ) 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[p] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; X;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateUp&lt;/span&gt;( p, H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ElementType &lt;span style=&#34;color:#a6e22e&#34;&gt;DeleteMin&lt;/span&gt;( PriorityQueue H ) 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{ 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ElementType MinElement; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    MinElement &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateDown&lt;/span&gt;( &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; MinElement; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; n, i, op, X;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PriorityQueue H;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;scanf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    H &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Initialize&lt;/span&gt;(n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; ( i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;n; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt; ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;scanf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;op);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;switch&lt;/span&gt;( op ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;scanf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;X);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;Insert&lt;/span&gt;(X, H);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;DeleteMin&lt;/span&gt;(H));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Inside H:&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; ( i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; %d&amp;#34;&lt;/span&gt;, H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Your function will be put here */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sample-input&#34;&gt;Sample Input:&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;9
+1 10
+1 5
+1 2
+0
+1 9
+1 1
+1 4
+0
+0
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;sample-output&#34;&gt;Sample Output:&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;2 1 4 
+Inside H: 5 10 9
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ElementType;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define MinData -1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; HeapStruct &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;PriorityQueue;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; HeapStruct {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ElementType  &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;Elements;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Capacity;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Size;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PriorityQueue &lt;span style=&#34;color:#a6e22e&#34;&gt;Initialize&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; MaxElements ); &lt;span style=&#34;color:#75715e&#34;&gt;/* details omitted */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateUp&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateDown&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Insert&lt;/span&gt;( ElementType X, PriorityQueue H ) 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[p] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; X;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateUp&lt;/span&gt;( p, H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ElementType &lt;span style=&#34;color:#a6e22e&#34;&gt;DeleteMin&lt;/span&gt;( PriorityQueue H ) 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{ 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ElementType MinElement; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    MinElement &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateDown&lt;/span&gt;( &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, H );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; MinElement; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; n, i, op, X;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PriorityQueue H;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;scanf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    H &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Initialize&lt;/span&gt;(n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; ( i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;n; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt; ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;scanf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;op);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;switch&lt;/span&gt;( op ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;scanf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;X);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;Insert&lt;/span&gt;(X, H);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;DeleteMin&lt;/span&gt;(H));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Inside H:&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; ( i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; %d&amp;#34;&lt;/span&gt;, H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Your function will be put here */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;swap&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; pos1, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; pos2, PriorityQueue H){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ElementType tmp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[pos1];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[pos1] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[pos2];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[pos2] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tmp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;min_idx&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; idx1, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; idx2, PriorityQueue H){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[idx1] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[idx2]) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; idx1;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; idx2;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateUp&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H ){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; pos &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(pos&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; parent_idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; val &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[pos];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(pos&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) parent_idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pos&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; parent_idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (pos&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[parent_idx]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;val) &lt;span style=&#34;color:#a6e22e&#34;&gt;swap&lt;/span&gt;(pos, parent_idx, H);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    pos &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; parent_idx;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PercolateDown&lt;/span&gt;( &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; p, PriorityQueue H ){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; pos &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(pos&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; val &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[pos];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; child_idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(pos&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Size)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      child_idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;min_idx&lt;/span&gt;(pos&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, pos&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, H);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; child_idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pos&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(H&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;Elements[child_idx] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; val) &lt;span style=&#34;color:#a6e22e&#34;&gt;swap&lt;/span&gt;(pos, child_idx, H);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    pos &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; child_idx;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>Zig Zagging on a Tree</title>
       <link>https://novel2430.github.io/notes/zig-zagging-on-a-tree/</link>
       <pubDate>Tue, 13 Feb 2024 18:15:29 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/zig-zagging-on-a-tree/</guid>
-      <description>7-1 ZigZagging on a Tree Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the</description>
+      <description>&lt;h1 id=&#34;7-1-zigzagging-on-a-tree&#34;&gt;7-1 ZigZagging on a Tree&lt;/h1&gt;
+&lt;p&gt;Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the numbers in &amp;ldquo;zigzagging order&amp;rdquo; &amp;ndash; that is, starting from the root, print the numbers level-by-level, alternating between left to right and right to left. For example, for the following tree you must output: 1 11 5 8 17 12 20 15.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Isomorphic</title>
       <link>https://novel2430.github.io/notes/isomorphic/</link>
       <pubDate>Tue, 13 Feb 2024 18:10:24 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/isomorphic/</guid>
-      <description>6-1 Isomorphic Two trees, T1 and T2, are isomorphic if T1 can be transformed into T2 by swapping left and right children of (some of the) nodes in T1. For instance, the two trees in Figure 1 are isomorphic because they are the same if the children of A, B, and G, but not the other nodes, are swapped. Give a polynomial time algorithm to decide if two trees are</description>
+      <description>&lt;h1 id=&#34;6-1-isomorphic&#34;&gt;6-1 Isomorphic&lt;/h1&gt;
+&lt;p&gt;Two trees, &lt;code&gt;T1&lt;/code&gt; and &lt;code&gt;T2&lt;/code&gt;, are isomorphic if &lt;code&gt;T1&lt;/code&gt; can be transformed into &lt;code&gt;T2&lt;/code&gt; by swapping left and right children of (some of the) nodes in &lt;code&gt;T1&lt;/code&gt;. For instance, the two trees in Figure 1 are isomorphic because they are the same if the children of A, B, and G, but not the other nodes, are swapped. Give a polynomial time algorithm to decide if two trees are isomorphic.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pop Sequence</title>
       <link>https://novel2430.github.io/notes/pop-sequence/</link>
       <pubDate>Tue, 13 Feb 2024 18:05:37 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/pop-sequence/</guid>
-      <description>7-1 Pop Sequence Given a stack which can keep M numbers at most. Push N numbers in the order of 1, 2, 3, &amp;hellip;, N and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence of the stack. For example, if M is 5 and N is 7, we can obtain 1, 2, 3, 4, 5, 6, 7 from the stack,</description>
+      <description>&lt;h1 id=&#34;7-1-pop-sequence&#34;&gt;7-1 Pop Sequence&lt;/h1&gt;
+&lt;p&gt;Given a stack which can keep &lt;code&gt;M&lt;/code&gt; numbers at most. Push &lt;code&gt;N&lt;/code&gt; numbers in the order of 1, 2, 3, &amp;hellip;, N and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence of the stack. For example, if &lt;code&gt;M&lt;/code&gt; is 5 and &lt;code&gt;N&lt;/code&gt; is 7, we can obtain 1, 2, 3, 4, 5, 6, 7 from the stack, but not 3, 2, 1, 7, 5, 6, 4.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

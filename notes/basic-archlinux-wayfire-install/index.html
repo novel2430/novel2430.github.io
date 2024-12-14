@@ -7,10 +7,28 @@
 <meta name="robots" content="index, follow">
 <title>Basic Archlinux Wayfire Install | My Web | Wei, Feng</title>
 <meta name="keywords" content="Linux, Archlinux, Wayfire">
-<meta name="description" content="Basic ArchLinux(UEFI) &#43; WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]">
+<meta name="description" content="Basic ArchLinux(UEFI) &#43; WayFire Install
+Basic Arch Install
+[ Check UEFI or BIOS ]
+ls /sys/firmware/efi/efivars
+If the directory not exist, you are not in UEFI mode.
+[ Internet ]
+Check system activate internet interface
+ip link
+For Ethernet (DHCP)
+Good to go!
+For WiFi (iwd)
+enter interactive prompt
+iwctl
+list all wifi device
+[iwd] device list
+select the device you want to use, i.e: wlan0
+and start scanning
+[iwd] station &lt;device&gt; scan
+after scanning, you can list all available networks">
 <meta name="author" content="">
 <link rel="canonical" href="https://novel2430.github.io/notes/basic-archlinux-wayfire-install/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -55,19 +73,45 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Basic Archlinux Wayfire Install" />
-<meta property="og:description" content="Basic ArchLinux(UEFI) &#43; WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://novel2430.github.io/notes/basic-archlinux-wayfire-install/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-03-26T21:40:18+08:00" />
-<meta property="article:modified_time" content="2024-03-26T21:40:18+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Basic Archlinux Wayfire Install"/>
-<meta name="twitter:description" content="Basic ArchLinux(UEFI) &#43; WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]"/>
+</noscript><meta property="og:url" content="https://novel2430.github.io/notes/basic-archlinux-wayfire-install/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="Basic Archlinux Wayfire Install">
+  <meta property="og:description" content="Basic ArchLinux(UEFI) &#43; WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode.
+[ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go!
+For WiFi (iwd) enter interactive prompt
+iwctl list all wifi device
+[iwd] device list select the device you want to use, i.e: wlan0
+and start scanning
+[iwd] station &lt;device&gt; scan after scanning, you can list all available networks">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-03-26T21:40:18+08:00">
+    <meta property="article:modified_time" content="2024-03-26T21:40:18+08:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Archlinux">
+    <meta property="article:tag" content="Wayfire">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basic Archlinux Wayfire Install">
+<meta name="twitter:description" content="Basic ArchLinux(UEFI) &#43; WayFire Install
+Basic Arch Install
+[ Check UEFI or BIOS ]
+ls /sys/firmware/efi/efivars
+If the directory not exist, you are not in UEFI mode.
+[ Internet ]
+Check system activate internet interface
+ip link
+For Ethernet (DHCP)
+Good to go!
+For WiFi (iwd)
+enter interactive prompt
+iwctl
+list all wifi device
+[iwd] device list
+select the device you want to use, i.e: wlan0
+and start scanning
+[iwd] station &lt;device&gt; scan
+after scanning, you can list all available networks">
 
 
 <script type="application/ld+json">
@@ -96,7 +140,7 @@
   "@type": "BlogPosting",
   "headline": "Basic Archlinux Wayfire Install",
   "name": "Basic Archlinux Wayfire Install",
-  "description": "Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]",
+  "description": "Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode.\n[ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go!\nFor WiFi (iwd) enter interactive prompt\niwctl list all wifi device\n[iwd] device list select the device you want to use, i.e: wlan0\nand start scanning\n[iwd] station \u0026lt;device\u0026gt; scan after scanning, you can list all available networks\n",
   "keywords": [
     "Linux", "Archlinux", "Wayfire"
   ],
@@ -158,8 +202,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -207,222 +249,161 @@
     <div class="post-meta"><span title='2024-03-26 21:40:18 +0800 CST'>March 26, 2024</span>&nbsp;·&nbsp;3 min
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
-            </summary>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#basic-archlinuxuefi--wayfire-install" aria-label="Basic ArchLinux(UEFI) &#43; WayFire Install">Basic ArchLinux(UEFI) + WayFire Install</a><ul>
-                            
-                    <li>
-                        <a href="#basic-arch-install" aria-label="Basic Arch Install">Basic Arch Install</a><ul>
-                            
-                    <li>
-                        <a href="#-check-uefi-or-bios-" aria-label="[ Check UEFI or BIOS ]">[ Check UEFI or BIOS ]</a></li>
-                    <li>
-                        <a href="#-internet-" aria-label="[ Internet ]">[ Internet ]</a><ul>
-                            
-                    <li>
-                        <a href="#check-system-activate-internet-interface" aria-label="Check system activate internet interface">Check system activate internet interface</a></li>
-                    <li>
-                        <a href="#for-ethernet-dhcp" aria-label="For Ethernet (DHCP)">For Ethernet (DHCP)</a></li>
-                    <li>
-                        <a href="#for-wifi-iwd" aria-label="For WiFi (iwd)">For WiFi (iwd)</a></li>
-                    <li>
-                        <a href="#ping-test" aria-label="Ping test">Ping test</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#-update-system-time-" aria-label="[ Update System Time ]">[ Update System Time ]</a></li>
-                    <li>
-                        <a href="#-partition-" aria-label="[ Partition ]">[ Partition ]</a><ul>
-                            
-                    <li>
-                        <a href="#list-all-disks-and-partitions" aria-label="List All Disks and Partitions">List All Disks and Partitions</a></li>
-                    <li>
-                        <a href="#change-partition-table" aria-label="Change Partition Table">Change Partition Table</a></li>
-                    <li>
-                        <a href="#format-partitions" aria-label="Format Partitions">Format Partitions</a></li>
-                    <li>
-                        <a href="#mount-partitions" aria-label="Mount Partitions">Mount Partitions</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#-install-basic-package-" aria-label="[ Install Basic Package ]">[ Install Basic Package ]</a><ul>
-                            
-                    <li>
-                        <a href="#optional-setup-mirrorlist" aria-label="(Optional) Setup Mirrorlist">(Optional) Setup Mirrorlist</a></li>
-                    <li>
-                        <a href="#install-packages" aria-label="Install Packages">Install Packages</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#-generate-fstab-" aria-label="[ Generate Fstab ]">[ Generate Fstab ]</a></li>
-                    <li>
-                        <a href="#-chroot-to-system-" aria-label="[ Chroot to System ]">[ Chroot to System ]</a></li>
-                    <li>
-                        <a href="#-timezone-" aria-label="[ Timezone ]">[ Timezone ]</a></li>
-                    <li>
-                        <a href="#-locale-" aria-label="[ Locale ]">[ Locale ]</a></li>
-                    <li>
-                        <a href="#-host-name-" aria-label="[ Host Name ]">[ Host Name ]</a></li>
-                    <li>
-                        <a href="#-set-root-user-password-" aria-label="[ Set Root User Password ]">[ Set Root User Password ]</a></li>
-                    <li>
-                        <a href="#-enable-networkmanager-service-" aria-label="[ Enable NetworkManager Service ]">[ Enable NetworkManager Service ]</a></li>
-                    <li>
-                        <a href="#-install-microcode-" aria-label="[ Install Microcode ]">[ Install Microcode ]</a></li>
-                    <li>
-                        <a href="#-install-grub-" aria-label="[ Install Grub ]">[ Install Grub ]</a><ul>
-                            
-                    <li>
-                        <a href="#optional-os-prober----for-dual-boot" aria-label="(Optional) os-prober &amp;ndash; For Dual Boot">(Optional) os-prober &ndash; For Dual Boot</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#-messing-with-grub--" aria-label="[ Messing with GRUB :( ]">[ Messing with GRUB :( ]</a><ul>
-                            
-                    <li>
-                        <a href="#i-only-need-linux-no-dual-boot" aria-label="I only need LINUX! (No Dual Boot)">I only need LINUX! (No Dual Boot)</a></li>
-                    <li>
-                        <a href="#i-cannot-leave-windows-dual-boot" aria-label="I cannot leave windows&amp;hellip; (Dual Boot)">I cannot leave windows&hellip; (Dual Boot)</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#-reboot-" aria-label="[ Reboot ]">[ Reboot ]</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#setup-basic-destop-environment" aria-label="Setup Basic Destop Environment">Setup Basic Destop Environment</a><ul>
-                            
-                    <li>
-                        <a href="#-root-login-" aria-label="[ Root Login ]">[ Root Login ]</a></li>
-                    <li>
-                        <a href="#-check-internet-" aria-label="[ Check Internet ]">[ Check Internet ]</a></li>
-                    <li>
-                        <a href="#-neofetch-----very-important" aria-label="[ Neofetch ] &amp;lt;&amp;ndash; VERY IMPORTANT!!!">[ Neofetch ] &lt;&ndash; VERY IMPORTANT!!!</a></li>
-                    <li>
-                        <a href="#-gpu-card-" aria-label="[ GPU Card ]">[ GPU Card ]</a><ul>
-                            
-                    <li>
-                        <a href="#only-nvidia" aria-label="only Nvidia">only Nvidia</a></li>
-                    <li>
-                        <a href="#only-amd" aria-label="only AMD">only AMD</a></li>
-                    <li>
-                        <a href="#intelnvidia" aria-label="Intel&#43;NVIDIA">Intel+NVIDIA</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#-audio-" aria-label="[ Audio ]">[ Audio ]</a><ul>
-                            
-                    <li>
-                        <a href="#install-some-basic-packages" aria-label="Install Some Basic Packages">Install Some Basic Packages</a></li>
-                    <li>
-                        <a href="#pipewire-and-wireplumber" aria-label="Pipewire and Wireplumber">Pipewire and Wireplumber</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#-sudo-" aria-label="[ Sudo ]">[ Sudo ]</a><ul>
-                            
-                    <li>
-                        <a href="#install-sudo" aria-label="Install Sudo">Install Sudo</a></li>
-                    <li>
-                        <a href="#create-one-normal-user" aria-label="Create one normal user">Create one normal user</a></li>
-                    <li>
-                        <a href="#edit-sudo-file" aria-label="Edit sudo file">Edit sudo file</a></li>
-                    <li>
-                        <a href="#log-out-user-root" aria-label="Log out user root">Log out user <code>root</code></a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#for-chinese-user--clash-" aria-label="(For Chinese User) [ Clash ]">(For Chinese User) [ Clash ]</a></li>
-                    <li>
-                        <a href="#-yay-aur-helper-" aria-label="[ YAY (AUR Helper) ]">[ YAY (AUR Helper) ]</a></li>
-                    <li>
-                        <a href="#for-chinese-user--chinese-fonts-" aria-label="(For Chinese User) [ Chinese Fonts ]">(For Chinese User) [ Chinese Fonts ]</a></li>
-                    <li>
-                        <a href="#-wayfire-" aria-label="[ Wayfire ]">[ Wayfire ]</a><ul>
-                            
-                    <li>
-                        <a href="#install-wayland-packages" aria-label="install wayland packages">install wayland packages</a></li>
-                    <li>
-                        <a href="#install-wayfire" aria-label="install wayfire">install wayfire</a></li>
-                    <li>
-                        <a href="#install-basic-font-for-terminal-emulator" aria-label="install basic font (For terminal emulator)">install basic font (For terminal emulator)</a></li>
-                    <li>
-                        <a href="#install-terminal-emulator" aria-label="install terminal emulator">install terminal emulator</a></li>
-                    <li>
-                        <a href="#download-default-config-file" aria-label="download default config file">download default config file</a></li>
-                    <li>
-                        <a href="#set-default-terminal-emulator" aria-label="set default terminal emulator">set default terminal emulator</a></li>
-                    <li>
-                        <a href="#run-wayfire" aria-label="Run Wayfire">Run Wayfire</a>
-                    </li>
-                </ul>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#basic-archlinuxuefi--wayfire-install" aria-label="Basic ArchLinux(UEFI) &#43; WayFire Install">Basic ArchLinux(UEFI) + WayFire Install</a><ul>
+                        
+                <li>
+                    <a href="#basic-arch-install" aria-label="Basic Arch Install">Basic Arch Install</a><ul>
+                        
+                <li>
+                    <a href="#-check-uefi-or-bios-" aria-label="[ Check UEFI or BIOS ]">[ Check UEFI or BIOS ]</a></li>
+                <li>
+                    <a href="#-internet-" aria-label="[ Internet ]">[ Internet ]</a><ul>
+                        
+                <li>
+                    <a href="#check-system-activate-internet-interface" aria-label="Check system activate internet interface">Check system activate internet interface</a></li>
+                <li>
+                    <a href="#for-ethernet-dhcp" aria-label="For Ethernet (DHCP)">For Ethernet (DHCP)</a></li>
+                <li>
+                    <a href="#for-wifi-iwd" aria-label="For WiFi (iwd)">For WiFi (iwd)</a></li>
+                <li>
+                    <a href="#ping-test" aria-label="Ping test">Ping test</a></li></ul>
                 </li>
-                </ul>
+                <li>
+                    <a href="#-update-system-time-" aria-label="[ Update System Time ]">[ Update System Time ]</a></li>
+                <li>
+                    <a href="#-partition-" aria-label="[ Partition ]">[ Partition ]</a><ul>
+                        
+                <li>
+                    <a href="#list-all-disks-and-partitions" aria-label="List All Disks and Partitions">List All Disks and Partitions</a></li>
+                <li>
+                    <a href="#change-partition-table" aria-label="Change Partition Table">Change Partition Table</a></li>
+                <li>
+                    <a href="#format-partitions" aria-label="Format Partitions">Format Partitions</a></li>
+                <li>
+                    <a href="#mount-partitions" aria-label="Mount Partitions">Mount Partitions</a></li></ul>
                 </li>
-                </ul>
+                <li>
+                    <a href="#-install-basic-package-" aria-label="[ Install Basic Package ]">[ Install Basic Package ]</a><ul>
+                        
+                <li>
+                    <a href="#optional-setup-mirrorlist" aria-label="(Optional) Setup Mirrorlist">(Optional) Setup Mirrorlist</a></li>
+                <li>
+                    <a href="#install-packages" aria-label="Install Packages">Install Packages</a></li></ul>
                 </li>
-                </ul>
-            </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
-
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
-    }
-</script>
+                <li>
+                    <a href="#-generate-fstab-" aria-label="[ Generate Fstab ]">[ Generate Fstab ]</a></li>
+                <li>
+                    <a href="#-chroot-to-system-" aria-label="[ Chroot to System ]">[ Chroot to System ]</a></li>
+                <li>
+                    <a href="#-timezone-" aria-label="[ Timezone ]">[ Timezone ]</a></li>
+                <li>
+                    <a href="#-locale-" aria-label="[ Locale ]">[ Locale ]</a></li>
+                <li>
+                    <a href="#-host-name-" aria-label="[ Host Name ]">[ Host Name ]</a></li>
+                <li>
+                    <a href="#-set-root-user-password-" aria-label="[ Set Root User Password ]">[ Set Root User Password ]</a></li>
+                <li>
+                    <a href="#-enable-networkmanager-service-" aria-label="[ Enable NetworkManager Service ]">[ Enable NetworkManager Service ]</a></li>
+                <li>
+                    <a href="#-install-microcode-" aria-label="[ Install Microcode ]">[ Install Microcode ]</a></li>
+                <li>
+                    <a href="#-install-grub-" aria-label="[ Install Grub ]">[ Install Grub ]</a><ul>
+                        
+                <li>
+                    <a href="#optional-os-prober----for-dual-boot" aria-label="(Optional) os-prober &ndash; For Dual Boot">(Optional) os-prober &ndash; For Dual Boot</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-messing-with-grub--" aria-label="[ Messing with GRUB :( ]">[ Messing with GRUB :( ]</a><ul>
+                        
+                <li>
+                    <a href="#i-only-need-linux-no-dual-boot" aria-label="I only need LINUX! (No Dual Boot)">I only need LINUX! (No Dual Boot)</a></li>
+                <li>
+                    <a href="#i-cannot-leave-windows-dual-boot" aria-label="I cannot leave windows&hellip; (Dual Boot)">I cannot leave windows&hellip; (Dual Boot)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-reboot-" aria-label="[ Reboot ]">[ Reboot ]</a></li></ul>
+                </li>
+                <li>
+                    <a href="#setup-basic-destop-environment" aria-label="Setup Basic Destop Environment">Setup Basic Destop Environment</a><ul>
+                        
+                <li>
+                    <a href="#-root-login-" aria-label="[ Root Login ]">[ Root Login ]</a></li>
+                <li>
+                    <a href="#-check-internet-" aria-label="[ Check Internet ]">[ Check Internet ]</a></li>
+                <li>
+                    <a href="#-neofetch-----very-important" aria-label="[ Neofetch ] &lt;&ndash; VERY IMPORTANT!!!">[ Neofetch ] &lt;&ndash; VERY IMPORTANT!!!</a></li>
+                <li>
+                    <a href="#-gpu-card-" aria-label="[ GPU Card ]">[ GPU Card ]</a><ul>
+                        
+                <li>
+                    <a href="#only-nvidia" aria-label="only Nvidia">only Nvidia</a></li>
+                <li>
+                    <a href="#only-amd" aria-label="only AMD">only AMD</a></li>
+                <li>
+                    <a href="#intelnvidia" aria-label="Intel&#43;NVIDIA">Intel+NVIDIA</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-audio-" aria-label="[ Audio ]">[ Audio ]</a><ul>
+                        
+                <li>
+                    <a href="#install-some-basic-packages" aria-label="Install Some Basic Packages">Install Some Basic Packages</a></li>
+                <li>
+                    <a href="#pipewire-and-wireplumber" aria-label="Pipewire and Wireplumber">Pipewire and Wireplumber</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-sudo-" aria-label="[ Sudo ]">[ Sudo ]</a><ul>
+                        
+                <li>
+                    <a href="#install-sudo" aria-label="Install Sudo">Install Sudo</a></li>
+                <li>
+                    <a href="#create-one-normal-user" aria-label="Create one normal user">Create one normal user</a></li>
+                <li>
+                    <a href="#edit-sudo-file" aria-label="Edit sudo file">Edit sudo file</a></li>
+                <li>
+                    <a href="#log-out-user-root" aria-label="Log out user root">Log out user root</a></li></ul>
+                </li>
+                <li>
+                    <a href="#for-chinese-user--clash-" aria-label="(For Chinese User) [ Clash ]">(For Chinese User) [ Clash ]</a></li>
+                <li>
+                    <a href="#-yay-aur-helper-" aria-label="[ YAY (AUR Helper) ]">[ YAY (AUR Helper) ]</a></li>
+                <li>
+                    <a href="#for-chinese-user--chinese-fonts-" aria-label="(For Chinese User) [ Chinese Fonts ]">(For Chinese User) [ Chinese Fonts ]</a></li>
+                <li>
+                    <a href="#-wayfire-" aria-label="[ Wayfire ]">[ Wayfire ]</a><ul>
+                        
+                <li>
+                    <a href="#install-wayland-packages" aria-label="install wayland packages">install wayland packages</a></li>
+                <li>
+                    <a href="#install-wayfire" aria-label="install wayfire">install wayfire</a></li>
+                <li>
+                    <a href="#install-basic-font-for-terminal-emulator" aria-label="install basic font (For terminal emulator)">install basic font (For terminal emulator)</a></li>
+                <li>
+                    <a href="#install-terminal-emulator" aria-label="install terminal emulator">install terminal emulator</a></li>
+                <li>
+                    <a href="#download-default-config-file" aria-label="download default config file">download default config file</a></li>
+                <li>
+                    <a href="#set-default-terminal-emulator" aria-label="set default terminal emulator">set default terminal emulator</a></li>
+                <li>
+                    <a href="#run-wayfire" aria-label="Run Wayfire">Run Wayfire</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
   <div class="post-content"><h1 id="basic-archlinuxuefi--wayfire-install">Basic ArchLinux(UEFI) + WayFire Install<a hidden class="anchor" aria-hidden="true" href="#basic-archlinuxuefi--wayfire-install">#</a></h1>
 <h2 id="basic-arch-install">Basic Arch Install<a hidden class="anchor" aria-hidden="true" href="#basic-arch-install">#</a></h2>
@@ -460,71 +441,71 @@ and start scanning</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cfdisk /dev/&lt;your_disk&gt;
 </span></span></code></pre></div><p>Partition Table Example</p>
 <table>
-<thead>
-<tr>
-<th>mount point</th>
-<th>partition</th>
-<th>type</th>
-<th>recommend size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/mnt/boot</td>
-<td>/dev/efi_boot_partition</td>
-<td>EFI</td>
-<td>&gt;=300M</td>
-</tr>
-<tr>
-<td>[SWAP]</td>
-<td>/dev/swap_partition</td>
-<td>Linux Swap</td>
-<td>&gt;=512M</td>
-</tr>
-<tr>
-<td>/mnt</td>
-<td>/dev/root_partition</td>
-<td>Linux Filesystem</td>
-<td>space left</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>mount point</th>
+          <th>partition</th>
+          <th>type</th>
+          <th>recommend size</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/mnt/boot</td>
+          <td>/dev/efi_boot_partition</td>
+          <td>EFI</td>
+          <td>&gt;=300M</td>
+      </tr>
+      <tr>
+          <td>[SWAP]</td>
+          <td>/dev/swap_partition</td>
+          <td>Linux Swap</td>
+          <td>&gt;=512M</td>
+      </tr>
+      <tr>
+          <td>/mnt</td>
+          <td>/dev/root_partition</td>
+          <td>Linux Filesystem</td>
+          <td>space left</td>
+      </tr>
+  </tbody>
 </table>
 <p>Partition Table Example (With <code>Home</code> Partition)</p>
 <table>
-<thead>
-<tr>
-<th>mount point</th>
-<th>partition</th>
-<th>type</th>
-<th>recommend size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/mnt/boot</td>
-<td>/dev/efi_boot_partition</td>
-<td>EFI</td>
-<td>&gt;=300M</td>
-</tr>
-<tr>
-<td>[SWAP]</td>
-<td>/dev/swap_partition</td>
-<td>Linux Swap</td>
-<td>&gt;=512M</td>
-</tr>
-<tr>
-<td>/mnt</td>
-<td>/dev/root_partition</td>
-<td>Linux Filesystem</td>
-<td>space left</td>
-</tr>
-<tr>
-<td>/mnt/home</td>
-<td>/dev/home_partition</td>
-<td>Linux Filesystem</td>
-<td>space left</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>mount point</th>
+          <th>partition</th>
+          <th>type</th>
+          <th>recommend size</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/mnt/boot</td>
+          <td>/dev/efi_boot_partition</td>
+          <td>EFI</td>
+          <td>&gt;=300M</td>
+      </tr>
+      <tr>
+          <td>[SWAP]</td>
+          <td>/dev/swap_partition</td>
+          <td>Linux Swap</td>
+          <td>&gt;=512M</td>
+      </tr>
+      <tr>
+          <td>/mnt</td>
+          <td>/dev/root_partition</td>
+          <td>Linux Filesystem</td>
+          <td>space left</td>
+      </tr>
+      <tr>
+          <td>/mnt/home</td>
+          <td>/dev/home_partition</td>
+          <td>Linux Filesystem</td>
+          <td>space left</td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="format-partitions">Format Partitions<a hidden class="anchor" aria-hidden="true" href="#format-partitions">#</a></h4>
 <ul>
@@ -839,7 +820,8 @@ After the installation, you need to reboot you computer</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span>
+        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

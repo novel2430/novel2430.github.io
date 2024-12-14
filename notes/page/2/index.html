@@ -10,7 +10,7 @@
 <meta name="description" content="Notes - My Web | Wei, Feng">
 <meta name="author" content="">
 <link rel="canonical" href="https://novel2430.github.io/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -56,17 +56,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="Notes" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://novel2430.github.io/notes/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://novel2430.github.io/notes/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="Notes">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes">
+<meta name="twitter:description" content="">
 
 
 <script type="application/ld+json">
@@ -122,8 +119,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -173,7 +168,10 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is...</p>
+    <p>6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph.
+Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following:
+typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min</footer>
   <a class="entry-link" aria-label="post link to Strongly Connected Components" href="https://novel2430.github.io/notes/strongly-connected-components/"></a>
@@ -185,7 +183,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers...</p>
+    <p>Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not.
+Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers N (≤ 500), and M, which are the total number of vertices, and the number of edges, respectively. Then M lines follow, each describes an edge by 3 integers:
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:18:35 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;4 min</footer>
   <a class="entry-link" aria-label="post link to Uniqueness of MST" href="https://novel2430.github.io/notes/uniqueness-of-mst/"></a>
@@ -197,7 +197,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Universal Travel Sites After finishing her tour around the Earth, CYLL is now planning a universal travel sites development project. After a careful investigation, she has a list of capacities of all the satellite transportation stations in hand. To estimate a budget, she must know the minimum capacity that a planet station must have to guarantee that every space vessel can dock and download its passengers on arrival. Input Specification:...</p>
+    <p>Universal Travel Sites After finishing her tour around the Earth, CYLL is now planning a universal travel sites development project. After a careful investigation, she has a list of capacities of all the satellite transportation stations in hand. To estimate a budget, she must know the minimum capacity that a planet station must have to guarantee that every space vessel can dock and download its passengers on arrival.
+Input Specification: Each input file contains one test case. For each case, the first line contains the names of the source and the destination planets, and a positive integer N (≤500). Then N lines follow, each in the format: source[i] destination[i] capacity[i] where source[i] and destination[i] are the names of the satellites and the two involved planets, and capacity[i] &gt; 0 is the maximum number of passengers that can be transported at one pass from source[i] to destination[i]. Each name is a string of 3 uppercase characters chosen from {A-Z}, e.g., ZJU. Note that the satellite transportation stations have no accommodation facilities for the passengers. Therefore none of the passengers can stay. Such a station will not allow arrivals of space vessels that contain more than its own capacity. It is guaranteed that the list contains neither the routes to the source planet nor that from the destination planet.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:12:56 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min</footer>
   <a class="entry-link" aria-label="post link to Universal Travel Sites" href="https://novel2430.github.io/notes/universal-travel-sites/"></a>
@@ -209,7 +211,12 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 Hamiltonian Cycle The “Hamilton cycle problem” is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a “Hamiltonian cycle”. In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle. Input Specification: Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&lt;...</p>
+    <p>7-1 Hamiltonian Cycle The “Hamilton cycle problem” is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a “Hamiltonian cycle”.
+In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle.
+Input Specification: Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&lt;N≤200), the number of vertices, and M, the number of edges in an undirected graph. Then M lines follow, each describes an edge in the format Vertex1 Vertex2, where the vertices are numbered from 1 to N. The next line gives a positive integer K which is the number of queries, followed by K lines of queries, each in the format:
+n V1 V2 … Vn
+where n is the number of vertices in the list, and Vi’s are the vertices on a path.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:48:19 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Hamiltonian Cycle" href="https://novel2430.github.io/notes/hamiltonian-cycle/"></a>
@@ -221,7 +228,10 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;...</p>
+    <p>6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph.
+Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following:
+typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G; }; typedef PtrToGNode LGraph; The function IsTopSeq must return true if Seq does correspond to a topological order; otherwise return false.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:46:14 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Is Topological Order" href="https://novel2430.github.io/notes/is-topological-order/"></a>
@@ -233,7 +243,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 File Transfer We have a network of computers and a list of bi-directional connections. Each of these connections allows a file transfer from one computer to another. Is it possible to send a file from any computer on the network to any other? Input Specification: Each input file contains one test case. For each test case, the first line contains N (2≤N≤104...</p>
+    <p>7-1 File Transfer We have a network of computers and a list of bi-directional connections. Each of these connections allows a file transfer from one computer to another. Is it possible to send a file from any computer on the network to any other?
+Input Specification: Each input file contains one test case. For each test case, the first line contains N (2≤N≤104), the total number of computers in a network. Each computer in the network is then represented by a positive integer between 1 and N. Then in the following lines, the input is given in the format:
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:44:00 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to File Transfer" href="https://novel2430.github.io/notes/file-transfer/"></a>
@@ -245,7 +257,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 Complete Binary Search Tree A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties: The left subtree of a node contains only nodes with keys less than the node’s key. The right subtree of a node contains only nodes with keys greater than or equal to the node’s key. Both the left and right subtrees must also be binary search trees. A...</p>
+    <p>7-1 Complete Binary Search Tree A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:
+The left subtree of a node contains only nodes with keys less than the node’s key. The right subtree of a node contains only nodes with keys greater than or equal to the node’s key. Both the left and right subtrees must also be binary search trees. A Complete Binary Tree (CBT) is a tree that is completely filled, with the possible exception of the bottom level, which is filled from left to right. Now given a sequence of distinct non-negative integer keys, a unique BST can be constructed if it is required that the tree must also be a CBT. You are supposed to output the level order traversal sequence of this BST.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:41:08 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Complete Binart Search Tree" href="https://novel2430.github.io/notes/complete-binart-search-tree/"></a>
@@ -257,7 +271,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>6-1 Percolate Up and Down Write the routines to do a “percolate up” and a “percolate down” in a binary min-heap. Format of functions: void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); where int p is the position of the element, and PriorityQueue is defined as the following: typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; Sample program...</p>
+    <p>6-1 Percolate Up and Down Write the routines to do a “percolate up” and a “percolate down” in a binary min-heap.
+Format of functions: void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); where int p is the position of the element, and PriorityQueue is defined as the following:
+typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; Sample program of judge: #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ Sample Input: 9 1 10 1 5 1 2 0 1 9 1 1 1 4 0 0 Sample Output: 2 1 4 Inside H: 5 10 9 Code #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ void swap(int pos1, int pos2, PriorityQueue H){ ElementType tmp = H-&gt;Elements[pos1]; H-&gt;Elements[pos1] = H-&gt;Elements[pos2]; H-&gt;Elements[pos2] = tmp; } int min_idx(int idx1, int idx2, PriorityQueue H){ if(H-&gt;Elements[idx1] &lt; H-&gt;Elements[idx2]) return idx1; return idx2; } void PercolateUp( int p, PriorityQueue H ){ int pos = p; while(pos&gt;1){ int parent_idx = 1; int val = H-&gt;Elements[pos]; if(pos%2==0) parent_idx = pos/2; else parent_idx = (pos-1)/2; if(H-&gt;Elements[parent_idx]&gt;val) swap(pos, parent_idx, H); else break; pos = parent_idx; } } void PercolateDown( int p, PriorityQueue H ){ int pos = p; while(pos*2 &lt;= H-&gt;Size){ int val = H-&gt;Elements[pos]; int child_idx = H-&gt;Size; if(pos*2&#43;1 &lt;= H-&gt;Size) child_idx = min_idx(pos*2, pos*2&#43;1, H); else child_idx = pos*2; if(H-&gt;Elements[child_idx] &lt; val) swap(pos, child_idx, H); else break; pos = child_idx; } } </p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:36:26 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Percolate Up and Down" href="https://novel2430.github.io/notes/percolate-up-and-down/"></a>
@@ -269,7 +285,8 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 ZigZagging on a Tree Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the...</p>
+    <p>7-1 ZigZagging on a Tree Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the numbers in “zigzagging order” – that is, starting from the root, print the numbers level-by-level, alternating between left to right and right to left. For example, for the following tree you must output: 1 11 5 8 17 12 20 15.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:15:29 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Zig Zagging on a Tree" href="https://novel2430.github.io/notes/zig-zagging-on-a-tree/"></a>
@@ -281,7 +298,8 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>6-1 Isomorphic Two trees, T1 and T2, are isomorphic if T1 can be transformed into T2 by swapping left and right children of (some of the) nodes in T1. For instance, the two trees in Figure 1 are isomorphic because they are the same if the children of A, B, and G, but not the other nodes, are swapped. Give a polynomial time algorithm to decide if two trees are...</p>
+    <p>6-1 Isomorphic Two trees, T1 and T2, are isomorphic if T1 can be transformed into T2 by swapping left and right children of (some of the) nodes in T1. For instance, the two trees in Figure 1 are isomorphic because they are the same if the children of A, B, and G, but not the other nodes, are swapped. Give a polynomial time algorithm to decide if two trees are isomorphic.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:10:24 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Isomorphic" href="https://novel2430.github.io/notes/isomorphic/"></a>
@@ -298,7 +316,8 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span>
+        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

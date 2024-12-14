@@ -4,7 +4,7 @@
     <title>Wayfire on My Web | Wei, Feng</title>
     <link>https://novel2430.github.io/tags/wayfire/</link>
     <description>Recent content in Wayfire on My Web | Wei, Feng</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.136.5</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Apr 2024 18:03:02 +0800</lastBuildDate>
     <atom:link href="https://novel2430.github.io/tags/wayfire/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,82 @@
       <link>https://novel2430.github.io/notes/simple-wayfire-keybind/</link>
       <pubDate>Mon, 08 Apr 2024 18:03:02 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/simple-wayfire-keybind/</guid>
-      <description>Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&amp;#34;/home/novel2430/Pictures/screenshot/&amp;#34; # &amp;lt;--- Where you want to save your screenshots now_date=$(date &amp;#39;+%Y%m%d-%H%M%S&amp;#39;) file_name=&amp;#34;${path}${now_date}.png&amp;#34; msg=&amp;#34;save as ${file_name}&amp;#34; case $1 in full) grim ${file_name} &amp;amp;&amp;amp; dunstify -a &amp;#34;Screenshot&amp;#34; &amp;#34;Full&amp;#34; &amp;#34;${msg}&amp;#34; -r 2003 ;; select) grim -g</description>
+      <description>&lt;h1 id=&#34;some-simple-wayfire-custom-keybind&#34;&gt;Some simple Wayfire custom keybind&lt;/h1&gt;
+&lt;h2 id=&#34;screenshot&#34;&gt;ScreenShot&lt;/h2&gt;
+&lt;p&gt;You can use &lt;code&gt;grim&lt;/code&gt; and &lt;code&gt;slurp&lt;/code&gt; to have screenshot function&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;grim&lt;br&gt;
+screenshot&lt;/li&gt;
+&lt;li&gt;slurp&lt;br&gt;
+select a region&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Install grim and slurp&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yay -S grim slurp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For example shell script&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ~/.config/wayfire/scripts/screenshot.sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/novel2430/Pictures/screenshot/&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;# &amp;lt;--- Where you want to save your screenshots&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;now_date&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;date &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;+%Y%m%d-%H%M%S&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;file_name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;path&lt;span style=&#34;color:#e6db74&#34;&gt;}${&lt;/span&gt;now_date&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;save as &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;file_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; $1 in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  full&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    grim &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;file_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; dunstify -a &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Screenshot&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Full&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;msg&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -r &lt;span style=&#34;color:#ae81ff&#34;&gt;2003&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    grim -g &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;slurp&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;file_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; dunstify -a &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Screenshot&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Select&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;msg&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -r &lt;span style=&#34;color:#ae81ff&#34;&gt;2003&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;clipboard-manager&#34;&gt;Clipboard Manager&lt;/h2&gt;
+&lt;p&gt;We need two packages: &lt;code&gt;cliphist&lt;/code&gt; and &lt;code&gt;wl-clipboard&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic Wayfire Applications</title>
       <link>https://novel2430.github.io/notes/basic-wayfire-applications/</link>
       <pubDate>Tue, 26 Mar 2024 21:53:17 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/basic-wayfire-applications/</guid>
-      <description>Applications on Wayfire Setup Wayfire Basic Environment [ App Menu ] (wofi) yay -S wofi # ~/.config/wayfire.ini ... # Start your launcher # https://hg.sr.ht/~scoopta/wofi # Note: Add mode=run or mode=drun to ~/.config/wofi/config. # You can also specify the mode with --show option. binding_launcher = &amp;lt;super&amp;gt; KEY_D # &amp;lt;-- Change key binding command_launcher = wofi --show drun # &amp;lt;-- Change exec command ... [ Web Browser ] (firefox) yay -S firefox</description>
+      <description>&lt;h1 id=&#34;applications-on-wayfire&#34;&gt;Applications on Wayfire&lt;/h1&gt;
+&lt;h2 id=&#34;setup-wayfire-basic-environment&#34;&gt;Setup Wayfire Basic Environment&lt;/h2&gt;
+&lt;h3 id=&#34;-app-menu--wofi&#34;&gt;[ App Menu ] (wofi)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yay -S wofi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ~/.config/wayfire.ini&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Start your launcher&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# https://hg.sr.ht/~scoopta/wofi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note: Add mode=run or mode=drun to ~/.config/wofi/config.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# You can also specify the mode with --show option.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;binding_launcher &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &amp;lt;super&amp;gt; KEY_D &lt;span style=&#34;color:#75715e&#34;&gt;# &amp;lt;-- Change key binding&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;command_launcher &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; wofi --show drun &lt;span style=&#34;color:#75715e&#34;&gt;# &amp;lt;-- Change exec command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;-web-browser--firefox&#34;&gt;[ Web Browser ] (firefox)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yay -S firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you can use &lt;code&gt;Wofi&lt;/code&gt; to open &lt;code&gt;Firefox&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic Archlinux Wayfire Install</title>
       <link>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</link>
       <pubDate>Tue, 26 Mar 2024 21:40:18 +0800</pubDate>
       <guid>https://novel2430.github.io/notes/basic-archlinux-wayfire-install/</guid>
-      <description>Basic ArchLinux(UEFI) + WayFire Install Basic Arch Install [ Check UEFI or BIOS ] ls /sys/firmware/efi/efivars If the directory not exist, you are not in UEFI mode. [ Internet ] Check system activate internet interface ip link For Ethernet (DHCP) Good to go! For WiFi (iwd) enter interactive prompt iwctl list all wifi device [iwd] device list select the device you want to use, i.e: wlan0 and start scanning [iwd]</description>
+      <description>&lt;h1 id=&#34;basic-archlinuxuefi--wayfire-install&#34;&gt;Basic ArchLinux(UEFI) + WayFire Install&lt;/h1&gt;
+&lt;h2 id=&#34;basic-arch-install&#34;&gt;Basic Arch Install&lt;/h2&gt;
+&lt;h3 id=&#34;-check-uefi-or-bios-&#34;&gt;[ Check UEFI or BIOS ]&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls /sys/firmware/efi/efivars
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the directory not exist, you are not in UEFI mode.&lt;/p&gt;
+&lt;h3 id=&#34;-internet-&#34;&gt;[ Internet ]&lt;/h3&gt;
+&lt;h4 id=&#34;check-system-activate-internet-interface&#34;&gt;Check system activate internet interface&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip link
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;for-ethernet-dhcp&#34;&gt;For Ethernet (DHCP)&lt;/h4&gt;
+&lt;p&gt;Good to go!&lt;/p&gt;
+&lt;h4 id=&#34;for-wifi-iwd&#34;&gt;For WiFi (iwd)&lt;/h4&gt;
+&lt;p&gt;enter interactive prompt&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;iwctl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;list all wifi device&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; device list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;select the device you want to use, i.e: wlan0&lt;br&gt;
+and start scanning&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; station &amp;lt;device&amp;gt; scan
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;after scanning, you can list all available networks&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -7,10 +7,38 @@
 <meta name="robots" content="index, follow">
 <title>Simple Wayfire Keybind | My Web | Wei, Feng</title>
 <meta name="keywords" content="Wayfire">
-<meta name="description" content="Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&#34;/home/novel2430/Pictures/screenshot/&#34; # &lt;--- Where you want to save your screenshots now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;) file_name=&#34;${path}${now_date}.png&#34; msg=&#34;save as ${file_name}&#34; case $1 in full) grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003 ;; select) grim -g">
+<meta name="description" content="Some simple Wayfire custom keybind
+ScreenShot
+You can use grim and slurp to have screenshot function
+
+grim
+screenshot
+slurp
+select a region
+
+Install grim and slurp
+yay -S grim slurp
+For example shell script
+# ~/.config/wayfire/scripts/screenshot.sh
+
+path=&#34;/home/novel2430/Pictures/screenshot/&#34;   # &lt;--- Where you want to save your screenshots
+now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;)
+file_name=&#34;${path}${now_date}.png&#34;
+msg=&#34;save as ${file_name}&#34;
+
+case $1 in
+  full)
+    grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003
+    ;;
+  select)
+    grim -g &#34;$(slurp)&#34; ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Select&#34; &#34;${msg}&#34; -r 2003
+    ;;
+esac
+Clipboard Manager
+We need two packages: cliphist and wl-clipboard">
 <meta name="author" content="">
 <link rel="canonical" href="https://novel2430.github.io/notes/simple-wayfire-keybind/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -55,19 +83,52 @@
         }
 
     </style>
-</noscript>
-  
+</noscript><meta property="og:url" content="https://novel2430.github.io/notes/simple-wayfire-keybind/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="Simple Wayfire Keybind">
+  <meta property="og:description" content="Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function
+grim
+screenshot slurp
+select a region Install grim and slurp
+yay -S grim slurp For example shell script
+# ~/.config/wayfire/scripts/screenshot.sh path=&#34;/home/novel2430/Pictures/screenshot/&#34; # &lt;--- Where you want to save your screenshots now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;) file_name=&#34;${path}${now_date}.png&#34; msg=&#34;save as ${file_name}&#34; case $1 in full) grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003 ;; select) grim -g &#34;$(slurp)&#34; ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Select&#34; &#34;${msg}&#34; -r 2003 ;; esac Clipboard Manager We need two packages: cliphist and wl-clipboard">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-04-08T18:03:02+08:00">
+    <meta property="article:modified_time" content="2024-04-08T18:03:02+08:00">
+    <meta property="article:tag" content="Wayfire">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Simple Wayfire Keybind">
+<meta name="twitter:description" content="Some simple Wayfire custom keybind
+ScreenShot
+You can use grim and slurp to have screenshot function
 
-<meta property="og:title" content="Simple Wayfire Keybind" />
-<meta property="og:description" content="Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&#34;/home/novel2430/Pictures/screenshot/&#34; # &lt;--- Where you want to save your screenshots now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;) file_name=&#34;${path}${now_date}.png&#34; msg=&#34;save as ${file_name}&#34; case $1 in full) grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003 ;; select) grim -g" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://novel2430.github.io/notes/simple-wayfire-keybind/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-04-08T18:03:02+08:00" />
-<meta property="article:modified_time" content="2024-04-08T18:03:02+08:00" />
+grim
+screenshot
+slurp
+select a region
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Simple Wayfire Keybind"/>
-<meta name="twitter:description" content="Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=&#34;/home/novel2430/Pictures/screenshot/&#34; # &lt;--- Where you want to save your screenshots now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;) file_name=&#34;${path}${now_date}.png&#34; msg=&#34;save as ${file_name}&#34; case $1 in full) grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003 ;; select) grim -g"/>
+Install grim and slurp
+yay -S grim slurp
+For example shell script
+# ~/.config/wayfire/scripts/screenshot.sh
+
+path=&#34;/home/novel2430/Pictures/screenshot/&#34;   # &lt;--- Where you want to save your screenshots
+now_date=$(date &#39;&#43;%Y%m%d-%H%M%S&#39;)
+file_name=&#34;${path}${now_date}.png&#34;
+msg=&#34;save as ${file_name}&#34;
+
+case $1 in
+  full)
+    grim ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Full&#34; &#34;${msg}&#34; -r 2003
+    ;;
+  select)
+    grim -g &#34;$(slurp)&#34; ${file_name} &amp;&amp; dunstify -a &#34;Screenshot&#34; &#34;Select&#34; &#34;${msg}&#34; -r 2003
+    ;;
+esac
+Clipboard Manager
+We need two packages: cliphist and wl-clipboard">
 
 
 <script type="application/ld+json">
@@ -96,7 +157,7 @@
   "@type": "BlogPosting",
   "headline": "Simple Wayfire Keybind",
   "name": "Simple Wayfire Keybind",
-  "description": "Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function grim screenshot slurp select a region Install grim and slurp yay -S grim slurp For example shell script # ~/.config/wayfire/scripts/screenshot.sh path=\u0026#34;/home/novel2430/Pictures/screenshot/\u0026#34; # \u0026lt;--- Where you want to save your screenshots now_date=$(date \u0026#39;+%Y%m%d-%H%M%S\u0026#39;) file_name=\u0026#34;${path}${now_date}.png\u0026#34; msg=\u0026#34;save as ${file_name}\u0026#34; case $1 in full) grim ${file_name} \u0026amp;\u0026amp; dunstify -a \u0026#34;Screenshot\u0026#34; \u0026#34;Full\u0026#34; \u0026#34;${msg}\u0026#34; -r 2003 ;; select) grim -g",
+  "description": "Some simple Wayfire custom keybind ScreenShot You can use grim and slurp to have screenshot function\ngrim\nscreenshot slurp\nselect a region Install grim and slurp\nyay -S grim slurp For example shell script\n# ~/.config/wayfire/scripts/screenshot.sh path=\u0026#34;/home/novel2430/Pictures/screenshot/\u0026#34; # \u0026lt;--- Where you want to save your screenshots now_date=$(date \u0026#39;+%Y%m%d-%H%M%S\u0026#39;) file_name=\u0026#34;${path}${now_date}.png\u0026#34; msg=\u0026#34;save as ${file_name}\u0026#34; case $1 in full) grim ${file_name} \u0026amp;\u0026amp; dunstify -a \u0026#34;Screenshot\u0026#34; \u0026#34;Full\u0026#34; \u0026#34;${msg}\u0026#34; -r 2003 ;; select) grim -g \u0026#34;$(slurp)\u0026#34; ${file_name} \u0026amp;\u0026amp; dunstify -a \u0026#34;Screenshot\u0026#34; \u0026#34;Select\u0026#34; \u0026#34;${msg}\u0026#34; -r 2003 ;; esac Clipboard Manager We need two packages: cliphist and wl-clipboard\n",
   "keywords": [
     "Wayfire"
   ],
@@ -158,8 +219,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -207,94 +266,33 @@
     <div class="post-meta"><span title='2024-04-08 18:03:02 +0800 CST'>April 8, 2024</span>&nbsp;·&nbsp;1 min
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
-            </summary>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#some-simple-wayfire-custom-keybind" aria-label="Some simple Wayfire custom keybind">Some simple Wayfire custom keybind</a><ul>
-                            
-                    <li>
-                        <a href="#screenshot" aria-label="ScreenShot">ScreenShot</a></li>
-                    <li>
-                        <a href="#clipboard-manager" aria-label="Clipboard Manager">Clipboard Manager</a></li>
-                    <li>
-                        <a href="#volume-control" aria-label="Volume Control">Volume Control</a></li>
-                    <li>
-                        <a href="#brightness-control" aria-label="Brightness Control">Brightness Control</a></li>
-                    <li>
-                        <a href="#screen-lock" aria-label="Screen Lock">Screen Lock</a>
-                    </li>
-                </ul>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#some-simple-wayfire-custom-keybind" aria-label="Some simple Wayfire custom keybind">Some simple Wayfire custom keybind</a><ul>
+                        
+                <li>
+                    <a href="#screenshot" aria-label="ScreenShot">ScreenShot</a></li>
+                <li>
+                    <a href="#clipboard-manager" aria-label="Clipboard Manager">Clipboard Manager</a></li>
+                <li>
+                    <a href="#volume-control" aria-label="Volume Control">Volume Control</a></li>
+                <li>
+                    <a href="#brightness-control" aria-label="Brightness Control">Brightness Control</a></li>
+                <li>
+                    <a href="#screen-lock" aria-label="Screen Lock">Screen Lock</a>
                 </li>
-                </ul>
-            </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
-
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
-    }
-</script>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
   <div class="post-content"><h1 id="some-simple-wayfire-custom-keybind">Some simple Wayfire custom keybind<a hidden class="anchor" aria-hidden="true" href="#some-simple-wayfire-custom-keybind">#</a></h1>
 <h2 id="screenshot">ScreenShot<a hidden class="anchor" aria-hidden="true" href="#screenshot">#</a></h2>
@@ -430,7 +428,8 @@ Install brillo</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span>
+        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

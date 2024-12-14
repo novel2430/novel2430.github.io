@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://novel2430.github.io/tags/fds-homework/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9c78afd72529c14d4d3c0fa583c3e82265e0d8a303d475223d3b37442260ba22.css" integrity="sha256-nHiv1yUpwU1NPA&#43;lg8PoImXg2KMD1HUiPTs3RCJguiI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -56,17 +56,14 @@
         }
 
     </style>
-</noscript>
-  
-
-<meta property="og:title" content="FDS Homework" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://novel2430.github.io/tags/fds-homework/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="FDS Homework"/>
-<meta name="twitter:description" content=""/>
+</noscript><meta property="og:url" content="https://novel2430.github.io/tags/fds-homework/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="FDS Homework">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FDS Homework">
+<meta name="twitter:description" content="">
 
 </head>
 
@@ -107,8 +104,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -158,7 +153,11 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back...</p>
+    <p>7-1 Replacement Selection When the input is much too large to fit into memory, we have to do external sorting instead of internal sorting. One of the key steps in external sorting is to generate sets of sorted records (also called runs) with limited internal memory. The simplest method is to read as many records as possible into the memory, and sort them internally, then write the resulting run back to some tape. The size of each run is the same as the capacity of the internal memory.
+Replacement Selection sorting algorithm was described in 1965 by Donald Knuth. Notice that as soon as the first record is written to an output tape, the memory it used becomes available for another record. Assume that we are sorting in ascending order, if the next record is not smaller than the record we have just output, then it can be included in the run.
+For example, suppose that we have a set of input { 81, 94, 11, 96, 12, 99, 35 }, and our memory can sort 3 records only. By the simplest method we will obtain three runs: { 11, 81, 94 }, { 12, 96, 99 } and { 35 }. According to the replacement selection algorithm, we would read and sort the first 3 records { 81, 94, 11 } and output 11 as the smallest one. Then one space is available so 96 is read in and will join the first run since it is larger than 11. Now we have { 81, 94, 96 }. After 81 is out, 12 comes in but it must belong to the next run since it is smaller than 81. Hence we have { 94, 96, 12 } where 12 will stay since it belongs to the next run. When 94 is out and 99 is in, since 99 is larger than 94, it must belong to the first run. Eventually we will obtain two runs: the first one contains { 11, 81, 94, 96, 99 } and the second one contains { 12, 35 }.
+Your job is to implement this replacement selection algorithm.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:48:15 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Replacement Selection" href="https://novel2430.github.io/notes/replacement-selection/"></a>
@@ -170,7 +169,11 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 Queue Using Two Stacks A queue (FIFO structure) can be implemented by two stacks (LIFO structure) in the following way: Start from two empty stacks s1 and s2 When element e is enqueued, it is actually pushed onto s1 When we are supposed to dequeue, s2 is checked first. If s2 is empty, everything in s1 will be transferred to s2 by popping from s1 and immediately pushing onto...</p>
+    <p>7-1 Queue Using Two Stacks A queue (FIFO structure) can be implemented by two stacks (LIFO structure) in the following way:
+Start from two empty stacks s1 and s2
+When element e is enqueued, it is actually pushed onto s1
+When we are supposed to dequeue, s2 is checked first. If s2 is empty, everything in s1 will be transferred to s2 by popping from s1 and immediately pushing onto s2. Then we just pop from s2 – the top element of s2 must be the first one to enter s1 thus is the first element that was enqueued.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:46:47 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Queue Using Two Stacks" href="https://novel2430.github.io/notes/queue-using-two-stacks/"></a>
@@ -182,7 +185,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers. However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there...</p>
+    <p>7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers.
+However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there are multiple choices, the smallest number is always taken.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:30:02 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Hashing Hard Version" href="https://novel2430.github.io/notes/hashing-hard-version/"></a>
@@ -194,7 +199,10 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 Insertion or Heap Sort According to Wikipedia: Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain. Heap sort divides its input into a sorted and an unsorted region, and it iteratively shrinks...</p>
+    <p>7-1 Insertion or Heap Sort According to Wikipedia:
+Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.
+Heap sort divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. it involves the use of a heap data structure rather than a linear-time search to find the maximum.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:28:32 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Insertion or Heap Sort" href="https://novel2430.github.io/notes/insertion-or-heap-sort/"></a>
@@ -206,7 +214,10 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>6-1 Iterative Mergesort How would you implement mergesort without using recursion? The idea of iterative mergesort is to start from N sorted sublists of length 1, and each time to merge a pair of adjacent sublists until one sorted list is obtained. You are supposed to implement the key function of merging. Format of functions: void merge_pass( ElementType list[], ElementType sorted[], int N, int length ); The function merge_pass performs...</p>
+    <p>6-1 Iterative Mergesort How would you implement mergesort without using recursion?
+The idea of iterative mergesort is to start from N sorted sublists of length 1, and each time to merge a pair of adjacent sublists until one sorted list is obtained. You are supposed to implement the key function of merging.
+Format of functions: void merge_pass( ElementType list[], ElementType sorted[], int N, int length ); The function merge_pass performs one pass of the merge sort that merges adjacent pairs of sublists from list into sorted. N is the number of elements in the list and length is the length of the sublists.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:26:20 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Iterative Mergesort" href="https://novel2430.github.io/notes/iterative-mergesort/"></a>
@@ -218,7 +229,10 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph. Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following: typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is...</p>
+    <p>6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph.
+Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Vertex V) ); where Graph is defined as the following:
+typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min</footer>
   <a class="entry-link" aria-label="post link to Strongly Connected Components" href="https://novel2430.github.io/notes/strongly-connected-components/"></a>
@@ -230,7 +244,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not. Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers...</p>
+    <p>Uniqueness of MST Given any weighted undirected graph, there exists at least one minimum spanning tree (MST) if the graph is connected. Sometimes the MST may not be unique though. Here you are supposed to calculate the minimum total weight of the MST, and also tell if it is unique or not.
+Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers N (≤ 500), and M, which are the total number of vertices, and the number of edges, respectively. Then M lines follow, each describes an edge by 3 integers:
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:18:35 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;4 min</footer>
   <a class="entry-link" aria-label="post link to Uniqueness of MST" href="https://novel2430.github.io/notes/uniqueness-of-mst/"></a>
@@ -242,7 +258,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Universal Travel Sites After finishing her tour around the Earth, CYLL is now planning a universal travel sites development project. After a careful investigation, she has a list of capacities of all the satellite transportation stations in hand. To estimate a budget, she must know the minimum capacity that a planet station must have to guarantee that every space vessel can dock and download its passengers on arrival. Input Specification:...</p>
+    <p>Universal Travel Sites After finishing her tour around the Earth, CYLL is now planning a universal travel sites development project. After a careful investigation, she has a list of capacities of all the satellite transportation stations in hand. To estimate a budget, she must know the minimum capacity that a planet station must have to guarantee that every space vessel can dock and download its passengers on arrival.
+Input Specification: Each input file contains one test case. For each case, the first line contains the names of the source and the destination planets, and a positive integer N (≤500). Then N lines follow, each in the format: source[i] destination[i] capacity[i] where source[i] and destination[i] are the names of the satellites and the two involved planets, and capacity[i] &gt; 0 is the maximum number of passengers that can be transported at one pass from source[i] to destination[i]. Each name is a string of 3 uppercase characters chosen from {A-Z}, e.g., ZJU. Note that the satellite transportation stations have no accommodation facilities for the passengers. Therefore none of the passengers can stay. Such a station will not allow arrivals of space vessels that contain more than its own capacity. It is guaranteed that the list contains neither the routes to the source planet nor that from the destination planet.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-14 01:12:56 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min</footer>
   <a class="entry-link" aria-label="post link to Universal Travel Sites" href="https://novel2430.github.io/notes/universal-travel-sites/"></a>
@@ -254,7 +272,12 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>7-1 Hamiltonian Cycle The “Hamilton cycle problem” is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a “Hamiltonian cycle”. In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle. Input Specification: Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&lt;...</p>
+    <p>7-1 Hamiltonian Cycle The “Hamilton cycle problem” is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a “Hamiltonian cycle”.
+In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle.
+Input Specification: Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&lt;N≤200), the number of vertices, and M, the number of edges in an undirected graph. Then M lines follow, each describes an edge in the format Vertex1 Vertex2, where the vertices are numbered from 1 to N. The next line gives a positive integer K which is the number of queries, followed by K lines of queries, each in the format:
+n V1 V2 … Vn
+where n is the number of vertices in the list, and Vi’s are the vertices on a path.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:48:19 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Hamiltonian Cycle" href="https://novel2430.github.io/notes/hamiltonian-cycle/"></a>
@@ -266,7 +289,10 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph. Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following: typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G;...</p>
+    <p>6-1 Is Topological Order Write a program to test if a give sequence Seq is a topological order of a given graph Graph.
+Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph is defined as the following:
+typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G; }; typedef PtrToGNode LGraph; The function IsTopSeq must return true if Seq does correspond to a topological order; otherwise return false.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2024-02-13 18:46:14 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Is Topological Order" href="https://novel2430.github.io/notes/is-topological-order/"></a>
@@ -280,7 +306,8 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span>
+        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
