@@ -159,6 +159,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Hashing Hard Version
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>7-1 Hashing - Hard Version Given a hash table of size N, we can define a hash function H(x)=x%N. Suppose that the linear probing is used to solve collisions, we can easily obtain the status of the hash table with a given sequence of input numbers.
+However, now you are asked to solve the reversed problem: reconstruct the input sequence from the given status of the hash table. Whenever there are multiple choices, the smallest number is always taken.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-02-14 01:30:02 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to Hashing Hard Version" href="https://novel2430.github.io/notes/hashing-hard-version/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Insertion or Heap Sort
     </h2>
   </header>
@@ -289,20 +303,6 @@ The left subtree of a node contains only nodes with keys less than the node’s 
   <footer class="entry-footer"><span title='2024-02-13 18:41:08 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Complete Binart Search Tree" href="https://novel2430.github.io/notes/complete-binart-search-tree/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Percolate Up and Down
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>6-1 Percolate Up and Down Write the routines to do a “percolate up” and a “percolate down” in a binary min-heap.
-Format of functions: void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); where int p is the position of the element, and PriorityQueue is defined as the following:
-typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; Sample program of judge: #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ Sample Input: 9 1 10 1 5 1 2 0 1 9 1 1 1 4 0 0 Sample Output: 2 1 4 Inside H: 5 10 9 Code #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ void swap(int pos1, int pos2, PriorityQueue H){ ElementType tmp = H-&gt;Elements[pos1]; H-&gt;Elements[pos1] = H-&gt;Elements[pos2]; H-&gt;Elements[pos2] = tmp; } int min_idx(int idx1, int idx2, PriorityQueue H){ if(H-&gt;Elements[idx1] &lt; H-&gt;Elements[idx2]) return idx1; return idx2; } void PercolateUp( int p, PriorityQueue H ){ int pos = p; while(pos&gt;1){ int parent_idx = 1; int val = H-&gt;Elements[pos]; if(pos%2==0) parent_idx = pos/2; else parent_idx = (pos-1)/2; if(H-&gt;Elements[parent_idx]&gt;val) swap(pos, parent_idx, H); else break; pos = parent_idx; } } void PercolateDown( int p, PriorityQueue H ){ int pos = p; while(pos*2 &lt;= H-&gt;Size){ int val = H-&gt;Elements[pos]; int child_idx = H-&gt;Size; if(pos*2&#43;1 &lt;= H-&gt;Size) child_idx = min_idx(pos*2, pos*2&#43;1, H); else child_idx = pos*2; if(H-&gt;Elements[child_idx] &lt; val) swap(pos, child_idx, H); else break; pos = child_idx; } } </p>
-  </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:36:26 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;2 min</footer>
-  <a class="entry-link" aria-label="post link to Percolate Up and Down" href="https://novel2430.github.io/notes/percolate-up-and-down/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://novel2430.github.io/">
@@ -315,7 +315,7 @@ typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Eleme
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+        <span>&copy; 2025 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
 
     <span>
         Powered by

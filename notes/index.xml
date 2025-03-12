@@ -6,8 +6,21 @@
     <description>Recent content in Notes on My Web | Wei, Feng</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Apr 2024 18:03:02 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Mar 2025 17:41:00 +0800</lastBuildDate>
     <atom:link href="https://novel2430.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VST Introduction</title>
+      <link>https://novel2430.github.io/notes/open_source_vst/</link>
+      <pubDate>Wed, 12 Mar 2025 17:41:00 +0800</pubDate>
+      <guid>https://novel2430.github.io/notes/open_source_vst/</guid>
+      <description>&lt;h1 id=&#34;合成器-效果器-混音相关算法与开源实践&#34;&gt;合成器, 效果器, 混音相关算法与开源实践&lt;/h1&gt;
+&lt;h2 id=&#34;功能概述&#34;&gt;功能概述&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;img&#34; loading=&#34;lazy&#34; src=&#34;https://github.com/novel2430/MyImage/blob/main/VST_01_01.png?raw=true&#34;&gt;&lt;br&gt;
+图1. 三种算法在音乐工程中的示意图&lt;/p&gt;
+&lt;h3 id=&#34;合成器-synthesizer&#34;&gt;合成器 Synthesizer&lt;/h3&gt;
+&lt;p&gt;合成器可以理解成一种特别的&lt;strong&gt;音源&lt;/strong&gt;，由创作者调节参数做出独一无二的声音。与虚拟乐器(VSTi)不同的，合成器不是为了模仿已存在的乐器，而是根据创作者自身对乐曲的需求特别产生。早期合成器的声音，多为了渲染&lt;strong&gt;乐曲的氛围&lt;/strong&gt;而生。到了电子音乐(EDM)被主流肯定的年代，合成器逐渐成为了歌曲的主角。&lt;br&gt;
+合成器的原理，最简单的理解便是对&lt;strong&gt;波形&lt;/strong&gt;的改造，可能将两个波叠加，相减，或是对单一波的形状调整，都能得到不一样的声音。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Simple Wayfire Keybind</title>
       <link>https://novel2430.github.io/notes/simple-wayfire-keybind/</link>
