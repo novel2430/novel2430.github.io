@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +8,9 @@
 <title>Notes | My Web | Wei, Feng</title>
 <meta name="keywords" content="">
 <meta name="description" content="Notes - My Web | Wei, Feng">
-<meta name="author" content="">
+<meta name="author" content="Wei, Feng">
 <link rel="canonical" href="https://novel2430.github.io/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://novel2430.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://novel2430.github.io/notes/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://novel2430.github.io/notes/index.xml" title="rss">
 <link rel="alternate" hreflang="en" href="https://novel2430.github.io/notes/">
 <noscript>
     <style>
@@ -40,30 +40,46 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://novel2430.github.io/notes/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://novel2430.github.io/notes/">
   <meta property="og:site_name" content="My Web | Wei, Feng">
   <meta property="og:title" content="Notes">
+  <meta property="og:description" content="Feng Wei&#39;s Web">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notes">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="Feng Wei&#39;s Web">
 
 
 <script type="application/ld+json">
@@ -81,25 +97,13 @@
 }
 </script>
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://novel2430.github.io/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -123,7 +127,7 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://novel2430.github.io/" title="Home">
+                <a href="https://novel2430.github.io/" title="My Web | Wei, Feng">
                     <span>Home</span>
                 </a>
             </li>
@@ -156,11 +160,34 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header">
+<header class="page-header"><div class="breadcrumbs"><a href="https://novel2430.github.io/">Home</a></div>
   <h1>
     Notes
+    <a href="/notes/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Insertion or Heap Sort
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>7-1 Insertion or Heap Sort According to Wikipedia:
+Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.
+Heap sort divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. it involves the use of a heap data structure rather than a linear-time search to find the maximum.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-02-14 01:28:32 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
+  <a class="entry-link" aria-label="post link to Insertion or Heap Sort" href="https://novel2430.github.io/notes/insertion-or-heap-sort/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -173,7 +200,7 @@ The idea of iterative mergesort is to start from N sorted sublists of length 1, 
 Format of functions: void merge_pass( ElementType list[], ElementType sorted[], int N, int length ); The function merge_pass performs one pass of the merge sort that merges adjacent pairs of sublists from list into sorted. N is the number of elements in the list and length is the length of the sublists.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-14 01:26:20 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <footer class="entry-footer"><span title='2024-02-14 01:26:20 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Iterative Mergesort" href="https://novel2430.github.io/notes/iterative-mergesort/"></a>
 </article>
 
@@ -188,7 +215,7 @@ Format of functions: void StronglyConnectedComponents( Graph G, void (*visit)(Ve
 typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }; typedef struct GNode *Graph; struct GNode { int NumOfVertices; int NumOfEdges; PtrToVNode *Array; }; Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min</footer>
+  <footer class="entry-footer"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Strongly Connected Components" href="https://novel2430.github.io/notes/strongly-connected-components/"></a>
 </article>
 
@@ -202,7 +229,7 @@ typedef struct VNode *PtrToVNode; struct VNode { Vertex Vert; PtrToVNode Next; }
 Input Specification: Each input file contains one test case. Each case starts with a line containing 2 numbers N (≤ 500), and M, which are the total number of vertices, and the number of edges, respectively. Then M lines follow, each describes an edge by 3 integers:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-14 01:18:35 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;4 min</footer>
+  <footer class="entry-footer"><span title='2024-02-14 01:18:35 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Uniqueness of MST" href="https://novel2430.github.io/notes/uniqueness-of-mst/"></a>
 </article>
 
@@ -216,7 +243,7 @@ Input Specification: Each input file contains one test case. Each case starts wi
 Input Specification: Each input file contains one test case. For each case, the first line contains the names of the source and the destination planets, and a positive integer N (≤500). Then N lines follow, each in the format: source[i] destination[i] capacity[i] where source[i] and destination[i] are the names of the satellites and the two involved planets, and capacity[i] &gt; 0 is the maximum number of passengers that can be transported at one pass from source[i] to destination[i]. Each name is a string of 3 uppercase characters chosen from {A-Z}, e.g., ZJU. Note that the satellite transportation stations have no accommodation facilities for the passengers. Therefore none of the passengers can stay. Such a station will not allow arrivals of space vessels that contain more than its own capacity. It is guaranteed that the list contains neither the routes to the source planet nor that from the destination planet.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-14 01:12:56 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min</footer>
+  <footer class="entry-footer"><span title='2024-02-14 01:12:56 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Universal Travel Sites" href="https://novel2430.github.io/notes/universal-travel-sites/"></a>
 </article>
 
@@ -233,7 +260,7 @@ n V1 V2 … Vn
 where n is the number of vertices in the list, and Vi’s are the vertices on a path.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:48:19 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:48:19 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Hamiltonian Cycle" href="https://novel2430.github.io/notes/hamiltonian-cycle/"></a>
 </article>
 
@@ -248,7 +275,7 @@ Format of functions: bool IsTopSeq( LGraph Graph, Vertex Seq[] ); where LGraph i
 typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVNode Next; }; typedef struct Vnode{ PtrToAdjVNode FirstEdge; } AdjList[MaxVertexNum]; typedef struct GNode *PtrToGNode; struct GNode{ int Nv; int Ne; AdjList G; }; typedef PtrToGNode LGraph; The function IsTopSeq must return true if Seq does correspond to a topological order; otherwise return false.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:46:14 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:46:14 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Is Topological Order" href="https://novel2430.github.io/notes/is-topological-order/"></a>
 </article>
 
@@ -262,7 +289,7 @@ typedef struct AdjVNode *PtrToAdjVNode; struct AdjVNode{ Vertex AdjV; PtrToAdjVN
 Input Specification: Each input file contains one test case. For each test case, the first line contains N (2≤N≤104), the total number of computers in a network. Each computer in the network is then represented by a positive integer between 1 and N. Then in the following lines, the input is given in the format:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:44:00 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:44:00 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to File Transfer" href="https://novel2430.github.io/notes/file-transfer/"></a>
 </article>
 
@@ -276,7 +303,7 @@ Input Specification: Each input file contains one test case. For each test case,
 The left subtree of a node contains only nodes with keys less than the node’s key. The right subtree of a node contains only nodes with keys greater than or equal to the node’s key. Both the left and right subtrees must also be binary search trees. A Complete Binary Tree (CBT) is a tree that is completely filled, with the possible exception of the bottom level, which is filled from left to right. Now given a sequence of distinct non-negative integer keys, a unique BST can be constructed if it is required that the tree must also be a CBT. You are supposed to output the level order traversal sequence of this BST.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:41:08 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:41:08 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Complete Binart Search Tree" href="https://novel2430.github.io/notes/complete-binart-search-tree/"></a>
 </article>
 
@@ -290,21 +317,8 @@ The left subtree of a node contains only nodes with keys less than the node’s 
 Format of functions: void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); where int p is the position of the element, and PriorityQueue is defined as the following:
 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; Sample program of judge: #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ Sample Input: 9 1 10 1 5 1 2 0 1 9 1 1 1 4 0 0 Sample Output: 2 1 4 Inside H: 5 10 9 Code #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ void swap(int pos1, int pos2, PriorityQueue H){ ElementType tmp = H-&gt;Elements[pos1]; H-&gt;Elements[pos1] = H-&gt;Elements[pos2]; H-&gt;Elements[pos2] = tmp; } int min_idx(int idx1, int idx2, PriorityQueue H){ if(H-&gt;Elements[idx1] &lt; H-&gt;Elements[idx2]) return idx1; return idx2; } void PercolateUp( int p, PriorityQueue H ){ int pos = p; while(pos&gt;1){ int parent_idx = 1; int val = H-&gt;Elements[pos]; if(pos%2==0) parent_idx = pos/2; else parent_idx = (pos-1)/2; if(H-&gt;Elements[parent_idx]&gt;val) swap(pos, parent_idx, H); else break; pos = parent_idx; } } void PercolateDown( int p, PriorityQueue H ){ int pos = p; while(pos*2 &lt;= H-&gt;Size){ int val = H-&gt;Elements[pos]; int child_idx = H-&gt;Size; if(pos*2&#43;1 &lt;= H-&gt;Size) child_idx = min_idx(pos*2, pos*2&#43;1, H); else child_idx = pos*2; if(H-&gt;Elements[child_idx] &lt; val) swap(pos, child_idx, H); else break; pos = child_idx; } } </p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:36:26 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;2 min</footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:36:26 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Percolate Up and Down" href="https://novel2430.github.io/notes/percolate-up-and-down/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Zig Zagging on a Tree
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>7-1 ZigZagging on a Tree Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the numbers in “zigzagging order” – that is, starting from the root, print the numbers level-by-level, alternating between left to right and right to left. For example, for the following tree you must output: 1 11 5 8 17 12 20 15.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:15:29 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;2 min</footer>
-  <a class="entry-link" aria-label="post link to Zig Zagging on a Tree" href="https://novel2430.github.io/notes/zig-zagging-on-a-tree/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -333,9 +347,14 @@ typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Eleme
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -376,11 +395,12 @@ typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Eleme
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

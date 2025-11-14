@@ -2,19 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://novel2430.github.io/tags/ar/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
+    <loc>https://novel2430.github.io/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
+    <loc>https://novel2430.github.io/notes/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
+    <loc>https://novel2430.github.io/tags/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
+    <loc>https://novel2430.github.io/tags/touchdesigner/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
+    <loc>https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
+    <loc>https://novel2430.github.io/tags/unity/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
+    <loc>https://novel2430.github.io/tags/vr/</loc>
+    <lastmod>2025-11-14T17:27:15+08:00</lastmod>
+  </url><url>
     <loc>https://novel2430.github.io/tags/daw/</loc>
     <lastmod>2025-03-12T17:41:00+08:00</lastmod>
   </url><url>
     <loc>https://novel2430.github.io/tags/dsp/</loc>
-    <lastmod>2025-03-12T17:41:00+08:00</lastmod>
-  </url><url>
-    <loc>https://novel2430.github.io/</loc>
-    <lastmod>2025-03-12T17:41:00+08:00</lastmod>
-  </url><url>
-    <loc>https://novel2430.github.io/notes/</loc>
-    <lastmod>2025-03-12T17:41:00+08:00</lastmod>
-  </url><url>
-    <loc>https://novel2430.github.io/tags/</loc>
     <lastmod>2025-03-12T17:41:00+08:00</lastmod>
   </url><url>
     <loc>https://novel2430.github.io/notes/open_source_vst/</loc>
@@ -122,8 +137,6 @@
     <loc>https://novel2430.github.io/categories/</loc>
   </url><url>
     <loc>https://novel2430.github.io/search/</loc>
-  </url><url>
-    <loc>https://novel2430.github.io/series/</loc>
   </url><url>
     <loc>https://novel2430.github.io/archives/</loc>
   </url>

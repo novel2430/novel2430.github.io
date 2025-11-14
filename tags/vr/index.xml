@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>VR on My Web | Wei, Feng</title>
+    <link>https://novel2430.github.io/tags/vr/</link>
+    <description>Recent content in VR on My Web | Wei, Feng</description>
+    <generator>Hugo -- 0.150.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Nov 2025 17:27:15 +0800</lastBuildDate>
+    <atom:link href="https://novel2430.github.io/tags/vr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TounchDesigner vs Unity (XR)</title>
+      <link>https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/</link>
+      <pubDate>Fri, 14 Nov 2025 17:27:15 +0800</pubDate>
+      <guid>https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/</guid>
+      <description>&lt;h2 id=&#34;一vr-設備大概可以怎麼分類&#34;&gt;一、VR 設備大概可以怎麼分類？&lt;/h2&gt;
+&lt;p&gt;先把設備種類講清楚，後面範式才好對齊：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PC-VR（繫線型）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。&lt;/li&gt;
+&lt;li&gt;頭顯只是顯示器＋追蹤裝置，&lt;strong&gt;主要算力在 Windows PC 上&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;常用 SteamVR / OpenVR / OpenXR 這種 runtime。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Standalone VR（一體機）&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

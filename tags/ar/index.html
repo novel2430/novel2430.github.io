@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Series | My Web | Wei, Feng</title>
+<title>AR | My Web | Wei, Feng</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="canonical" href="https://novel2430.github.io/series/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<meta name="description" content="Feng Wei&#39;s Web">
+<meta name="author" content="Wei, Feng">
+<link rel="canonical" href="https://novel2430.github.io/tags/ar/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="https://novel2430.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://novel2430.github.io/series/index.xml">
-<link rel="alternate" hreflang="en" href="https://novel2430.github.io/series/">
+<link rel="alternate" type="application/rss+xml" href="https://novel2430.github.io/tags/ar/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://novel2430.github.io/tags/ar/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,51 +40,55 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://novel2430.github.io/series/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://novel2430.github.io/tags/ar/">
   <meta property="og:site_name" content="My Web | Wei, Feng">
-  <meta property="og:title" content="Series">
+  <meta property="og:title" content="AR">
+  <meta property="og:description" content="Feng Wei&#39;s Web">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Series">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="AR">
+<meta name="twitter:description" content="Feng Wei&#39;s Web">
 
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://novel2430.github.io/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -108,7 +112,7 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://novel2430.github.io/" title="Home">
+                <a href="https://novel2430.github.io/" title="My Web | Wei, Feng">
                     <span>Home</span>
                 </a>
             </li>
@@ -140,13 +144,35 @@
         </ul>
     </nav>
 </header>
-<main class="main">
-<header class="page-header">
-    <h1>Series</h1>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://novel2430.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://novel2430.github.io/tags/">Tags</a></div>
+  <h1>
+    AR
+    <a href="/tags/ar/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
 </header>
 
-<ul class="terms-tags">
-</ul>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">TounchDesigner vs Unity (XR)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>一、VR 設備大概可以怎麼分類？ 先把設備種類講清楚，後面範式才好對齊：
+PC-VR（繫線型）
+例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。 頭顯只是顯示器＋追蹤裝置，主要算力在 Windows PC 上。 常用 SteamVR / OpenVR / OpenXR 這種 runtime。 Standalone VR（一體機）
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-14 17:27:15 +0800 CST'>November 14, 2025</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
+  <a class="entry-link" aria-label="post link to TounchDesigner vs Unity (XR)" href="https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/"></a>
+</article>
     </main>
     
 <footer class="footer">
@@ -165,9 +191,14 @@
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -208,11 +239,12 @@
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

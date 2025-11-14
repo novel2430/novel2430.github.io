@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +14,9 @@
 合成器 Synthesizer
 合成器可以理解成一种特别的音源，由创作者调节参数做出独一无二的声音。与虚拟乐器(VSTi)不同的，合成器不是为了模仿已存在的乐器，而是根据创作者自身对乐曲的需求特别产生。早期合成器的声音，多为了渲染乐曲的氛围而生。到了电子音乐(EDM)被主流肯定的年代，合成器逐渐成为了歌曲的主角。
 合成器的原理，最简单的理解便是对波形的改造，可能将两个波叠加，相减，或是对单一波的形状调整，都能得到不一样的声音。">
-<meta name="author" content="">
+<meta name="author" content="Wei, Feng">
 <link rel="canonical" href="https://novel2430.github.io/notes/open_source_vst/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -45,23 +45,38 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://novel2430.github.io/notes/open_source_vst/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://novel2430.github.io/notes/open_source_vst/">
   <meta property="og:site_name" content="My Web | Wei, Feng">
   <meta property="og:title" content="VST Introduction">
   <meta property="og:description" content="合成器, 效果器, 混音相关算法与开源实践 功能概述 图1. 三种算法在音乐工程中的示意图
@@ -120,6 +135,10 @@
   "inLanguage": "en",
   "datePublished": "2025-03-12T17:41:00+08:00",
   "dateModified": "2025-03-12T17:41:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Wei, Feng"
+  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://novel2430.github.io/notes/open_source_vst/"
@@ -135,25 +154,13 @@
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://novel2430.github.io/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -177,7 +184,7 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://novel2430.github.io/" title="Home">
+                <a href="https://novel2430.github.io/" title="My Web | Wei, Feng">
                     <span>Home</span>
                 </a>
             </li>
@@ -217,7 +224,7 @@
     <h1 class="post-title entry-hint-parent">
       VST Introduction
     </h1>
-    <div class="post-meta"><span title='2025-03-12 17:41:00 +0800 CST'>March 12, 2025</span>&nbsp;·&nbsp;12 min
+    <div class="post-meta"><span title='2025-03-12 17:41:00 +0800 CST'>March 12, 2025</span>&nbsp;·&nbsp;<span>12 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span>
 
 </div>
   </header> <div class="toc">
@@ -444,8 +451,7 @@
 <h2 id="合成器相关vst">合成器相关VST<a hidden class="anchor" aria-hidden="true" href="#合成器相关vst">#</a></h2>
 <p>在数字音乐制作中，<strong>合成器（Synthesizer）</strong> 是一种用于生成电子音色的工具，它可以模拟传统乐器的声音，也可以创造全新的、无法由自然乐器发出的音色。而 <strong>VST（Virtual Studio Technology）</strong> 则是一种插件格式，使得这些合成器可以作为软件运行在 <strong>DAW（数字音频工作站）</strong> 中，广泛应用于电子音乐、电影配乐、游戏音效等领域。</p>
 <blockquote>
-<p>知名合成器VST &ndash; <strong>Serum</strong></p>
-</blockquote>
+<p>知名合成器VST &ndash; <strong>Serum</strong></p></blockquote>
 <p><img alt="img" loading="lazy" src="https://bvker.com/wp-content/uploads/2019/06/Rocket-Powered-Sound-Designer-Serum-Skin.jpg"></p>
 <h3 id="合成器的基本原理">合成器的基本原理<a hidden class="anchor" aria-hidden="true" href="#合成器的基本原理">#</a></h3>
 <p>合成器的核心功能是 <strong>通过电子方式生成和控制声音</strong>。它主要依靠以下几个核心模块：</p>
@@ -662,8 +668,7 @@
 <strong><a href="https://github.com/juandagilc/Audio-Effects">https://github.com/juandagilc/Audio-Effects</a></strong><br>
 Collection of audio effects plugins implemented from the explanations in the book <strong>Audio Effects: Theory, Implementation and Application</strong> by <em>Joshua D. Reiss</em> and <em>Andrew P. McPherson</em>.
 <blockquote>
-<p>Delay, Vibrato, Flanger, Chorus, EQ, Wah-Wah, Phaser, Tremolo, Compressor, Distortion</p>
-</blockquote>
+<p>Delay, Vibrato, Flanger, Chorus, EQ, Wah-Wah, Phaser, Tremolo, Compressor, Distortion</p></blockquote>
 </li>
 </ul>
 <p><img alt="img" loading="lazy" src="https://github.com/juandagilc/Audio-Effects/blob/master/Screenshots/Parametric%20EQ.png?raw=true"></p>
@@ -671,8 +676,7 @@ Collection of audio effects plugins implemented from the explanations in the boo
 <li><a href="https://github.com/surge-synthesizer/surge">Surge</a><br>
 <strong><a href="https://github.com/surge-synthesizer/surge">https://github.com/surge-synthesizer/surge</a></strong>
 <blockquote>
-<p>Synth + Effect</p>
-</blockquote>
+<p>Synth + Effect</p></blockquote>
 </li>
 </ul>
 <p><img alt="img" loading="lazy" src="https://surge-synthesizer.github.io/images/manual/Pictures/surge.png"></p>
@@ -680,8 +684,7 @@ Collection of audio effects plugins implemented from the explanations in the boo
 <li><a href="https://github.com/mtytel/vital">Vital</a><br>
 <strong><a href="https://github.com/mtytel/vital">https://github.com/mtytel/vital</a></strong>
 <blockquote>
-<p>Synth + Effect</p>
-</blockquote>
+<p>Synth + Effect</p></blockquote>
 </li>
 </ul>
 <p><img alt="img" loading="lazy" src="https://cdn.shopify.com/s/files/1/0297/3233/9847/files/vital_synth_plugin_free_download.png?v=1691627327"></p>
@@ -689,8 +692,7 @@ Collection of audio effects plugins implemented from the explanations in the boo
 <li><a href="https://github.com/calf-studio-gear/calf">Calf</a><br>
 <strong><a href="https://github.com/calf-studio-gear/calf">https://github.com/calf-studio-gear/calf</a></strong>
 <blockquote>
-<p>Delay, Reverb, EQ, Distortion, Compressor, Chorus, Phaser, Flanger,</p>
-</blockquote>
+<p>Delay, Reverb, EQ, Distortion, Compressor, Chorus, Phaser, Flanger,</p></blockquote>
 </li>
 </ul>
 <p><img alt="img" loading="lazy" src="http://calf-studio-gear.org/images/plugins/Calf%20-%20Reverb.jpg"></p>
@@ -699,14 +701,12 @@ Collection of audio effects plugins implemented from the explanations in the boo
 <strong><a href="https://github.com/keithhearne/VSTPlugins">https://github.com/keithhearne/VSTPlugins</a></strong><br>
 Will Pirkle (2012), <strong>Designing Audio Effect Plug-Ins in C++: With Digital Audio Signal Processing Theory. 1 Edition.</strong> Focal Press.
 <blockquote>
-<p>Delay, Reverb</p>
-</blockquote>
+<p>Delay, Reverb</p></blockquote>
 </li>
 <li><a href="https://github.com/enter-opy/pulp-fiction">pulp-fiction</a><br>
 <strong><a href="https://github.com/enter-opy/pulp-fiction">https://github.com/enter-opy/pulp-fiction</a></strong>
 <blockquote>
-<p>Delay, Chours, Flanger, Tremelo</p>
-</blockquote>
+<p>Delay, Chours, Flanger, Tremelo</p></blockquote>
 </li>
 </ul>
 <p><img alt="img" loading="lazy" src="https://github.com/enter-opy/pulp-fiction/blob/main/res/Screenshot.png?raw=true"></p>
@@ -714,8 +714,7 @@ Will Pirkle (2012), <strong>Designing Audio Effect Plug-Ins in C++: With Digital
 <li><a href="https://github.com/zamaudio/zam-plugins">zam-plugins</a><br>
 <strong><a href="https://github.com/zamaudio/zam-plugins">https://github.com/zamaudio/zam-plugins</a></strong>
 <blockquote>
-<p>EQ, Compressor, Distortion, Delay</p>
-</blockquote>
+<p>EQ, Compressor, Distortion, Delay</p></blockquote>
 </li>
 </ul>
 <p><img alt="img" loading="lazy" src="http://www.zamaudio.com/wp-content/uploads/2016/06/zamulticompx2.png"></p>
@@ -1091,6 +1090,19 @@ Will Pirkle (2012), <strong>Designing Audio Effect Plug-Ins in C++: With Digital
       <li><a href="https://novel2430.github.io/tags/daw/">DAW</a></li>
       <li><a href="https://novel2430.github.io/tags/dsp/">DSP</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>TounchDesigner vs Unity (XR)</span>
+  </a>
+  <a class="next" href="https://novel2430.github.io/ideas/zju_postgraduate_entrance_exam/">
+    <span class="title">Next »</span>
+    <br>
+    <span>ZJU postgraduate entrance examination sharing</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -1111,9 +1123,14 @@ Will Pirkle (2012), <strong>Designing Audio Effect Plug-Ins in C++: With Digital
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -1154,11 +1171,12 @@ Will Pirkle (2012), <strong>Designing Audio Effect Plug-Ins in C++: With Digital
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

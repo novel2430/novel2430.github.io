@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,9 +24,9 @@ struct GNode {
     PtrToVNode *Array;
 };
 Here void (*visit)(Vertex V) is a function parameter that is passed into StronglyConnectedComponents to handle (print with a certain format) each vertex that is visited. The function StronglyConnectedComponents is supposed to print a return after each component is found.">
-<meta name="author" content="">
+<meta name="author" content="Wei, Feng">
 <link rel="canonical" href="https://novel2430.github.io/notes/strongly-connected-components/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
@@ -55,23 +55,38 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://novel2430.github.io/notes/strongly-connected-components/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://novel2430.github.io/notes/strongly-connected-components/">
   <meta property="og:site_name" content="My Web | Wei, Feng">
   <meta property="og:title" content="Strongly Connected Components">
   <meta property="og:description" content="6-1 Strongly Connected Components Write a program to find the strongly connected components in a digraph.
@@ -139,6 +154,10 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
   "inLanguage": "en",
   "datePublished": "2024-02-14T01:22:00+08:00",
   "dateModified": "2024-02-14T01:22:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Wei, Feng"
+  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://novel2430.github.io/notes/strongly-connected-components/"
@@ -154,25 +173,13 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+<body id="top">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://novel2430.github.io/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -196,7 +203,7 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
         </div>
         <ul id="menu">
             <li>
-                <a href="https://novel2430.github.io/" title="Home">
+                <a href="https://novel2430.github.io/" title="My Web | Wei, Feng">
                     <span>Home</span>
                 </a>
             </li>
@@ -236,7 +243,7 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
     <h1 class="post-title entry-hint-parent">
       Strongly Connected Components
     </h1>
-    <div class="post-meta"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;3 min
+    <div class="post-meta"><span title='2024-02-14 01:22:00 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span>
 
 </div>
   </header> <div class="toc">
@@ -654,6 +661,19 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
     <ul class="post-tags">
       <li><a href="https://novel2430.github.io/tags/fds-homework/">FDS Homework</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="https://novel2430.github.io/notes/iterative-mergesort/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Iterative Mergesort</span>
+  </a>
+  <a class="next" href="https://novel2430.github.io/notes/uniqueness-of-mst/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Uniqueness of MST</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -674,9 +694,14 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -717,11 +742,12 @@ Here void (*visit)(Vertex V) is a function parameter that is passed into Strongl
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>TounchDesigner vs Unity (XR) | My Web | Wei, Feng</title>
+<meta name="keywords" content="VR, AR, Unity, TouchDesigner">
+<meta name="description" content="一、VR 設備大概可以怎麼分類？
+先把設備種類講清楚，後面範式才好對齊：
+
+
+PC-VR（繫線型）
+
+例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。
+頭顯只是顯示器＋追蹤裝置，主要算力在 Windows PC 上。
+常用 SteamVR / OpenVR / OpenXR 這種 runtime。
+
+
+
+Standalone VR（一體機）">
+<meta name="author" content="Wei, Feng">
+<link rel="canonical" href="https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://novel2430.github.io/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://novel2430.github.io/img/favicon/favicon16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://novel2430.github.io/img/favicon/favicon32x32.png">
+<link rel="apple-touch-icon" href="https://novel2430.github.io/img/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://novel2430.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/">
+  <meta property="og:site_name" content="My Web | Wei, Feng">
+  <meta property="og:title" content="TounchDesigner vs Unity (XR)">
+  <meta property="og:description" content="一、VR 設備大概可以怎麼分類？ 先把設備種類講清楚，後面範式才好對齊：
+PC-VR（繫線型）
+例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。 頭顯只是顯示器＋追蹤裝置，主要算力在 Windows PC 上。 常用 SteamVR / OpenVR / OpenXR 這種 runtime。 Standalone VR（一體機）">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-11-14T17:27:15+08:00">
+    <meta property="article:modified_time" content="2025-11-14T17:27:15+08:00">
+    <meta property="article:tag" content="VR">
+    <meta property="article:tag" content="AR">
+    <meta property="article:tag" content="Unity">
+    <meta property="article:tag" content="TouchDesigner">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TounchDesigner vs Unity (XR)">
+<meta name="twitter:description" content="一、VR 設備大概可以怎麼分類？
+先把設備種類講清楚，後面範式才好對齊：
+
+
+PC-VR（繫線型）
+
+例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。
+頭顯只是顯示器＋追蹤裝置，主要算力在 Windows PC 上。
+常用 SteamVR / OpenVR / OpenXR 這種 runtime。
+
+
+
+Standalone VR（一體機）">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://novel2430.github.io/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "TounchDesigner vs Unity (XR)",
+      "item": "https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TounchDesigner vs Unity (XR)",
+  "name": "TounchDesigner vs Unity (XR)",
+  "description": "一、VR 設備大概可以怎麼分類？ 先把設備種類講清楚，後面範式才好對齊：\nPC-VR（繫線型）\n例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。 頭顯只是顯示器＋追蹤裝置，主要算力在 Windows PC 上。 常用 SteamVR / OpenVR / OpenXR 這種 runtime。 Standalone VR（一體機）\n",
+  "keywords": [
+    "VR", "AR", "Unity", "TouchDesigner"
+  ],
+  "articleBody": "一、VR 設備大概可以怎麼分類？ 先把設備種類講清楚，後面範式才好對齊：\nPC-VR（繫線型）\n例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。 頭顯只是顯示器＋追蹤裝置，主要算力在 Windows PC 上。 常用 SteamVR / OpenVR / OpenXR 這種 runtime。 Standalone VR（一體機）\n例：Meta Quest 系列、Pico 等。 頭顯內有 SoC，可以直接在裝置上跑 Android app，也可選擇用 Link 把它「變身」成 PC-VR。 空間計算 / MR 類（以 AVP 為代表）\nApple Vision Pro：跑 visionOS，重點是「空間 app + 手眼互動」，不走 OpenXR，那整套是 ARKit/RealityKit/PolySpatial 的世界。 二、TouchDesigner 在 AVP 上的典型使用範式 TouchDesigner 無法直接在 AVP 上跑，也無法 build 成 visionOS app，所以目前社群實際在用的路線長這樣：\nPC / Mac 上跑 TouchDesigner：\nTD 負責做 2D/3D/360 實時視覺，像平常的 generative patch。 用 NDI Out TOP 把畫面（常見是 360 equirectangular）當作視訊串流丟到區網 AVP 上跑 Unity/visionOS App：\n例如官方社群資源的 iXR OSC \u0026 NDI（visionOS app） 或 iControl OSC \u0026 NDI：\nApp 內建 NDI receiver，收 TD 丟來的 360 影片並貼到球體 / quad 上顯示。 同時用 visionOS 的 hand tracking 拿手的 3D 座標與 pinch 狀態， 再透過 OSC over UDP 把這些數值丟回 TD 雙向資料流：\nTD → AVP： NDI 影片（＋可能的音訊）。 AVP → TD： 手部座標 / 手勢、頭部信息等，用 OSC、UDP/TCP 等格式。 所以你看到的那種作品，本質其實是：\n「PC 上的 TD 是唯一渲染核心，AVP 只是『顯示器＋手部感測器』，兩邊靠 NDI + OSC 遠端互動。」\n三、在 AVP 上：TD vs Unity 的優劣（總表） 1. TouchDesigner + AVP 橋接：優點 （1）對「展覽／裝置」工作流超友善\nTD 原生支援 HTC Vive / OpenVR / Oculus VR，還有各種感測與控制（MIDI、OSC、DMX、Kinect/深度相機…），就是為現場多媒體裝置設計的\n一個 TD patch 可以同時：\n驅動投影 / LED wall 控燈光 / 音響 並透過 NDI 餵給 AVP 看 → AVP 只是整套空間作品中的其中一個端點，這是 Unity 單機 App 很難取代的。 （2）Generative / 視覺實驗迭代速度快\n你在 TD 裡改 node、調 shader、加 feedback，PC 端即時看到結果，AVP 那邊也因為 NDI 立即更新。 不需要每次調視覺都重 build 一個 visionOS App，對 VJ／實驗藝術家來說 workflow 很爽。 （3）一份 TD 內容可以餵很多前端\n同一個 TD patch 可以同時：\nNDI → AVP NDI → Quest NDI viewer HDMI/SDI → 傳統螢幕、投影 DMX/ArtNet → 燈具 所有人看到的是同一個「演算世界」，只是不同 P.O.V.\n2. TouchDesigner + AVP 橋接：缺點（相對於 Unity 原生 visionOS） （1）系統複雜度與維護成本高\n結構是「TD + 網路 + AVP App」，多了 NDI 編碼/解碼、OSC 封包、IP/port、同步等問題。 Debug 要同時看 PC log 和 AVP log，比「純 Unity visionOS App」多至少一倍複雜度。 （2）延遲一定會高於原生\nOpenVR/Oculus CHOP/TOP 這種 direct PC-VR 已經追求低 latency， 再加一層 NDI（壓縮→送網路→解壓）＋ OSC delay，頭動→畫面動的黏著感一定不如 Unity 原生 PolySpatial pipeline （3）無法完全吃到 visionOS / PolySpatial 的空間能力\nUnity + PolySpatial 是直接在 visionOS 上建 3D scene，有：\n空間錨點、真實環境遮擋、空間 UI、room mesh、native 手眼互動等 TD → AVP 的 NDI 模式，畫面本質上就是一張 360 影像或平面貼圖，\n頂多把它貼在一個 sphere / quad 上，你能動的是「球 / 平面在空間裡」而不是 TD 裡的真正 3D 幾何。 想利用空間 occlusion / 3D UI 還是要在 AVP 端補一套 Unity/RealityKit 場景。 （4）成品不容易走「使用者自己下載就能跑」路線\n不論怎麼包裝，作品永遠需要一台 PC 開著 TouchDesigner。 對展覽、實驗室沒問題，但如果要的是「App Store 上讓一般人下載的 AVP app」，那 Unity/RealityKit 原生 visionOS 會是唯一正規選項 四、TouchDesigner 在其他 VR 設備上的使用範式 1. 在 PC-VR 頭顯上（Vive / Index / Rift / Quest+Link 等） 這一類其實是 TouchDesigner 最舒服的 VR 場景：\nTD 官方有完整的 HTC Vive / OpenVR / Oculus VR 支援：\nOpenVR TOP：把左眼/右眼圖像輸出到 SteamVR 頭顯。 OpenVR CHOP：讀取 HMD 和 controller 的位置、方向、按鍵、動作等。 Oculus Rift TOP / CHOP / SOP：對 Meta 頭顯（Rift/Link 模式 Quest）做類似操作 Derivative 還提供一個「TouchDesigner VR Development Environment for HTC Vive」範例，裡面有 teleport、selection、locomotion 等基本交互\n範式關鍵點：\nPC 上 TD 直連 SteamVR / Oculus runtime： TD 同時做「渲染 + 接收頭顯/控制器輸入」， 根本不需要 Unity、也不需要 NDI/OSC 橋接。\n這跟 AVP 那套「一定要中間架一個 App + 網路」的 workaround 差很多。\n2. 在 Standalone VR 上（Meta Quest / Pico 等） 這類其實有兩種典型用法：\n（A）當 PC-VR 用：Link / AirLink / SteamVR Streaming\n用 Link 線或 AirLink 把 Quest 接到 PC，讓它被當成 Rift 類設備。 此時你在 PC 上跑 TD + Oculus/OpenVR TOP/CHOP，跟用 Rift Pro 幾乎同一套流程 （B）走「跟 AVP 類似的 NDI/OSC 橋接」\n在 Quest 裡安裝一個 NDI viewer（或自己用 Unity 寫一個），接收 TD 的 NDI 畫面並貼到 360/quad Quest 端程式把控制器／手勢資訊變成 OSC/TCP，回傳給 PC 上的 TD。 範式跟 AVP 幾乎一樣，只是這邊是 Android/Unity app，而 AVP 那邊是 visionOS/Unity app。 總結：\n有「PC 在場」→ 優先考慮當 PC-VR 用，TD 直接驅動頭顯。 想要無線／多設備混接 → 才用 NDI/OSC 這類橋接方法。 五、總收斂：什麼時候用哪一種？ 要做「頭顯內原生 app」：\n例如 AVP 上的 Verseflow、Quest 上的遊戲、可上架商店、完全靠頭顯運算 → 用 Unity / RealityKit 做主體，TD 頂多當內容生成器（離線素材或少量在線 streaming）。 要做「有空間裝置的展覽／演出」：\n同時有投影、LED、實體燈光、感測器，頭顯只是其中一個端點 → TD 當場域的大腦，PC-VR 頭顯可以直接由 TD 駕馭； → AVP / Standalone VR 則透過 NDI + OSC 當「viewer + sensor」。 六、參考網站 OpenVR | Derivative - TouchDesigner visionOS Platform Overview | PolySpatial visionOS | 1.0.3 VR Support | Derivative - TouchDesigner apple vision pro | Derivative - TouchDesigner OpenVR TOP | Derivative - TouchDesigner OpenVR CHOP - TouchDesigner Documentation Oculus Rift - Derivative TOUCHDESIGNER VR DEVELOPMENT ENVIRONMENT OpenVR, OpenXR, Vive OpenXR etc. which SDK I should … ",
+  "wordCount" : "2262",
+  "inLanguage": "en",
+  "datePublished": "2025-11-14T17:27:15+08:00",
+  "dateModified": "2025-11-14T17:27:15+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Wei, Feng"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://novel2430.github.io/notes/touchdesigner-vs-unity-on-xr/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Web | Wei, Feng",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://novel2430.github.io/img/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://novel2430.github.io/" accesskey="h" title="My Web | Wei, Feng (Alt + H)">My Web | Wei, Feng</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://novel2430.github.io/" title="My Web | Wei, Feng">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://novel2430.github.io/ideas/" title="Ideas">
+                    <span>Ideas</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://novel2430.github.io/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://novel2430.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://novel2430.github.io/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://novel2430.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://novel2430.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://novel2430.github.io/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      TounchDesigner vs Unity (XR)
+    </h1>
+    <div class="post-meta"><span title='2025-11-14 17:27:15 +0800 CST'>November 14, 2025</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80vr-%e8%a8%ad%e5%82%99%e5%a4%a7%e6%a6%82%e5%8f%af%e4%bb%a5%e6%80%8e%e9%ba%bc%e5%88%86%e9%a1%9e" aria-label="一、VR 設備大概可以怎麼分類？">一、VR 設備大概可以怎麼分類？</a></li>
+                <li>
+                    <a href="#%e4%ba%8ctouchdesigner-%e5%9c%a8-avp-%e4%b8%8a%e7%9a%84%e5%85%b8%e5%9e%8b%e4%bd%bf%e7%94%a8%e7%af%84%e5%bc%8f" aria-label="二、TouchDesigner 在 AVP 上的典型使用範式">二、TouchDesigner 在 AVP 上的典型使用範式</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e5%9c%a8-avp-%e4%b8%8atd-vs-unity-%e7%9a%84%e5%84%aa%e5%8a%a3%e7%b8%bd%e8%a1%a8" aria-label="三、在 AVP 上：TD vs Unity 的優劣（總表）">三、在 AVP 上：TD vs Unity 的優劣（總表）</a><ul>
+                        
+                <li>
+                    <a href="#1-touchdesigner--avp-%e6%a9%8b%e6%8e%a5%e5%84%aa%e9%bb%9e" aria-label="1. TouchDesigner &#43; AVP 橋接：優點">1. TouchDesigner + AVP 橋接：優點</a></li>
+                <li>
+                    <a href="#2-touchdesigner--avp-%e6%a9%8b%e6%8e%a5%e7%bc%ba%e9%bb%9e%e7%9b%b8%e5%b0%8d%e6%96%bc-unity-%e5%8e%9f%e7%94%9f-visionos" aria-label="2. TouchDesigner &#43; AVP 橋接：缺點（相對於 Unity 原生 visionOS）">2. TouchDesigner + AVP 橋接：缺點（相對於 Unity 原生 visionOS）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9b%9btouchdesigner-%e5%9c%a8%e5%85%b6%e4%bb%96-vr-%e8%a8%ad%e5%82%99%e4%b8%8a%e7%9a%84%e4%bd%bf%e7%94%a8%e7%af%84%e5%bc%8f" aria-label="四、TouchDesigner 在其他 VR 設備上的使用範式">四、TouchDesigner 在其他 VR 設備上的使用範式</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%9c%a8-pc-vr-%e9%a0%ad%e9%a1%af%e4%b8%8avive--index--rift--questlink-%e7%ad%89" aria-label="1. 在 PC-VR 頭顯上（Vive / Index / Rift / Quest&#43;Link 等）">1. 在 PC-VR 頭顯上（Vive / Index / Rift / Quest+Link 等）</a></li>
+                <li>
+                    <a href="#2-%e5%9c%a8-standalone-vr-%e4%b8%8ameta-quest--pico-%e7%ad%89" aria-label="2. 在 Standalone VR 上（Meta Quest / Pico 等）">2. 在 Standalone VR 上（Meta Quest / Pico 等）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%94%e7%b8%bd%e6%94%b6%e6%96%82%e4%bb%80%e9%ba%bc%e6%99%82%e5%80%99%e7%94%a8%e5%93%aa%e4%b8%80%e7%a8%ae" aria-label="五、總收斂：什麼時候用哪一種？">五、總收斂：什麼時候用哪一種？</a></li>
+                <li>
+                    <a href="#%e5%85%ad%e5%8f%83%e8%80%83%e7%b6%b2%e7%ab%99" aria-label="六、參考網站">六、參考網站</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="一vr-設備大概可以怎麼分類">一、VR 設備大概可以怎麼分類？<a hidden class="anchor" aria-hidden="true" href="#一vr-設備大概可以怎麼分類">#</a></h2>
+<p>先把設備種類講清楚，後面範式才好對齊：</p>
+<ol>
+<li>
+<p><strong>PC-VR（繫線型）</strong></p>
+<ul>
+<li>例：HTC Vive / Vive Pro、Valve Index、舊 Oculus Rift、Windows MR，或 Quest 透過 Link/AirLink 當 PC-VR 用。</li>
+<li>頭顯只是顯示器＋追蹤裝置，<strong>主要算力在 Windows PC 上</strong>。</li>
+<li>常用 SteamVR / OpenVR / OpenXR 這種 runtime。</li>
+</ul>
+</li>
+<li>
+<p><strong>Standalone VR（一體機）</strong></p>
+<ul>
+<li>例：Meta Quest 系列、Pico 等。</li>
+<li>頭顯內有 SoC，可以直接在裝置上跑 Android app，也可選擇用 Link 把它「變身」成 PC-VR。</li>
+</ul>
+</li>
+<li>
+<p><strong>空間計算 / MR 類（以 AVP 為代表）</strong></p>
+<ul>
+<li>Apple Vision Pro：跑 <strong>visionOS</strong>，重點是「空間 app + 手眼互動」，不走 OpenXR，那整套是 ARKit/RealityKit/PolySpatial 的世界。</li>
+</ul>
+</li>
+</ol>
+<h2 id="二touchdesigner-在-avp-上的典型使用範式">二、TouchDesigner 在 AVP 上的典型使用範式<a hidden class="anchor" aria-hidden="true" href="#二touchdesigner-在-avp-上的典型使用範式">#</a></h2>
+<p>TouchDesigner <strong>無法直接在 AVP 上跑，也無法 build 成 visionOS app</strong>，所以目前社群實際在用的路線長這樣：</p>
+<ol>
+<li>
+<p><strong>PC / Mac 上跑 TouchDesigner：</strong></p>
+<ul>
+<li>TD 負責做 2D/3D/360 實時視覺，像平常的 generative patch。</li>
+<li>用 <strong>NDI Out TOP</strong> 把畫面（常見是 360 equirectangular）當作視訊串流丟到區網</li>
+</ul>
+</li>
+<li>
+<p><strong>AVP 上跑 Unity/visionOS App：</strong></p>
+<ul>
+<li>
+<p>例如官方社群資源的 <strong>iXR OSC &amp; NDI（visionOS app）</strong> 或 <strong>iControl OSC &amp; NDI</strong>：</p>
+<ul>
+<li>App 內建 <strong>NDI receiver</strong>，收 TD 丟來的 360 影片並貼到球體 / quad 上顯示。</li>
+<li>同時用 visionOS 的 hand tracking 拿手的 3D 座標與 pinch 狀態，</li>
+<li>再透過 <strong>OSC over UDP</strong> 把這些數值丟回 TD</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>雙向資料流：</strong></p>
+</li>
+</ol>
+<ul>
+<li><strong>TD → AVP：</strong> NDI 影片（＋可能的音訊）。</li>
+<li><strong>AVP → TD：</strong> 手部座標 / 手勢、頭部信息等，用 OSC、UDP/TCP 等格式。</li>
+</ul>
+<p>所以你看到的那種作品，本質其實是：</p>
+<blockquote>
+<p><strong>「PC 上的 TD 是唯一渲染核心，AVP 只是『顯示器＋手部感測器』，兩邊靠 NDI + OSC 遠端互動。」</strong></p></blockquote>
+<h2 id="三在-avp-上td-vs-unity-的優劣總表">三、在 AVP 上：TD vs Unity 的優劣（總表）<a hidden class="anchor" aria-hidden="true" href="#三在-avp-上td-vs-unity-的優劣總表">#</a></h2>
+<h3 id="1-touchdesigner--avp-橋接優點">1. TouchDesigner + AVP 橋接：優點<a hidden class="anchor" aria-hidden="true" href="#1-touchdesigner--avp-橋接優點">#</a></h3>
+<p><strong>（1）對「展覽／裝置」工作流超友善</strong></p>
+<ul>
+<li>
+<p>TD 原生支援 HTC Vive / OpenVR / Oculus VR，還有各種感測與控制（MIDI、OSC、DMX、Kinect/深度相機…），就是為現場多媒體裝置設計的</p>
+</li>
+<li>
+<p>一個 TD patch 可以同時：</p>
+<ul>
+<li>驅動投影 / LED wall</li>
+<li>控燈光 / 音響</li>
+<li>並透過 NDI 餵給 AVP 看
+→ AVP 只是<strong>整套空間作品中的其中一個端點</strong>，這是 Unity 單機 App 很難取代的。</li>
+</ul>
+</li>
+</ul>
+<p><strong>（2）Generative / 視覺實驗迭代速度快</strong></p>
+<ul>
+<li>你在 TD 裡改 node、調 shader、加 feedback，PC 端即時看到結果，AVP 那邊也因為 NDI 立即更新。</li>
+<li>不需要每次調視覺都重 build 一個 visionOS App，對 VJ／實驗藝術家來說 workflow 很爽。</li>
+</ul>
+<p><strong>（3）一份 TD 內容可以餵很多前端</strong></p>
+<ul>
+<li>
+<p>同一個 TD patch 可以同時：</p>
+<ul>
+<li>NDI → AVP</li>
+<li>NDI → Quest NDI viewer</li>
+<li>HDMI/SDI → 傳統螢幕、投影</li>
+<li>DMX/ArtNet → 燈具</li>
+</ul>
+</li>
+<li>
+<p>所有人看到的是同一個「演算世界」，只是不同 P.O.V.</p>
+</li>
+</ul>
+<h3 id="2-touchdesigner--avp-橋接缺點相對於-unity-原生-visionos">2. TouchDesigner + AVP 橋接：缺點（相對於 Unity 原生 visionOS）<a hidden class="anchor" aria-hidden="true" href="#2-touchdesigner--avp-橋接缺點相對於-unity-原生-visionos">#</a></h3>
+<p><strong>（1）系統複雜度與維護成本高</strong></p>
+<ul>
+<li>結構是「TD + 網路 + AVP App」，多了 NDI 編碼/解碼、OSC 封包、IP/port、同步等問題。</li>
+<li>Debug 要同時看 PC log 和 AVP log，比「純 Unity visionOS App」多至少一倍複雜度。</li>
+</ul>
+<p><strong>（2）延遲一定會高於原生</strong></p>
+<ul>
+<li>OpenVR/Oculus CHOP/TOP 這種 direct PC-VR 已經追求低 latency，</li>
+<li>再加一層 NDI（壓縮→送網路→解壓）＋ OSC delay，頭動→畫面動的黏著感一定不如 Unity 原生 PolySpatial pipeline</li>
+</ul>
+<p><strong>（3）無法完全吃到 visionOS / PolySpatial 的空間能力</strong></p>
+<ul>
+<li>
+<p>Unity + PolySpatial 是直接在 visionOS 上建 3D scene，有：</p>
+<ul>
+<li>空間錨點、真實環境遮擋、空間 UI、room mesh、native 手眼互動等</li>
+</ul>
+</li>
+<li>
+<p>TD → AVP 的 NDI 模式，畫面本質上就是一張 360 影像或平面貼圖，</p>
+<ul>
+<li>頂多把它貼在一個 sphere / quad 上，你能動的是「球 / 平面在空間裡」而不是 TD 裡的真正 3D 幾何。</li>
+<li>想利用空間 occlusion / 3D UI 還是要在 AVP 端補一套 Unity/RealityKit 場景。</li>
+</ul>
+</li>
+</ul>
+<p><strong>（4）成品不容易走「使用者自己下載就能跑」路線</strong></p>
+<ul>
+<li>不論怎麼包裝，作品永遠需要一台 PC 開著 TouchDesigner。</li>
+<li>對展覽、實驗室沒問題，但如果要的是「App Store 上讓一般人下載的 AVP app」，那 Unity/RealityKit 原生 visionOS 會是唯一正規選項</li>
+</ul>
+<h2 id="四touchdesigner-在其他-vr-設備上的使用範式">四、TouchDesigner 在其他 VR 設備上的使用範式<a hidden class="anchor" aria-hidden="true" href="#四touchdesigner-在其他-vr-設備上的使用範式">#</a></h2>
+<h3 id="1-在-pc-vr-頭顯上vive--index--rift--questlink-等">1. 在 PC-VR 頭顯上（Vive / Index / Rift / Quest+Link 等）<a hidden class="anchor" aria-hidden="true" href="#1-在-pc-vr-頭顯上vive--index--rift--questlink-等">#</a></h3>
+<p>這一類其實是 <strong>TouchDesigner 最舒服的 VR 場景</strong>：</p>
+<ul>
+<li>
+<p>TD 官方有完整的 <strong>HTC Vive / OpenVR / Oculus VR 支援</strong>：</p>
+<ul>
+<li><strong>OpenVR TOP</strong>：把左眼/右眼圖像輸出到 SteamVR 頭顯。</li>
+<li><strong>OpenVR CHOP</strong>：讀取 HMD 和 controller 的位置、方向、按鍵、動作等。</li>
+<li><strong>Oculus Rift TOP / CHOP / SOP</strong>：對 Meta 頭顯（Rift/Link 模式 Quest）做類似操作</li>
+</ul>
+</li>
+<li>
+<p>Derivative 還提供一個「TouchDesigner VR Development Environment for HTC Vive」範例，裡面有 teleport、selection、locomotion 等基本交互</p>
+</li>
+</ul>
+<p><strong>範式關鍵點：</strong></p>
+<blockquote>
+<p><strong>PC 上 TD 直連 SteamVR / Oculus runtime：
+TD 同時做「渲染 + 接收頭顯/控制器輸入」，
+根本不需要 Unity、也不需要 NDI/OSC 橋接。</strong></p></blockquote>
+<p>這跟 AVP 那套「一定要中間架一個 App + 網路」的 workaround 差很多。</p>
+<h3 id="2-在-standalone-vr-上meta-quest--pico-等">2. 在 Standalone VR 上（Meta Quest / Pico 等）<a hidden class="anchor" aria-hidden="true" href="#2-在-standalone-vr-上meta-quest--pico-等">#</a></h3>
+<p>這類其實有兩種典型用法：</p>
+<p><strong>（A）當 PC-VR 用：Link / AirLink / SteamVR Streaming</strong></p>
+<ul>
+<li>用 Link 線或 AirLink 把 Quest 接到 PC，讓它被當成 Rift 類設備。</li>
+<li>此時你在 PC 上跑 TD + Oculus/OpenVR TOP/CHOP，跟用 Rift Pro 幾乎同一套流程</li>
+</ul>
+<p><strong>（B）走「跟 AVP 類似的 NDI/OSC 橋接」</strong></p>
+<ul>
+<li>在 Quest 裡安裝一個 NDI viewer（或自己用 Unity 寫一個），接收 TD 的 NDI 畫面並貼到 360/quad</li>
+<li>Quest 端程式把控制器／手勢資訊變成 OSC/TCP，回傳給 PC 上的 TD。</li>
+<li>範式跟 AVP 幾乎一樣，只是這邊是 Android/Unity app，而 AVP 那邊是 visionOS/Unity app。</li>
+</ul>
+<p><strong>總結</strong>：</p>
+<ul>
+<li>有「PC 在場」→ 優先考慮當 PC-VR 用，TD 直接驅動頭顯。</li>
+<li>想要無線／多設備混接 → 才用 NDI/OSC 這類橋接方法。</li>
+</ul>
+<h2 id="五總收斂什麼時候用哪一種">五、總收斂：什麼時候用哪一種？<a hidden class="anchor" aria-hidden="true" href="#五總收斂什麼時候用哪一種">#</a></h2>
+<ul>
+<li>
+<p><strong>要做「頭顯內原生 app」：</strong></p>
+<ul>
+<li>例如 AVP 上的 Verseflow、Quest 上的遊戲、可上架商店、完全靠頭顯運算
+→ <strong>用 Unity / RealityKit 做主體</strong>，TD 頂多當內容生成器（離線素材或少量在線 streaming）。</li>
+</ul>
+</li>
+<li>
+<p><strong>要做「有空間裝置的展覽／演出」：</strong></p>
+<ul>
+<li>同時有投影、LED、實體燈光、感測器，頭顯只是其中一個端點
+→ <strong>TD 當場域的大腦</strong>，PC-VR 頭顯可以直接由 TD 駕馭；
+→ AVP / Standalone VR 則透過 <strong>NDI + OSC</strong> 當「viewer + sensor」。</li>
+</ul>
+</li>
+</ul>
+<h2 id="六參考網站">六、參考網站<a hidden class="anchor" aria-hidden="true" href="#六參考網站">#</a></h2>
+<ul>
+<li><a href="https://derivative.ca/UserGuide/OpenVR?utm_source=chatgpt.com">OpenVR | Derivative - TouchDesigner</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.polyspatial.visionos%401.0/manual/visionOSPlatformOverview.html?utm_source=chatgpt.com">visionOS Platform Overview | PolySpatial visionOS | 1.0.3</a></li>
+<li><a href="https://derivative.ca/feature/vr-support/12?utm_source=chatgpt.com">VR Support | Derivative - TouchDesigner</a></li>
+<li><a href="https://derivative.ca/tags/apple-vision-pro?utm_source=chatgpt.com">apple vision pro | Derivative - TouchDesigner</a></li>
+<li><a href="https://derivative.ca/UserGuide/OpenVR_TOP?utm_source=chatgpt.com">OpenVR TOP | Derivative - TouchDesigner</a></li>
+<li><a href="https://docs.derivative.ca/OpenVR_CHOP?utm_source=chatgpt.com">OpenVR CHOP - TouchDesigner Documentation</a></li>
+<li><a href="https://docs.derivative.ca/Oculus_Rift?utm_source=chatgpt.com">Oculus Rift - Derivative</a></li>
+<li><a href="https://docs.derivative.ca/images/e/e4/TouchDesigner_VR_Development_Environment_for_HTC_Vive.pdf?utm_source=chatgpt.com">TOUCHDESIGNER VR DEVELOPMENT ENVIRONMENT</a></li>
+<li><a href="https://www.reddit.com/r/Vive/comments/tffcfy/openvr_openxr_vive_openxr_etc_which_sdk_i_should/?utm_source=chatgpt.com">OpenVR, OpenXR, Vive OpenXR etc. which SDK I should &hellip;</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://novel2430.github.io/tags/vr/">VR</a></li>
+      <li><a href="https://novel2430.github.io/tags/ar/">AR</a></li>
+      <li><a href="https://novel2430.github.io/tags/unity/">Unity</a></li>
+      <li><a href="https://novel2430.github.io/tags/touchdesigner/">TouchDesigner</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://novel2430.github.io/notes/open_source_vst/">
+    <span class="title">Next »</span>
+    <br>
+    <span>VST Introduction</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
