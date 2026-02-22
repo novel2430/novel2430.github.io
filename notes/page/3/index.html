@@ -176,6 +176,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Percolate Up and Down
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>6-1 Percolate Up and Down Write the routines to do a “percolate up” and a “percolate down” in a binary min-heap.
+Format of functions: void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); where int p is the position of the element, and PriorityQueue is defined as the following:
+typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; Sample program of judge: #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ Sample Input: 9 1 10 1 5 1 2 0 1 9 1 1 1 4 0 0 Sample Output: 2 1 4 Inside H: 5 10 9 Code #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; typedef int ElementType; #define MinData -1 typedef struct HeapStruct *PriorityQueue; struct HeapStruct { ElementType *Elements; int Capacity; int Size; }; PriorityQueue Initialize( int MaxElements ); /* details omitted */ void PercolateUp( int p, PriorityQueue H ); void PercolateDown( int p, PriorityQueue H ); void Insert( ElementType X, PriorityQueue H ) { int p = &#43;&#43;H-&gt;Size; H-&gt;Elements[p] = X; PercolateUp( p, H ); } ElementType DeleteMin( PriorityQueue H ) { ElementType MinElement; MinElement = H-&gt;Elements[1]; H-&gt;Elements[1] = H-&gt;Elements[H-&gt;Size--]; PercolateDown( 1, H ); return MinElement; } int main() { int n, i, op, X; PriorityQueue H; scanf(&#34;%d&#34;, &amp;n); H = Initialize(n); for ( i=0; i&lt;n; i&#43;&#43; ) { scanf(&#34;%d&#34;, &amp;op); switch( op ) { case 1: scanf(&#34;%d&#34;, &amp;X); Insert(X, H); break; case 0: printf(&#34;%d &#34;, DeleteMin(H)); break; } } printf(&#34;\nInside H:&#34;); for ( i=1; i&lt;=H-&gt;Size; i&#43;&#43; ) printf(&#34; %d&#34;, H-&gt;Elements[i]); return 0; } /* Your function will be put here */ void swap(int pos1, int pos2, PriorityQueue H){ ElementType tmp = H-&gt;Elements[pos1]; H-&gt;Elements[pos1] = H-&gt;Elements[pos2]; H-&gt;Elements[pos2] = tmp; } int min_idx(int idx1, int idx2, PriorityQueue H){ if(H-&gt;Elements[idx1] &lt; H-&gt;Elements[idx2]) return idx1; return idx2; } void PercolateUp( int p, PriorityQueue H ){ int pos = p; while(pos&gt;1){ int parent_idx = 1; int val = H-&gt;Elements[pos]; if(pos%2==0) parent_idx = pos/2; else parent_idx = (pos-1)/2; if(H-&gt;Elements[parent_idx]&gt;val) swap(pos, parent_idx, H); else break; pos = parent_idx; } } void PercolateDown( int p, PriorityQueue H ){ int pos = p; while(pos*2 &lt;= H-&gt;Size){ int val = H-&gt;Elements[pos]; int child_idx = H-&gt;Size; if(pos*2&#43;1 &lt;= H-&gt;Size) child_idx = min_idx(pos*2, pos*2&#43;1, H); else child_idx = pos*2; if(H-&gt;Elements[child_idx] &lt; val) swap(pos, child_idx, H); else break; pos = child_idx; } } </p>
+  </div>
+  <footer class="entry-footer"><span title='2024-02-13 18:36:26 +0800 +0800'>February 13, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
+  <a class="entry-link" aria-label="post link to Percolate Up and Down" href="https://novel2430.github.io/notes/percolate-up-and-down/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Zig Zagging on a Tree
     </h2>
   </header>
@@ -183,7 +197,7 @@
     <p>7-1 ZigZagging on a Tree Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the numbers in “zigzagging order” – that is, starting from the root, print the numbers level-by-level, alternating between left to right and right to left. For example, for the following tree you must output: 1 11 5 8 17 12 20 15.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:15:29 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:15:29 +0800 +0800'>February 13, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Zig Zagging on a Tree" href="https://novel2430.github.io/notes/zig-zagging-on-a-tree/"></a>
 </article>
 
@@ -196,7 +210,7 @@
     <p>6-1 Isomorphic Two trees, T1 and T2, are isomorphic if T1 can be transformed into T2 by swapping left and right children of (some of the) nodes in T1. For instance, the two trees in Figure 1 are isomorphic because they are the same if the children of A, B, and G, but not the other nodes, are swapped. Give a polynomial time algorithm to decide if two trees are isomorphic.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:10:24 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:10:24 +0800 +0800'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Isomorphic" href="https://novel2430.github.io/notes/isomorphic/"></a>
 </article>
 
@@ -209,7 +223,7 @@
     <p>7-1 Pop Sequence Given a stack which can keep M numbers at most. Push N numbers in the order of 1, 2, 3, …, N and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence of the stack. For example, if M is 5 and N is 7, we can obtain 1, 2, 3, 4, 5, 6, 7 from the stack, but not 3, 2, 1, 7, 5, 6, 4.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-02-13 18:05:37 +0800 CST'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
+  <footer class="entry-footer"><span title='2024-02-13 18:05:37 +0800 +0800'>February 13, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Wei, Feng</span></footer>
   <a class="entry-link" aria-label="post link to Pop Sequence" href="https://novel2430.github.io/notes/pop-sequence/"></a>
 </article>
 <footer class="page-footer">
@@ -222,7 +236,7 @@
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
+        <span>&copy; 2026 <a href="https://novel2430.github.io/">My Web | Wei, Feng</a></span> · 
 
     <span>
         Powered by

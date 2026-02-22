@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Game on My Web | Wei, Feng</title>
+    <link>https://novel2430.github.io/tags/game/</link>
+    <description>Recent content in Game on My Web | Wei, Feng</description>
+    <generator>Hugo -- 0.151.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Feb 2026 16:05:32 +0000</lastBuildDate>
+    <atom:link href="https://novel2430.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM Gaming</title>
+      <link>https://novel2430.github.io/notes/llm-in-game/</link>
+      <pubDate>Sun, 22 Feb 2026 16:05:32 +0000</pubDate>
+      <guid>https://novel2430.github.io/notes/llm-in-game/</guid>
+      <description>&lt;h1 id=&#34;llm-gaming&#34;&gt;LLM Gaming&lt;/h1&gt;
+&lt;h2 id=&#34;llm-設計與內容生成引擎&#34;&gt;LLM 設計與內容生成引擎&lt;/h2&gt;
+&lt;h3 id=&#34;mariogpt-neurips-2023&#34;&gt;MarioGPT (NeurIPS 2023)&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/2302.05981&#34;&gt;MarioGPT: Open-Ended Text2Level Generation through Large Language Models&lt;/a&gt;
+&lt;img alt=&#34;img&#34; loading=&#34;lazy&#34; src=&#34;https://i.imgur.com/ahOcmX7.png&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;目標
+&lt;ul&gt;
+&lt;li&gt;你打一句話描述你想要的瑪利歐關卡風格（例如「很多水管、不要敵人、要很多磚塊、地形高低起伏」），它就能&lt;strong&gt;自動生成一張看起來像真的瑪利歐關卡的地圖&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;它也可以一直「不斷生成不同風格」的關卡，像是在做內容探索：越生成越多樣、越意想不到。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;任務介紹
+&lt;ul&gt;
+&lt;li&gt;Text -&amp;gt; Level&lt;/li&gt;
+&lt;li&gt;目標達到
+&lt;ul&gt;
+&lt;li&gt;可控：聽得懂你說的&lt;/li&gt;
+&lt;li&gt;多樣：每次生出來都不一樣&lt;/li&gt;
+&lt;li&gt;可完：不要生成一堆根本玩不了的圖&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;LLM使用
+&lt;ul&gt;
+&lt;li&gt;你可以把它想成：用一個「GPT 類型的文字接龍模型」在接龍「關卡」&lt;br&gt;
+因為關卡其實也能寫成一串符號：比如某個符號代表地面、某個符號代表磚塊、某個符號代表水管…模型就是一直猜「下一格應該是什麼」&lt;/li&gt;
+&lt;li&gt;用一個「負責讀懂你文字」的模組( BART )，把你那句話變成一種控制訊號，讓 GPT 在生成時更偏向你要的風格（例如真的多放水管/少放敵人）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;gavel-neurips-2024&#34;&gt;GAVEL (NeurIPS 2024)&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/2407.09388&#34;&gt;GAVEL: Generating Games Via Evolution and Language Models&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
